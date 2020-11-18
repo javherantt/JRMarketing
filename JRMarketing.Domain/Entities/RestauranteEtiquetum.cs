@@ -1,8 +1,11 @@
-﻿#nullable disable
+﻿using System;
+using System.Collections.Generic;
+
+#nullable disable
 
 namespace JRMarketing.Domain.Entities
 {
-    public partial class RestauranteEtiquetum
+    public partial class RestauranteEtiquetum : BaseEntity
     {
         public int IdRestauranteEtiq { get; set; }
         public int IdEtiquetaRestau { get; set; }

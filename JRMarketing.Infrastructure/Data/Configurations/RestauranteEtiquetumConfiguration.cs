@@ -9,7 +9,7 @@ namespace JRMarketing.Infrastructure.Data.Configurations
         public void Configure(EntityTypeBuilder<RestauranteEtiquetum> builder)
         {
             builder.HasKey(e => new { e.IdRestauranteEtiq, e.IdEtiquetaRestau })
-                    .HasName("PK_RESTAURANTEETIQUETA");
+                   .HasName("PK_RESTAURANTEETIQUETA");
 
             builder.Property(e => e.IdRestauranteEtiq).HasColumnName("ID_RestauranteEtiq");
 
@@ -26,6 +26,9 @@ namespace JRMarketing.Infrastructure.Data.Configurations
                 .HasForeignKey(d => d.IdRestauranteEtiq)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_RESTAURANTEETIQUETA");
+            builder.Ignore(e => e.Id);
+            builder.Ignore(e => e.CreatedAt);
+            builder.Ignore(e => e.UpdatedAt);
         }
     }
 }

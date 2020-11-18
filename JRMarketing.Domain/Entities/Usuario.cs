@@ -5,14 +5,13 @@ using System.Collections.Generic;
 
 namespace JRMarketing.Domain.Entities
 {
-    public partial class Usuario
+    public partial class Usuario : BaseEntity
     {
         public Usuario()
         {
             Restaurantes = new HashSet<Restaurante>();
         }
 
-        public int IdUsuario { get; set; }
         public string NombreUsuario { get; set; }
         public string Contrasenia { get; set; }
         public string Nombre { get; set; }
@@ -24,8 +23,6 @@ namespace JRMarketing.Domain.Entities
         public string CoidgoPostal { get; set; }
         public string Correo { get; set; }
         public DateTime FechaNacimiento { get; set; }
-        public DateTime? CreatedAtUser { get; set; }
-        public DateTime? UpdatedAt { get; set; }
 
         public virtual Cliente Cliente { get; set; }
         public virtual TelefonoUsuario TelefonoUsuario { get; set; }

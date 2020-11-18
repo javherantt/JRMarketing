@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "z/y0qTvaULvRgt5BuWLwsFi3Is4VIBknILZJz3AtC3thAU4eudTYu7fiTeWLrMM+EO0PoXJF3hty9Ax/Rjsj7g==",
+  "dgSpecHash": "7omnt0ZIljXic0vb8Lv7tRQXwytRrVUp/LARfpa2wgXQApuvNjxpj/zkwbDQ0woN1os2c2BX1xEMyOJhruRDNg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Javier Hernández\\Documents\\Universidad\\4° Cuatrimestre\\Proyecto Integrador\\JRMarketing\\JRMarketing.Infrastructure\\JRMarketing.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Javier Hernández\\.nuget\\packages\\automapper\\10.1.0\\automapper.10.1.0.nupkg.sha512",
     "C:\\Users\\Javier Hernández\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.0\\automapper.extensions.microsoft.dependencyinjection.8.1.0.nupkg.sha512",
+    "C:\\Users\\Javier Hernández\\.nuget\\packages\\fluentvalidation\\9.3.0\\fluentvalidation.9.3.0.nupkg.sha512",
+    "C:\\Users\\Javier Hernández\\.nuget\\packages\\fluentvalidation.aspnetcore\\9.3.0\\fluentvalidation.aspnetcore.9.3.0.nupkg.sha512",
+    "C:\\Users\\Javier Hernández\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\9.3.0\\fluentvalidation.dependencyinjectionextensions.9.3.0.nupkg.sha512",
     "C:\\Users\\Javier Hernández\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Javier Hernández\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Javier Hernández\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",

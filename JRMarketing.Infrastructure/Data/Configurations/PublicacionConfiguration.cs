@@ -8,12 +8,11 @@ namespace JRMarketing.Infrastructure.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Publicacion> builder)
         {
-            builder.HasKey(e => e.IdPublicacion)
-                    .HasName("PK_IDPUBLICACION");
-
             builder.ToTable("Publicacion");
 
-            builder.Property(e => e.IdPublicacion).HasColumnName("ID_Publicacion");
+            builder.Property(e => e.Id).HasColumnName("ID");
+
+            builder.Property(e => e.CreatedAt).HasColumnType("datetime");
 
             builder.Property(e => e.DescripcionP)
                 .IsRequired()
@@ -21,6 +20,8 @@ namespace JRMarketing.Infrastructure.Data.Configurations
                 .IsUnicode(false);
 
             builder.Property(e => e.IdRestaurantePubli).HasColumnName("Id_restaurantePubli");
+
+            builder.Property(e => e.UpdatedAt).HasColumnType("datetime");
 
             builder.HasOne(d => d.IdRestaurantePubliNavigation)
                 .WithMany(p => p.Publicacions)

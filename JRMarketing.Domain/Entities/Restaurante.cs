@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace JRMarketing.Domain.Entities
 {
-    public partial class Restaurante
+    public partial class Restaurante : BaseEntity
     {
         public Restaurante()
         {
@@ -13,7 +13,6 @@ namespace JRMarketing.Domain.Entities
             RestauranteEtiqueta = new HashSet<RestauranteEtiquetum>();
         }
 
-        public int IdRestaurante { get; set; }
         public string NombreRestaurante { get; set; }
         public string DireccionR { get; set; }
         public string ColoniaR { get; set; }
@@ -24,8 +23,6 @@ namespace JRMarketing.Domain.Entities
         public string Horario { get; set; }
         public string FotografiaR { get; set; }
         public int IdUsuarioR { get; set; }
-        public DateTime? CreatedAtRestau { get; set; }
-        public DateTime? UpdatedAtRestau { get; set; }
 
         public virtual Usuario IdUsuarioRNavigation { get; set; }
         public virtual TelefonoRestaurante TelefonoRestaurante { get; set; }

@@ -6,7 +6,7 @@ namespace JRMarketing.Domain.DTOs
 {
     public class RestauranteResponseDto
     {
-        public int IdRestaurante { get; set; }
+        public int Id { get; set; }
         public string NombreRestaurante { get; set; }
         public string DireccionR { get; set; }
         public string ColoniaR { get; set; }

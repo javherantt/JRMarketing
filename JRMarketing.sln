@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JRMarketing.Domain", "JRMarketing.Domain\JRMarketing.Domain.csproj", "{245C7B44-B3E8-4710-9027-7FC339CA90DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JRMarketing.Domain", "JRMarketing.Domain\JRMarketing.Domain.csproj", "{245C7B44-B3E8-4710-9027-7FC339CA90DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JRMarketing.Infrastructure", "JRMarketing.Infrastructure\JRMarketing.Infrastructure.csproj", "{AF897FAF-0BE2-4DA0-A34A-4ADC7F94C3C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JRMarketing.Infrastructure", "JRMarketing.Infrastructure\JRMarketing.Infrastructure.csproj", "{AF897FAF-0BE2-4DA0-A34A-4ADC7F94C3C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JRMarketing.Api", "JRMarketing.Api\JRMarketing.Api.csproj", "{2E8F2AB7-A669-4779-90BE-A56779C20609}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JRMarketing.Api", "JRMarketing.Api\JRMarketing.Api.csproj", "{2E8F2AB7-A669-4779-90BE-A56779C20609}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JRMarketing.Application", "JRMarketing.Application\JRMarketing.Application.csproj", "{9D27A562-F8F4-43BE-8FA3-F5D13763F779}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{2E8F2AB7-A669-4779-90BE-A56779C20609}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E8F2AB7-A669-4779-90BE-A56779C20609}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E8F2AB7-A669-4779-90BE-A56779C20609}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D27A562-F8F4-43BE-8FA3-F5D13763F779}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D27A562-F8F4-43BE-8FA3-F5D13763F779}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D27A562-F8F4-43BE-8FA3-F5D13763F779}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D27A562-F8F4-43BE-8FA3-F5D13763F779}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,12 +1,14 @@
-﻿#nullable disable
+﻿using System;
+using System.Collections.Generic;
+
+#nullable disable
 
 namespace JRMarketing.Domain.Entities
 {
-    public partial class TelefonoUsuario
-    {
-        public int IdTelefonoUser { get; set; }
+    public partial class TelefonoUsuario : BaseEntity
+    { 
         public string NumeroUsuario { get; set; }
 
-        public virtual Usuario IdTelefonoUserNavigation { get; set; }
+        public virtual Usuario IdNavigation { get; set; }
     }
 }

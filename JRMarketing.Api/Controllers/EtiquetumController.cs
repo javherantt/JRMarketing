@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using JRMarketing.Api.Responses;
 using JRMarketing.Domain.DTOs;
 using JRMarketing.Domain.Entities;
 using JRMarketing.Domain.Interfaces;
@@ -14,38 +15,61 @@ namespace JRMarketing.Api.Controllers
     [ApiController]
     public class EtiquetumController : Controller
     {
-        private readonly IEtiquetumRepository _repository;
+        private readonly IEtiquetumService _service;
         private readonly IMapper _mapper;
 
-        public EtiquetumController(IEtiquetumRepository repository, IMapper mapper)
+        public EtiquetumController(IEtiquetumService service, IMapper mapper)
         {
-            this._repository = repository;
+            this._service = service;
             this._mapper = mapper;
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public IActionResult Get()
         {
-            var etiquetas = await _repository.GetAll();
+            var etiquetas = _service.GetEtiquetas();
             var etiquetasDto = _mapper.Map<IEnumerable<Etiquetum>, IEnumerable<EtiquetumResponseDto>>(etiquetas);
-            return Ok(etiquetasDto);
+            var response = new ApiResponse<IEnumerable<EtiquetumResponseDto>>(etiquetasDto);
+            return Ok(response);
         }
 
         [HttpGet("{id:int}")]
         public async Task<IActionResult> Get(int id)
         {
-            var etiqueta = await _repository.GetEtiquetum(id);
+            var etiqueta = await _service.GetEtiqueta(id);
             var etiquetasDto = _mapper.Map<Etiquetum, EtiquetumResponseDto>(etiqueta);
-            return Ok(etiquetasDto);
+            var response = new ApiResponse<EtiquetumResponseDto>(etiquetasDto);
+            return Ok(response);
         }
 
         [HttpPost]
         public async Task<IActionResult> Post(EtiquetumRequestDto etiquetumDto)
         {
+            var etiqueta = _mapper.Map<EtiquetumRequestDto, Etiquetum>(etiquetumDto);
+            await _service.AddEtiqueta(etiqueta);
+            var etiquetaResponseDto = _mapper.Map<Etiquetum, EtiquetumResponseDto>(etiqueta);
+            var response = new ApiResponse<EtiquetumResponseDto>(etiquetaResponseDto);
+            return Ok(response);
+        }
+
+        [HttpDelete("{id:int}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _service.DeleteEtiqueta(id);
+            var response = new ApiResponse<bool>(true);
+            return Ok(response);
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> Put(int id, EtiquetumRequestDto etiquetumDto)
+        {
             var etiqueta = _mapper.Map<Etiquetum>(etiquetumDto);
-            await _repository.AddEtiquetum(etiqueta);
-            var etiquetaResponseDto = _mapper.Map<EtiquetumResponseDto>(etiqueta);
-            return Ok(etiquetaResponseDto);
+            etiqueta.Id = id;
+            etiqueta.UpdatedAt = DateTime.Now;
+            await _service.UpdateEtiqueta(etiqueta);
+            var response = new ApiResponse<bool>(true);
+            return Ok(response);
         }
     }
+    
 }

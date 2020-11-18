@@ -1,6 +1,8 @@
-﻿using JRMarketing.Domain.Entities;
+﻿using System;
+using JRMarketing.Domain.Entities;
 using JRMarketing.Infrastructure.Data.Configurations;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 
 #nullable disable
 
@@ -25,7 +27,7 @@ namespace JRMarketing.Infrastructure.Data
         public virtual DbSet<RestauranteEtiquetum> RestauranteEtiqueta { get; set; }
         public virtual DbSet<TelefonoRestaurante> TelefonoRestaurantes { get; set; }
         public virtual DbSet<TelefonoUsuario> TelefonoUsuarios { get; set; }
-        public virtual DbSet<Usuario> Usuarios { get; set; }
+        public virtual DbSet<Usuario> Usuarios { get; set; }      
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -39,5 +41,6 @@ namespace JRMarketing.Infrastructure.Data
             modelBuilder.ApplyConfiguration<TelefonoUsuario>(new TelefonoUsuarioConfiguration());
             modelBuilder.ApplyConfiguration<Usuario>(new UsuarioConfiguration());
         }
+
     }
 }

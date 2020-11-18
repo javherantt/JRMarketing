@@ -3,7 +3,7 @@ using JRMarketing.Domain.DTOs;
 using JRMarketing.Domain.Entities;
 using System;
 
-namespace JRMarketing.Infrastructure.Mappings
+namespace JRMarketing.Application.Mappings
 {
     public class AutoMapperProfile : Profile
     {
@@ -15,7 +15,7 @@ namespace JRMarketing.Infrastructure.Mappings
             CreateMap<UsuarioRequestDto, Usuario>().AfterMap(
                 (source, destination) =>
                 {
-                    destination.CreatedAtUser = DateTime.Now;
+                    destination.CreatedAt = DateTime.Now;
                     destination.UpdatedAt = DateTime.Now;
                 });
             CreateMap<UsuarioResponseDto, Usuario>();
@@ -30,8 +30,8 @@ namespace JRMarketing.Infrastructure.Mappings
             CreateMap<RestauranteRequestDto, Restaurante>().AfterMap(
                 (source, destination) =>
                 {
-                    destination.CreatedAtRestau = DateTime.Now;
-                    destination.UpdatedAtRestau = DateTime.Now;
+                    destination.CreatedAt = DateTime.Now;
+                    destination.UpdatedAt = DateTime.Now;
                 });
             CreateMap<RestauranteResponseDto, Restaurante>();
         }

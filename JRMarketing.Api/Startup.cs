@@ -1,6 +1,9 @@
 using AutoMapper;
+using FluentValidation.AspNetCore;
+using JRMarketing.Application.Services;
 using JRMarketing.Domain.Interfaces;
 using JRMarketing.Infrastructure.Data;
+using JRMarketing.Infrastructure.Filters;
 using JRMarketing.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -24,12 +27,14 @@ namespace JRMarketing.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-            services.AddControllers();            
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());           
+            services.AddControllers(options => options.Filters.Add<GlobalExceptionFilter>());
             services.AddDbContext<JRMarketingContext>(options => options.UseSqlServer(Configuration.GetConnectionString("JRMarketingEF")));
-            services.AddTransient<IUsuarioRepository, UsuarioRepository>();
-            services.AddTransient<IEtiquetumRepository, EtiquetumRepository>();
-            services.AddTransient<IRestauranteRepository, RestauranteRepository>();
+            services.AddScoped(typeof(IRepository<>), typeof(SQLRepository<>));
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
+            services.AddTransient<IUsuarioServices, UsuarioService>();
+            services.AddTransient<IEtiquetumService, EtiquetumService>();
+            services.AddMvc().AddFluentValidation(options => options.RegisterValidatorsFromAssemblies(AppDomain.CurrentDomain.GetAssemblies()));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

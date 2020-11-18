@@ -1,49 +1,81 @@
 ﻿using AutoMapper;
+using JRMarketing.Api.Responses;
 using JRMarketing.Domain.DTOs;
 using JRMarketing.Domain.Entities;
 using JRMarketing.Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace JRMarketing.Api.Controllers
 {
+    
     [Route("api/[controller]")]
     [ApiController]
     public class UsuarioController : Controller
     {
-        private readonly IUsuarioRepository _repository;
+        private readonly IUsuarioServices _service;
         private readonly IMapper _mapper;
 
-        public UsuarioController(IUsuarioRepository repository, IMapper mapper)
+        public UsuarioController(IUsuarioServices service, IMapper mapper)
         {
-            this._repository = repository;
+            this._service = service;
             this._mapper = mapper;
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public IActionResult Get()
         {
-            var usuarios = await _repository.GetAll();
+            var usuarios = _service.GetUsuarios();
             var usuariosDto = _mapper.Map<IEnumerable<Usuario>, IEnumerable<UsuarioResponseDto>>(usuarios);
-            return Ok(usuariosDto);
+            var response = new ApiResponse<IEnumerable<UsuarioResponseDto>>(usuariosDto);
+
+            return Ok(response);
         }
 
         [HttpGet("{id:int}")]
         public async Task<IActionResult> Get(int id)
         {
-            var usuario = await _repository.GetUsuario(id);
+            var usuario = await _service.GetUsuario(id);
             var usuarioDto = _mapper.Map<Usuario, UsuarioResponseDto>(usuario);
-            return Ok(usuarioDto);
+            var response = new ApiResponse<UsuarioResponseDto>(usuarioDto);
+
+            return Ok(response);
         }
 
         [HttpPost]
         public async Task<IActionResult> Post(UsuarioRequestDto usuarioDto)
         {
+            var usuario = _mapper.Map<UsuarioRequestDto, Usuario>(usuarioDto);
+            await _service.AddUsuario(usuario);
+            var usuarioResponseDto = _mapper.Map<Usuario, UsuarioResponseDto>(usuario);
+            var response = new ApiResponse<UsuarioResponseDto>(usuarioResponseDto);
+
+            return Ok(response);
+        }
+
+        [HttpDelete("{id:int}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _service.DeleteUsuario(id);
+            var response = new ApiResponse<bool>(true);
+
+            return Ok(response);
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> Put (int id, UsuarioRequestDto usuarioDto)
+        {
             var usuario = _mapper.Map<Usuario>(usuarioDto);
-            await _repository.AddUsuario(usuario);
-            var usuarioResponseDto = _mapper.Map<UsuarioResponseDto>(usuario);
-            return Ok(usuarioResponseDto);
+            usuario.Id = id;
+            usuario.UpdatedAt = DateTime.Now;    
+
+            await _service.UpdateUsuario(usuario);
+            var response = new ApiResponse<bool>(true);
+
+            return Ok(response);
         }
     }
+   
 }

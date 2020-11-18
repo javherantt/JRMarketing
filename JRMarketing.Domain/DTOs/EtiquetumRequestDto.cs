@@ -11,7 +11,7 @@ namespace JRMarketing.Domain.DTOs
 
     public class EtiquetumResponseDto
     {
-        public int IdEtiqueta { get; set; }
+        public int Id { get; set; }
         public string NombreEtiqueta { get; set; }
     }
 }

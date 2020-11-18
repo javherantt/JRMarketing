@@ -8,14 +8,11 @@ namespace JRMarketing.Infrastructure.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Foto> builder)
         {
-            builder.HasKey(e => e.IdFoto)
-                    .HasName("PK_IDFOTO");
-
             builder.ToTable("Foto");
 
-            builder.Property(e => e.IdFoto).HasColumnName("ID_Foto");
+            builder.Property(e => e.Id).HasColumnName("ID");
 
-            builder.Property(e => e.CreatedAtPhoto).HasColumnType("datetime");
+            builder.Property(e => e.CreatedAt).HasColumnType("datetime");
 
             builder.Property(e => e.FechaSubida).HasColumnType("datetime");
 
@@ -26,7 +23,7 @@ namespace JRMarketing.Infrastructure.Data.Configurations
 
             builder.Property(e => e.IdPublicacionFoto).HasColumnName("Id_publicacionFoto");
 
-            builder.Property(e => e.UpdatedAtPhoto).HasColumnType("datetime");
+            builder.Property(e => e.UpdatedAt).HasColumnType("datetime");
 
             builder.Property(e => e.Url)
                 .IsRequired()

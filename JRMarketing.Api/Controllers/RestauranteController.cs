@@ -4,12 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using JRMarketing.Domain.DTOs;
-using JRMarketing.Domain.Entities;
-using JRMarketing.Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JRMarketing.Api.Controllers
-{
+{ /*
     [Route("api/[controller]")]
     public class RestauranteController : Controller
     {
@@ -46,4 +44,5 @@ namespace JRMarketing.Api.Controllers
             return Ok(restauranteResponseDto);
         }
     }
+    */
 }

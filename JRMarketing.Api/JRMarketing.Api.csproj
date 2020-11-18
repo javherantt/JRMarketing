@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\JRMarketing.Application\JRMarketing.Application.csproj" />
     <ProjectReference Include="..\JRMarketing.Domain\JRMarketing.Domain.csproj" />
     <ProjectReference Include="..\JRMarketing.Infrastructure\JRMarketing.Infrastructure.csproj" />
   </ItemGroup>

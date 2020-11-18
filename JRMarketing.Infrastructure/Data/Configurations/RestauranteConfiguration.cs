@@ -8,12 +8,9 @@ namespace JRMarketing.Infrastructure.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Restaurante> builder)
         {
-            builder.HasKey(e => e.IdRestaurante)
-                    .HasName("PK_IDRESTAURANTE");
-
             builder.ToTable("Restaurante");
 
-            builder.Property(e => e.IdRestaurante).HasColumnName("ID_Restaurante");
+            builder.Property(e => e.Id).HasColumnName("ID");
 
             builder.Property(e => e.CiudadR)
                 .IsRequired()
@@ -30,7 +27,7 @@ namespace JRMarketing.Infrastructure.Data.Configurations
                 .HasMaxLength(30)
                 .IsUnicode(false);
 
-            builder.Property(e => e.CreatedAtRestau).HasColumnType("datetime");
+            builder.Property(e => e.CreatedAt).HasColumnType("datetime");
 
             builder.Property(e => e.DescripcionR)
                 .IsRequired()
@@ -63,7 +60,7 @@ namespace JRMarketing.Infrastructure.Data.Configurations
                 .HasMaxLength(70)
                 .IsUnicode(false);
 
-            builder.Property(e => e.UpdatedAtRestau).HasColumnType("datetime");
+            builder.Property(e => e.UpdatedAt).HasColumnType("datetime");
 
             builder.HasOne(d => d.IdUsuarioRNavigation)
                 .WithMany(p => p.Restaurantes)

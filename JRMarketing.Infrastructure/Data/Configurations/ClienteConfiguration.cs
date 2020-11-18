@@ -8,14 +8,11 @@ namespace JRMarketing.Infrastructure.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<Cliente> builder)
         {
-            builder.HasKey(e => e.IdCliente)
-                   .HasName("PK_IDCLIENTE");
-
             builder.ToTable("Cliente");
 
-            builder.Property(e => e.IdCliente)
+            builder.Property(e => e.Id)
                 .ValueGeneratedNever()
-                .HasColumnName("ID_Cliente");
+                .HasColumnName("ID");
 
             builder.Property(e => e.FinContrato).HasColumnType("datetime");
 
@@ -23,11 +20,13 @@ namespace JRMarketing.Infrastructure.Data.Configurations
                 .HasMaxLength(10)
                 .IsUnicode(false);
 
-            builder.HasOne(d => d.IdClienteNavigation)
+            builder.HasOne(d => d.IdNavigation)
                 .WithOne(p => p.Cliente)
-                .HasForeignKey<Cliente>(d => d.IdCliente)
+                .HasForeignKey<Cliente>(d => d.Id)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_IDCLIENTE");
+            builder.Ignore(e => e.CreatedAt);
+            builder.Ignore(e => e.UpdatedAt);
         }
     }
 }

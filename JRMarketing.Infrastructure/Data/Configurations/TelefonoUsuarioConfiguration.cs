@@ -8,23 +8,24 @@ namespace JRMarketing.Infrastructure.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<TelefonoUsuario> builder)
         {
-            builder.HasKey(e => e.IdTelefonoUser)
-                   .HasName("PK_TELEFONOUSUARIO");
-
             builder.ToTable("TelefonoUsuario");
 
-            builder.Property(e => e.IdTelefonoUser)
+            builder.Property(e => e.Id)
                 .ValueGeneratedOnAdd()
-                .HasColumnName("ID_TelefonoUser");
+                .HasColumnName("ID");
+
+            builder.Property(e => e.CreatedAt).HasColumnType("datetime");
 
             builder.Property(e => e.NumeroUsuario)
                 .IsRequired()
                 .HasMaxLength(14)
                 .IsUnicode(false);
 
-            builder.HasOne(d => d.IdTelefonoUserNavigation)
+            builder.Property(e => e.UpdatedAt).HasColumnType("datetime");
+
+            builder.HasOne(d => d.IdNavigation)
                 .WithOne(p => p.TelefonoUsuario)
-                .HasForeignKey<TelefonoUsuario>(d => d.IdTelefonoUser)
+                .HasForeignKey<TelefonoUsuario>(d => d.Id)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_TELEFONOUSUARIO");
         }
