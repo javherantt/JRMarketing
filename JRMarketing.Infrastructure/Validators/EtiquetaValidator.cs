@@ -16,4 +16,15 @@ namespace JRMarketing.Infrastructure.Validators
                 .Length(3, 50);
         }
     }
+
+    public class RestauranteValidator : AbstractValidator<RestauranteRequestDto>
+    {
+        public RestauranteValidator()
+        {
+            RuleFor(eti => eti.NombreRestaurante)
+                .NotEmpty()
+                .NotNull()
+                .Length(3, 50);
+        }
+    }
 }

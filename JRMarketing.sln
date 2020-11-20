@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JRMarketing.Infrastructure"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JRMarketing.Api", "JRMarketing.Api\JRMarketing.Api.csproj", "{2E8F2AB7-A669-4779-90BE-A56779C20609}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JRMarketing.Application", "JRMarketing.Application\JRMarketing.Application.csproj", "{9D27A562-F8F4-43BE-8FA3-F5D13763F779}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JRMarketing.Application", "JRMarketing.Application\JRMarketing.Application.csproj", "{9D27A562-F8F4-43BE-8FA3-F5D13763F779}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JRMarketing.Gui", "JRMarketing.Gui\JRMarketing.Gui.csproj", "{06AE6B1E-D4A0-4DCA-993C-71A2B5859286}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{9D27A562-F8F4-43BE-8FA3-F5D13763F779}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D27A562-F8F4-43BE-8FA3-F5D13763F779}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D27A562-F8F4-43BE-8FA3-F5D13763F779}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06AE6B1E-D4A0-4DCA-993C-71A2B5859286}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06AE6B1E-D4A0-4DCA-993C-71A2B5859286}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06AE6B1E-D4A0-4DCA-993C-71A2B5859286}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06AE6B1E-D4A0-4DCA-993C-71A2B5859286}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

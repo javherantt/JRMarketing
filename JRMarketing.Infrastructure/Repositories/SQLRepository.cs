@@ -25,7 +25,7 @@ namespace JRMarketing.Infrastructure.Repositories
 
 
         public async Task Add(T entity)
-        {
+        { 
             if (entity == null) throw new ArgumentException("Entidad vacía");
             await _entity.AddAsync(entity);
         }
