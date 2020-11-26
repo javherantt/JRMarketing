@@ -56,8 +56,6 @@ C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integ
 C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Api\obj\Debug\netcoreapp3.1\JRMarketing.Api.csprojAssemblyReference.cache
 C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Api\obj\Debug\netcoreapp3.1\JRMarketing.Api.AssemblyInfoInputs.cache
 C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Api\obj\Debug\netcoreapp3.1\JRMarketing.Api.AssemblyInfo.cs
-C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Api\obj\Debug\netcoreapp3.1\JRMarketing.Api.csproj.CoreCompileInputs.cache
-C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Api\obj\Debug\netcoreapp3.1\JRMarketing.Api.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Api\obj\Debug\netcoreapp3.1\JRMarketing.Api.RazorTargetAssemblyInfo.cache
 C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Api\obj\Debug\netcoreapp3.1\JRMarketing.Api.csproj.CopyComplete
 C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Api\obj\Debug\netcoreapp3.1\staticwebassets\JRMarketing.Api.StaticWebAssets.Manifest.cache
@@ -70,6 +68,8 @@ C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integ
 C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Api\bin\Debug\netcoreapp3.1\FluentValidation.dll
 C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Api\bin\Debug\netcoreapp3.1\FluentValidation.AspNetCore.dll
 C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Api\bin\Debug\netcoreapp3.1\FluentValidation.DependencyInjectionExtensions.dll
-C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Api\obj\Debug\netcoreapp3.1\JRMarketing.Api.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Api\bin\Debug\netcoreapp3.1\JRMarketing.Application.dll
 C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Api\bin\Debug\netcoreapp3.1\JRMarketing.Application.pdb
+C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Api\obj\Debug\netcoreapp3.1\JRMarketing.Api.csproj.CoreCompileInputs.cache
+C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Api\obj\Debug\netcoreapp3.1\JRMarketing.Api.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Api\obj\Debug\netcoreapp3.1\JRMarketing.Api.MvcApplicationPartsAssemblyInfo.cache

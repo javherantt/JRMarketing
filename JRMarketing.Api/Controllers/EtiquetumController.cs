@@ -13,7 +13,7 @@ namespace JRMarketing.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class EtiquetumController : Controller
+    public class EtiquetumController : ControllerBase
     {
         private readonly IEtiquetumService _service;
         private readonly IMapper _mapper;

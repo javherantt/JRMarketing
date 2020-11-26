@@ -32,8 +32,9 @@ namespace JRMarketing.Api
             services.AddDbContext<JRMarketingContext>(options => options.UseSqlServer(Configuration.GetConnectionString("JRMarketingEF")));
             services.AddScoped(typeof(IRepository<>), typeof(SQLRepository<>));
             services.AddTransient<IUnitOfWork, UnitOfWork>();
-            services.AddTransient<IUsuarioServices, UsuarioService>();
+            services.AddTransient<IRestauranteServices, RestauranteServicio>();
             services.AddTransient<IEtiquetumService, EtiquetumService>();
+            services.AddTransient<IUsuarioServices, UsuarioService>();           
             services.AddMvc().AddFluentValidation(options => options.RegisterValidatorsFromAssemblies(AppDomain.CurrentDomain.GetAssemblies()));
         }
 

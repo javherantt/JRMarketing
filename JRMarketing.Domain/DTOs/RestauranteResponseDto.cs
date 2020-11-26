@@ -31,5 +31,7 @@ namespace JRMarketing.Domain.DTOs
         public string Horario { get; set; }
         public string FotografiaR { get; set; }
         public int IdUsuarioR { get; set; }
+
+        public string TelefonoRestaurante { get; set; }
     }
 }

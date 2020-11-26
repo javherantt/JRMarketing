@@ -23,8 +23,17 @@ namespace JRMarketing.Application.Services
         {
             Expression<Func<Usuario, bool>> expreUsuario = item => item.NombreUsuario == usuario.NombreUsuario;
             var usuarios = _unitOfWork.UsuarioRepository.FindByCondition(expreUsuario);
-            if (usuarios.Any()) throw new BusinessException("Nombre de usuario no válido");
+            if (usuarios.Any()) throw new BusinessException("El nombre de usuario ya esta siendo utilizado");
+            Expression<Func<Usuario, bool>> expreCorreo = item => item.Correo == usuario.Correo;
+            var usuarioCorre = _unitOfWork.UsuarioRepository.FindByCondition(expreCorreo);
+            if (usuarioCorre.Any()) throw new BusinessException("El correo ya esta siendo utilizado");
 
+            if(usuario.TelefonoUsuario != null)
+            {
+                Expression<Func<TelefonoUsuario, bool>> expreTelefono = item => item.NumeroUsuario == usuario.TelefonoUsuario.NumeroUsuario;
+                var telefono = _unitOfWork.TelefonoUsuarioRepository.FindByCondition(expreTelefono);
+                if (telefono.Any()) throw new BusinessException("El telefono ya esta siendo utilizado");
+            }
             await _unitOfWork.UsuarioRepository.Add(usuario);
             await _unitOfWork.SaveChangesAsync();
         }

@@ -31,7 +31,7 @@ alter table Cliente add constraint FK_IDCLIENTE foreign key(ID) references Usuar
 
 create table TelefonoUsuario
 (
-	ID int identity(1,1) not null,
+	ID int not null,
 	NumeroUsuario varchar(14) not null,
 	CreatedAt datetime null,
 	UpdatedAt datetime null
@@ -62,7 +62,7 @@ alter table Restaurante add constraint FK_IDUSUARIOR foreign key(Id_usuarioR) re
 
 create table TelefonoRestaurante
 (
-	ID int identity(1,1) not null,
+	ID int not null,
 	NumeroRestaurante varchar(14) not null,
 	CreatedAt datetime null,
 	UpdatedAt datetime null

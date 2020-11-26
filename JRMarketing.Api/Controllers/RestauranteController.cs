@@ -12,7 +12,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace JRMarketing.Api.Controllers
 { 
     [Route("api/[controller]")]
-    public class RestauranteController : Controller
+    [ApiController]
+    public class RestauranteController : ControllerBase
     {
         private readonly IRestauranteServices _service;
         private readonly IMapper _mapper;
@@ -43,10 +44,30 @@ namespace JRMarketing.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Post(RestauranteRequestDto restauranteDto)
         {
-            var restaurante = _mapper.Map<RestauranteRequestDto, Restaurante>(restauranteDto);
+            var restaurante = _mapper.Map<RestauranteRequestDto, Restaurante>(restauranteDto);   
             await _service.AddRestaurante(restaurante);
             var restauranteResponseDto = _mapper.Map<Restaurante, RestauranteResponseDto>(restaurante);
             var response = new ApiResponse<RestauranteResponseDto>(restauranteResponseDto);
+            return Ok(response);
+        }
+
+        [HttpDelete("{id:int}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _service.DeleteRestaurante(id);
+            var response = new ApiResponse<bool>(true);
+            return Ok(response);
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> Put(int id, RestauranteRequestDto restuaranteDto)
+        {
+            var restuarante = _mapper.Map<Restaurante>(restuaranteDto);
+            restuarante.Id = id;
+            restuarante.UpdatedAt = DateTime.Now;
+            
+            await _service.UpdateRestaurante(restuarante);
+            var response = new ApiResponse<bool>(true);
             return Ok(response);
         }
     }

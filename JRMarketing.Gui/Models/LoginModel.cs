@@ -9,5 +9,6 @@ namespace JRMarketing.Gui.Models
     {
         public string NombreUsuario { get; set; }
         public string Contrasenia { get; set; }
+        public bool status { get; set; }
     }
 }

@@ -10,42 +10,56 @@ using System.Net.Http;
 using Newtonsoft.Json;
 using JRMarketing.Domain.DTOs;
 using Microsoft.AspNetCore.Http;
+using JRMarketing.Api.Responses;
 
 namespace JRMarketing.Gui.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-        public string url = "https://localhost:44350/api/usuario";
-
+        
         HttpClient client = new HttpClient();
+        public string url = "https://localhost:44350/api/usuario";       
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController()
+        { }
+
+        public IActionResult Index()
         {
-            _logger = logger;
+            return View();
         }
 
         [HttpPost]
         public async Task<IActionResult> IndexAsyinc(LoginModel login)
         {
-            var json = await client.GetStringAsync(url);
-            var usuarios = JsonConvert.DeserializeObject<List<UsuarioResponseDto>>(json);           
-            var _usuario = usuarios.FirstOrDefault(e => e.NombreUsuario.Equals(login.NombreUsuario) && e.Contrasenia.Equals(login.Contrasenia));
+            var json = await client.GetStringAsync("https://localhost:44350/api/usuario");
+            var usuarios = JsonConvert.DeserializeObject<ApiResponse<List<UsuarioResponseDto>>>(json);
+            var _usuario = usuarios.Data.FirstOrDefault(e => e.NombreUsuario.Equals(login.NombreUsuario) && e.Contrasenia.Equals(login.Contrasenia));
             if (_usuario != null)
             {
-                var myID = _usuario.Id;
-            }                
-        }
+                HttpContext.Session.SetString("id", _usuario.Id.ToString());
+                return RedirectToAction("Admin");
 
-        public IActionResult Privacy()
-        {
+            }else if(_usuario == null)
+            {
+                login.status = false;
+                return View();
+            }
+
             return View();
         }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        
+        public IActionResult Administracion()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            if (HttpContext.Session.GetString("id") != null)
+                return View();
+            else
+                return RedirectToAction("Index");
+        }
+
+        public IActionResult LogOut()
+        {
+            HttpContext.Session.Remove("id");
+            return RedirectToAction("Index");
         }
     }
 }
