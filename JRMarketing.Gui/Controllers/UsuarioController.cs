@@ -7,16 +7,48 @@ using JRMarketing.Domain.DTOs;
 using JRMarketing.Gui.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Net.Http.Headers;
 using System.Net.Http;
 using JRMarketing.Api.Responses;
+using System.Net.Http.Headers;
 
 namespace JRMarketing.Gui.Controllers
 {
     public class UsuarioController : Controller
-    {
-        HttpClient client = new HttpClient();
-        string url = "https://localhost:44350/api/usuario";
+    {      
 
+        HttpClient client = new HttpClient();
+        string url = "https://localhost:44350/";
+
+        [HttpGet]
+        public ActionResult Index()
+        {
+            IEnumerable<Usuarios> usuarios = null;
+            
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://localhost:44350/api/");
+                var responseTask = client.GetAsync("usuario");
+                responseTask.Wait();
+
+                var result = responseTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    var readTask = result.Content.ReadAsAsync<IList<Usuarios>>();
+                    readTask.Wait();
+                    usuarios = readTask.Result;
+                }
+                else
+                {
+                    usuarios = Enumerable.Empty<Usuarios>();
+                    ModelState.AddModelError(string.Empty, "Error en el servidor");
+                }
+               
+            }
+            return View(usuarios);
+        }
+
+        /*
         public async  Task<IActionResult> IndexAsync()
         {
             if(HttpContext.Session.GetString("id") != null)
@@ -30,6 +62,8 @@ namespace JRMarketing.Gui.Controllers
                 return RedirectToAction("Index", "Inicio");
             }
         }
+
+        */
 
         [HttpGet]
         public async Task<IActionResult> Get(int id)

@@ -17,6 +17,6 @@ namespace JRMarketing.Domain.DTOs
         public string Ciudad { get; set; }
         public string CoidgoPostal { get; set; }
         public string Correo { get; set; }
-        public DateTime FechaNacimiento { get; set; }
+        public DateTime FechaNacimiento { get; set; }   
     }
 }

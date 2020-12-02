@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JRMarketing.Domain.DTOs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -6,7 +7,8 @@ using System.Threading.Tasks;
 namespace JRMarketing.Gui.Models
 {
     public class Usuarios
-    {
+    {        
+        public int Id { get; set; }
         public string NombreUsuario { get; set; }
         public string Contrasenia { get; set; }
         public string Nombre { get; set; }
@@ -17,6 +19,6 @@ namespace JRMarketing.Gui.Models
         public string Ciudad { get; set; }
         public string CoidgoPostal { get; set; }
         public string Correo { get; set; }
-        public DateTime FechaNacimiento { get; set; }
+        public DateTime FechaNacimiento { get; set; } 
     }
 }

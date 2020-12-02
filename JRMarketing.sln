@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JRMarketing.Api", "JRMarket
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JRMarketing.Application", "JRMarketing.Application\JRMarketing.Application.csproj", "{9D27A562-F8F4-43BE-8FA3-F5D13763F779}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JRMarketing.Gui", "JRMarketing.Gui\JRMarketing.Gui.csproj", "{06AE6B1E-D4A0-4DCA-993C-71A2B5859286}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JRMarketing.Gui", "JRMarketing.Gui\JRMarketing.Gui.csproj", "{06AE6B1E-D4A0-4DCA-993C-71A2B5859286}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
