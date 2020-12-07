@@ -18,6 +18,7 @@ create table Usuario
 );
 
 alter table Usuario add constraint PK_IDUSUARIO primary key(ID);
+alter table Usuario add Tipo varchar(10) null
 
 create table Cliente
 (
@@ -76,6 +77,7 @@ create table Publicacion
 	ID int identity(1,1) not null,
 	DescripcionP varchar(600) not null,
 	Id_restaurantePubli int not null,
+	Foto varchar(450) null,
 	CreatedAt datetime null,
 	UpdatedAt datetime null
 );
@@ -83,6 +85,7 @@ create table Publicacion
 alter table Publicacion add constraint PK_IDPUBLICACION primary key(ID);
 alter table Publicacion add constraint FK_IDRESTAURANTEPUBLIC foreign key(Id_restaurantePubli) references Restaurante(ID);
 
+/*
 create table Foto
 (
 	ID int identity(1,1) not null,
@@ -94,8 +97,11 @@ create table Foto
 	UpdatedAt datetime null
 );
 
+
 alter table Foto add constraint PK_IDFOTO primary key(ID);
 alter table Foto add constraint FK_IDPUBLICACIONFOTO foreign key(Id_publicacionFoto) references Publicacion(ID);
+
+*/
 
 create table Etiqueta
 (

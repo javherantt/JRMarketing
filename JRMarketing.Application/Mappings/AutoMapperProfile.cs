@@ -46,7 +46,19 @@ namespace JRMarketing.Application.Mappings
                     destination.CreatedAt = DateTime.Now;
                     destination.UpdatedAt = DateTime.Now;
                 });
-            CreateMap<EtiquetumResponseDto, Etiquetum>();          
+            CreateMap<EtiquetumResponseDto, Etiquetum>();
+
+            //Publicación
+            CreateMap<Publicacion, PublicacionRequestDto>();
+            CreateMap<Publicacion, PublicacionResponseDto>();
+            CreateMap<PublicacionRequestDto, Publicacion>().AfterMap(
+
+                (soruce, destination) =>
+                {
+                    destination.CreatedAt = DateTime.Now;
+                    destination.UpdatedAt = DateTime.Now;                    
+                });
+            CreateMap<PublicacionResponseDto, Publicacion>();
         }
     }
 }

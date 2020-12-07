@@ -3,7 +3,6 @@ using JRMarketing.Domain.Entities;
 using JRMarketing.Infrastructure.Data.Configurations;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-
 #nullable disable
 
 namespace JRMarketing.Infrastructure.Data
@@ -21,7 +20,7 @@ namespace JRMarketing.Infrastructure.Data
 
         public virtual DbSet<Cliente> Clientes { get; set; }
         public virtual DbSet<Etiquetum> Etiqueta { get; set; }
-        public virtual DbSet<Foto> Fotos { get; set; }
+       // public virtual DbSet<Foto> Fotos { get; set; }
         public virtual DbSet<Publicacion> Publicacions { get; set; }
         public virtual DbSet<Restaurante> Restaurantes { get; set; }
         public virtual DbSet<RestauranteEtiquetum> RestauranteEtiqueta { get; set; }
@@ -33,7 +32,7 @@ namespace JRMarketing.Infrastructure.Data
         {
             modelBuilder.ApplyConfiguration<Cliente>(new ClienteConfiguration());
             modelBuilder.ApplyConfiguration<Etiquetum>(new EtiquetumConfiguration());
-            modelBuilder.ApplyConfiguration<Foto>(new FotoConfiguration());
+            //modelBuilder.ApplyConfiguration<Foto>(new FotoConfiguration());
             modelBuilder.ApplyConfiguration<Publicacion>(new PublicacionConfiguration());
             modelBuilder.ApplyConfiguration<Restaurante>(new RestauranteConfiguration());
             modelBuilder.ApplyConfiguration<RestauranteEtiquetum>(new RestauranteEtiquetumConfiguration());

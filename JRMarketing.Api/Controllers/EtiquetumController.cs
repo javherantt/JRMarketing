@@ -70,6 +70,8 @@ namespace JRMarketing.Api.Controllers
             var response = new ApiResponse<bool>(true);
             return Ok(response);
         }
+
+        
     }
     
 }

@@ -23,6 +23,7 @@ namespace JRMarketing.Domain.Entities
         public string CoidgoPostal { get; set; }
         public string Correo { get; set; }
         public DateTime FechaNacimiento { get; set; }
+        public string Tipo { get; set; }
 
         public virtual Cliente Cliente { get; set; }
         public virtual TelefonoUsuario TelefonoUsuario { get; set; }

@@ -1,8 +1,4 @@
-﻿using JRMarketing.Domain.DTOs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System;
 
 namespace JRMarketing.Gui.Models
 {
@@ -20,5 +16,6 @@ namespace JRMarketing.Gui.Models
         public string CoidgoPostal { get; set; }
         public string Correo { get; set; }
         public DateTime FechaNacimiento { get; set; } 
+        public string Tipo { get; set; }
     }
 }

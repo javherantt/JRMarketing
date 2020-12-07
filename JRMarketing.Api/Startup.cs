@@ -5,13 +5,16 @@ using JRMarketing.Domain.Interfaces;
 using JRMarketing.Infrastructure.Data;
 using JRMarketing.Infrastructure.Filters;
 using JRMarketing.Infrastructure.Repositories;
+using JRMarketing.Domain.ConstraintMap;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
+using System.Data;
 
 namespace JRMarketing.Api
 {
@@ -27,6 +30,7 @@ namespace JRMarketing.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());           
             services.AddControllers(options => options.Filters.Add<GlobalExceptionFilter>());
             services.AddDbContext<JRMarketingContext>(options => options.UseSqlServer(Configuration.GetConnectionString("JRMarketingEF")));
@@ -34,8 +38,9 @@ namespace JRMarketing.Api
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddTransient<IRestauranteServices, RestauranteServicio>();
             services.AddTransient<IEtiquetumService, EtiquetumService>();
-            services.AddTransient<IUsuarioServices, UsuarioService>();           
-            services.AddMvc().AddFluentValidation(options => options.RegisterValidatorsFromAssemblies(AppDomain.CurrentDomain.GetAssemblies()));
+            services.AddTransient<IUsuarioServices, UsuarioService>();
+            services.AddTransient<IPublicacionService, PublicacionService>();
+            services.AddMvc().AddFluentValidation(options => options.RegisterValidatorsFromAssemblies(AppDomain.CurrentDomain.GetAssemblies()));        
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

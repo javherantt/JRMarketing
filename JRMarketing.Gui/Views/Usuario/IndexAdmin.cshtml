@@ -1,0 +1,52 @@
+﻿@model IEnumerable<JRMarketing.Gui.Models.Usuarios>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1>Lista de Administradores</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreUsuario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apellidos)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreUsuario)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Apellidos)
+                </td>
+                <td>
+                    <a asp-controller="Usuario" asp-route-Id="@item.Id" asp-action="Detail" class="view" title="Ver" data-toggle="tooltip"><i class="material-icons">Detalles</i></a>
+                    <a asp-controller="Usuario" asp-route-Id="@item.Id" asp-action="Update" class="edit" title="Editar" data-toggle="tooltip"><i class="material-icons">Editar</i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

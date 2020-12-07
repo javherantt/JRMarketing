@@ -24,6 +24,17 @@ namespace JRMarketing.Gui
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddDistributedMemoryCache();
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(5);
+            }); 
+            services.AddRouting(option =>
+            {
+                option.LowercaseUrls = true;
+                option.LowercaseQueryStrings = true;
+                option.AppendTrailingSlash = true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,11 +57,17 @@ namespace JRMarketing.Gui
 
             app.UseAuthorization();
 
+            app.UseHttpsRedirection();
+            app.UseStaticFiles();
+       
+            app.UseSession();
+
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Usuario}/{action=Index}/{id?}");
             });
         }
     }

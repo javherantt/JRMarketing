@@ -14,6 +14,10 @@ namespace JRMarketing.Infrastructure.Data.Configurations
 
             builder.Property(e => e.CreatedAt).HasColumnType("datetime");
 
+            builder.Property(e => e.Foto)
+                .HasMaxLength(450)
+                .IsUnicode(false);
+                
             builder.Property(e => e.DescripcionP)
                 .IsRequired()
                 .HasMaxLength(600)

@@ -12,10 +12,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\JRMarketing.Api\JRMarketing.Api.csproj" />
-    <ProjectReference Include="..\JRMarketing.Application\JRMarketing.Application.csproj" />
-    <ProjectReference Include="..\JRMarketing.Domain\JRMarketing.Domain.csproj" />
-    <ProjectReference Include="..\JRMarketing.Infrastructure\JRMarketing.Infrastructure.csproj" />
+    <Folder Include="Views\Etiqueta\" />
+    <Folder Include="Views\Publicacion\" />
+    <Folder Include="Views\Restaurante\" />
   </ItemGroup>
 
 </Project>

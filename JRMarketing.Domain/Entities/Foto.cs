@@ -10,8 +10,8 @@ namespace JRMarketing.Domain.Entities
         public string FileName { get; set; }
         public string Url { get; set; }
         public DateTime FechaSubida { get; set; }
-        public int IdPublicacionFoto { get; set; }
+        public int IdPublicacionFoto { get; set; } 
 
-        public virtual Publicacion IdPublicacionFotoNavigation { get; set; }
+        //public virtual Publicacion IdPublicacionFotoNavigation { get; set; }
     }
 }

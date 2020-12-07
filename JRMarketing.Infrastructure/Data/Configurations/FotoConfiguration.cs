@@ -4,8 +4,10 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace JRMarketing.Infrastructure.Data.Configurations
 {
+    /*
     public class FotoConfiguration : IEntityTypeConfiguration<Foto>
     {
+        
         public void Configure(EntityTypeBuilder<Foto> builder)
         {
             builder.ToTable("Foto");
@@ -36,5 +38,9 @@ namespace JRMarketing.Infrastructure.Data.Configurations
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_IDPUBLICACIONFOTO");
         }
+
+       
     }
+
+    */
 }

@@ -37,6 +37,10 @@ namespace JRMarketing.Infrastructure.Data.Configurations
                 .HasMaxLength(25)
                 .IsUnicode(false);
 
+            builder.Property(e => e.Tipo)
+                .HasMaxLength(10)
+                .IsUnicode(false);
+
             builder.Property(e => e.Correo)
                 .IsRequired()
                 .HasMaxLength(50)
