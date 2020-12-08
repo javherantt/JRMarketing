@@ -11,8 +11,8 @@ namespace JRMarketing.Application.Mappings
         {
             //Restaurante
             CreateMap<Restaurante, RestauranteRequestDto>();
-            CreateMap<Restaurante, RestauranteResponseDto>();
-            CreateMap<RestauranteRequestDto, TelefonoRestaurante>()
+            CreateMap<Restaurante, RestauranteResponseDto>();            
+            CreateMap<RestauranteRequestDto, TelefonoRestaurante>()               
                 .ForMember(destination => destination.NumeroRestaurante, act => act.MapFrom(source => source.TelefonoRestaurante));
             CreateMap<RestauranteRequestDto, Restaurante>()
                 .ForMember(destination => destination.TelefonoRestaurante, act => act.MapFrom(source => source))
@@ -25,8 +25,9 @@ namespace JRMarketing.Application.Mappings
                 });
             CreateMap<RestauranteResponseDto, Restaurante>();
             //Usuarios
-            CreateMap<Usuario, UsuarioRequestDto>();
             CreateMap<Usuario, UsuarioResponseDto>();
+            CreateMap<Usuario, UsuarioRequestDto>(); 
+            CreateMap<UsuarioRequestDto2, Usuario>();
             CreateMap<UsuarioRequestDto, TelefonoUsuario>()
                 .ForMember(destination => destination.NumeroUsuario, act => act.MapFrom(source => source.TelefonoUsuario));
             CreateMap<UsuarioRequestDto, Usuario>()
@@ -35,6 +36,8 @@ namespace JRMarketing.Application.Mappings
                 {
                     destination.CreatedAt = DateTime.Now;
                     destination.UpdatedAt = DateTime.Now;
+                    destination.TelefonoUsuario.CreatedAt = DateTime.Now;
+                    destination.TelefonoUsuario.UpdatedAt = DateTime.Now;
                 });      
             CreateMap<UsuarioResponseDto, Usuario>();
             //Etiqueta
@@ -44,7 +47,7 @@ namespace JRMarketing.Application.Mappings
                 (source, destination) =>
                 {
                     destination.CreatedAt = DateTime.Now;
-                    destination.UpdatedAt = DateTime.Now;
+                    destination.UpdatedAt = DateTime.Now;                    
                 });
             CreateMap<EtiquetumResponseDto, Etiquetum>();
 

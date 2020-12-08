@@ -65,11 +65,12 @@ namespace JRMarketing.Api.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Put (int id, UsuarioRequestDto usuarioDto)
+        public async Task<IActionResult> Put (int id, UsuarioRequestDto2 usuarioDto)
         {
             var usuario = _mapper.Map<Usuario>(usuarioDto);
             usuario.Id = id;
-            usuario.UpdatedAt = DateTime.Now;    
+            usuario.UpdatedAt = DateTime.Now;
+            usuario.CreatedAt = DateTime.Now;
 
             await _service.UpdateUsuario(usuario);
             var response = new ApiResponse<bool>(true);

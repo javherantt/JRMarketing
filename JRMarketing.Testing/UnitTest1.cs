@@ -9,7 +9,7 @@ namespace JRMarketing.Testing
 {
     public class Tests
     {
-        [Test] 
+        [Test]
         public async Task AgregarUsuario()
         {
             UsuarioController controller = new UsuarioController();
@@ -32,8 +32,8 @@ namespace JRMarketing.Testing
             Assert.IsNotNull(respuesta.Model);
         }
 
-        [Test]   
-        public async Task Actualizar_Producto_Todos_Los_Campos_VaciosAsync()
+        [Test]
+        public async Task ActualizarUsuario()
         {
             var controller = new UsuarioController();
             var usuario = new Usuarios()
@@ -57,24 +57,26 @@ namespace JRMarketing.Testing
             Assert.IsNotNull(result.ViewData["Message"]);
         }
 
-        [Test]
-        public void Eliminar()
-        {
-            var controller = new UsuarioController();                        
-            Assert.IsNotNull(controller.Delete(3));   
-        }
+
 
         [Test]
         public void Buscar()
         {
             bool resp = false;
             var controller = new UsuarioController();
-            var usuario = controller.Detail(6);
+            var usuario = controller.Detail(3);
             if (usuario != null)
                 resp = true;
-            Assert.IsTrue(resp);                   
+            Assert.IsTrue(resp);
         }
-     
+
+
+        [Test]
+        public void Eliminar()
+        {
+            var controller = new UsuarioController();
+            Assert.IsNotNull(controller.Delete(3));
+        }
 
     }
 }

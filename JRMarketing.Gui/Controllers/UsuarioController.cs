@@ -10,6 +10,7 @@ using Microsoft.Net.Http.Headers;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using JRMarketing.Gui.Responses;
+using System.Text;
 
 namespace JRMarketing.Gui.Controllers
 {
@@ -65,31 +66,24 @@ namespace JRMarketing.Gui.Controllers
                 return RedirectToAction("Index", "Home");
             }
         }
+ 
+        public ViewResult Create() => View();
 
-        public IActionResult Create()
+        [HttpPost]
+        public async Task<IActionResult> Create(UsuarioRequestDto usuario)
         {
-            if (HttpContext.Session.GetString("id") != null)
+            if(HttpContext.Session.GetInt32("id") != null)
             {
-
-                return View();
+                var Json = await client.PostAsJsonAsync("https://localhost:44350/api/usuario/", usuario);
+                if (Json.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("Index");
+                }
+                return View(usuario);
             }
             else
-            {
                 return RedirectToAction("Index", "Home");
-            }
-        }
-        [HttpPost]
-        public async Task<IActionResult> Create(Usuarios usuario)
-        {           
-            var httpClient = new HttpClient();
-            var Json = await httpClient.PostAsJsonAsync("https://localhost:44350/api/usuario/", usuario);
-            if (Json.IsSuccessStatusCode)
-            {
-
-                return RedirectToAction("Index");
-            }
-
-            return View(usuario);
+        
         }
 
         public async Task<IActionResult> Update(int id)

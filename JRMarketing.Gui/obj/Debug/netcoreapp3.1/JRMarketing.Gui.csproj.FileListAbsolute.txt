@@ -120,3 +120,5 @@ C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integ
 C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Gui\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\Detail.cshtml.g.cs
 C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Gui\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\Update.cshtml.g.cs
 C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Gui\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\Create.cshtml.g.cs
+C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Gui\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.json
+C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Gui\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.local.json
