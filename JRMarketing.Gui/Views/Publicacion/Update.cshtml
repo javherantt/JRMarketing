@@ -1,0 +1,28 @@
+﻿@model JRMarketing.Gui.Models.Publicaciones
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/LayoutUser.cshtml";
+}
+
+
+<div class="container-xl table-wrapper" style="margin-left: 35px;">
+    <hr />       
+    <h2 class="text-center">Mi Anuncio <a asp-controller="Home" asp-action="IndexCliente" class="btn btn-sm btn-secondary text-center">Regresar</a></h2>
+
+    <form style="margin-top: 25px;" asp-action="Update" method="post">
+        <div class="form-group form-row">
+            <input type="hidden" class="form-control" name="Id" value="@Model.Id" />
+            <div class="col-md-4 mt-md-2">
+                <label for="Name" class="control-label col-md-8">Descripcion:</label>
+                <div class="col-md-12">
+                    <input class="form-control" name="DescripcionP" value="@Model.DescripcionP" />
+                </div>
+            </div>
+            <input type="hidden" class="form-control" name="IdRestaurantePubli" value="@Model.IdRestaurantePubli" />
+
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Guardar Datos" class="btn btn-primary btn-lg btn-block mt-md-3" style="margin:10px" />
+        </div>
+    </form>
+</div>

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<JRMarketing.Gui.Models.Publicaciones>
+
+@{
+    ViewData["Title"] = "Publicaciones";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<h1>Mis Publicaciones</h1>
+
+<div class="form-group">
+    <a asp-controller="Publicacion" asp-action="Create" class="btn btn-success btn-lg btn-block">Publicar Anuncio</a>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DescripcionP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdRestaurantePubli)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescripcionP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdRestaurantePubli)
+            </td>
+            <td>                
+                <a asp-controller="Publicacion" asp-route-Id="@item.Id" asp-action="Update" class="edit" title="Editar" data-toggle="tooltip"><i class="material-icons">Ver Detalles</i></a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

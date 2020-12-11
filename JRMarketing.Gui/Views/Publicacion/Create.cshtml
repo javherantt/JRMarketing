@@ -1,0 +1,16 @@
+﻿@model JRMarketing.Gui.Models.Publicaciones
+@{
+    ViewBag.Title = "Add a Reservation";
+    Layout = "~/Views/Shared/LayoutUser.cshtml";
+}
+
+<h2>Publicar Anuncio<a asp-action="IndexCliente" class="btn btn-sm btn-secondary">Regresar</a></h2>
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label for="Name">Descripción:</label>
+        <input class="form-control" name="DescripcionP" required />
+    </div>
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">Guardar Datos</button>
+    </div>
+</form>

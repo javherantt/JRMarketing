@@ -1,5 +1,8 @@
-﻿<!DOCTYPE html>
-
+﻿@using Microsoft.AspNetCore.Http;
+@{
+    int id = (int)Context.Session.GetInt32("id");  
+}
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -14,6 +17,23 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="~/css/styles.css" rel="stylesheet" />
     <script src="~/js/scripts.js"></script>
+    <link href="~/css/sb-admin-2.css" rel="stylesheet" />
+    <!-- Bootstrap core JavaScript-->
+    <script src="~/vendor/jquery/jquery.min.js"></script>
+    <script src="~/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="~/vendor/jquery-easing/jquery.easing.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="~/js/sb-admin-2.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="~/vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="~/js/demo/chart-area-demo.js"></script>
+    <script src="~/js/demo/chart-pie-demo.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
@@ -23,27 +43,27 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Mis Datos</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" asp-controller="Usuario" asp-route-Id="@id" asp-action="UserAccount"> Mis Datos</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Datos de Negocio</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Perfil de Negocio</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Publicar</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Contacto</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">Contacto</a></li>                
             </ul>
         </div>
     </nav>
-    <div class="container-fluid p-0" >
+    <div class="container-fluid p-0">
         <div class="container-fluid p-0">
-            <section class="resume-section" style="margin-left: 130px;"> 
+            <section class="resume-section">
                 @RenderBody()
-            </section>            
+            </section>
         </div>
     </div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Third party plugin JS-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Third party plugin JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
 </body>
 </html>

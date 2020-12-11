@@ -109,7 +109,6 @@ C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integ
 C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Gui\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Gui\obj\Debug\netcoreapp3.1\JRMarketing.Gui.csproj.CoreCompileInputs.cache
 C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Gui\obj\Debug\netcoreapp3.1\JRMarketing.Gui.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Gui\obj\Debug\netcoreapp3.1\Razor\Views\Home\RegistroUsuario.cshtml.g.cs
 C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Gui\obj\Debug\netcoreapp3.1\Razor\Views\Shared\LayoutUser.cshtml.g.cs
 C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Gui\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Gui\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\Index.cshtml.g.cs
@@ -122,3 +121,9 @@ C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integ
 C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Gui\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\Create.cshtml.g.cs
 C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Gui\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.json
 C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Gui\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.local.json
+C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Gui\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\Registrar.cshtml.g.cs
+C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Gui\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\UserAccount.cshtml.g.cs
+C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Gui\obj\Debug\netcoreapp3.1\Razor\Views\Restaurante\Create.cshtml.g.cs
+C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Gui\obj\Debug\netcoreapp3.1\Razor\Views\Restaurante\Details.cshtml.g.cs
+C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Gui\obj\Debug\netcoreapp3.1\Razor\Views\Restaurante\Index.cshtml.g.cs
+C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Gui\obj\Debug\netcoreapp3.1\Razor\Views\Restaurante\Update.cshtml.g.cs

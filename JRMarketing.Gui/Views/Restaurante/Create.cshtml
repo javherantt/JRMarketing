@@ -1,0 +1,69 @@
+﻿@model JRMarketing.Gui.Models.RestaurantesRequestDto
+@using Microsoft.AspNetCore.Http;
+@{ ViewBag.Title = "Add a Reservation";
+    string tipo = Context.Session.GetString("tipo");
+    int myId = (int)Context.Session.GetInt32("id");
+    if (tipo == "Admin")
+        Layout = "~/Views/Shared/AdminLayout.cshtml";
+    else
+        Layout = "~/Views/Shared/LayoutUser.cshtml";
+}
+
+@if (tipo == "Admin")
+{
+    <h2>Agregar Restaurante <a asp-action="Index" class="btn btn-sm btn-secondary">Regresar</a></h2>
+}
+else
+{
+    <h2>Agregar Restaurante <a asp-controller="Home" asp-action="IndexCliente" class="btn btn-sm btn-secondary">Regresar</a></h2>
+}
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label for="Name">Nombre del Restaurante:</label>
+        <input class="form-control" name="NombreRestaurante" required />
+    </div>
+    <div class="form-group">
+        <label for="StartLocation">Dirección:</label>
+        <input class="form-control" name="DireccionR" required />
+    </div>
+    <div class="form-group">
+        <label for="EndLocation">Colonia:</label>
+        <input class="form-control" name="ColoniaR" required />
+    </div>
+    <div class="form-group">
+        <label for="Name">Estado:</label>
+        <input class="form-control" name="EstadoR" required />
+    </div>
+    <div class="form-group">
+        <label for="StartLocation">Ciudad:</label>
+        <input class="form-control" name="CiudadR" required />
+    </div>
+    <div class="form-group">
+        <label for="EndLocation">Código Postal:</label>
+        <input class="form-control" name="CoidgoPostalR" required />
+    </div>
+    <div class="form-group">
+        <label for="Name">Descripción:</label>
+        <input class="form-control" name="DescripcionR" required />
+    </div>
+    <div class="form-group">
+        <label for="StartLocation">Horario:</label>
+        <input class="form-control" name="Horario" required />
+    </div>
+    @if (tipo == "Cliente")
+    {
+        <div class="form-group">
+            <input class="form-control" name="IdUsuarioR" value="@myId" />
+        </div>
+    }
+    else
+    {
+        <div class="form-group">
+            <label for="StartLocation">Id Usuario Propietario:</label>
+            <input class="form-control" name="IdUsuarioR" required />
+        </div>
+    }
+    <div class="text-center panel-body">
+        <button type="submit" class="btn btn-sm btn-primary">Registrar</button>
+    </div>
+</form>

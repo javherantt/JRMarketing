@@ -1,51 +1,51 @@
 ﻿@model JRMarketing.Gui.Models.UsuarioRequestDto
-@{ Layout = "_Layout"; ViewBag.Title = "Add a Reservation";}
+@{ Layout = "AdminLayout"; ViewBag.Title = "Add a Reservation";}
 
 <h2>Agregar Usuario Cliente <a asp-action="Index" class="btn btn-sm btn-secondary">Regresar</a></h2>
 <form asp-action="Create" method="post">
     <div class="form-group">
         <label for="Name">Usuario:</label>
-        <input class="form-control" name="NombreUsuario" />
+        <input class="form-control" name="NombreUsuario" required />
     </div>
     <div class="form-group">
         <label for="StartLocation">Contraseña:</label>
-        <input class="form-control" name="Contrasenia" />
+        <input type="password" class="form-control" name="Contrasenia" required />
     </div>
     <div class="form-group">
         <label for="EndLocation">Nombre:</label>
-        <input class="form-control" name="Nombre" />
+        <input class="form-control" name="Nombre" required />
     </div>
     <div class="form-group">
         <label for="Name">Apellidos:</label>
-        <input class="form-control" name="Apellidos" />
+        <input class="form-control" name="Apellidos" required />
     </div>
     <div class="form-group">
         <label for="StartLocation">Direccion:</label>
-        <input class="form-control" name="Direccion" />
+        <input class="form-control" name="Direccion" required />
     </div>
     <div class="form-group">
         <label for="EndLocation">Colonia:</label>
-        <input class="form-control" name="Colonia" />
+        <input class="form-control" name="Colonia" required />
     </div>
     <div class="form-group">
         <label for="Name">Estado:</label>
-        <input class="form-control" name="Estado" />
+        <input class="form-control" name="Estado" required />
     </div>
     <div class="form-group">
         <label for="StartLocation">Ciudad:</label>
-        <input class="form-control" name="Ciudad" />
+        <input class="form-control" name="Ciudad" required />
     </div>
     <div class="form-group">
         <label for="EndLocation">Codigo Postal:</label>
-        <input class="form-control" name="CoidgoPostal" />
+        <input class="form-control" name="CoidgoPostal" required />
     </div>
     <div class="form-group">
         <label for="StartLocation">Correo:</label>
-        <input class="form-control" name="Correo" />
+        <input class="form-control" name="Correo" required />
     </div>
     <div class="form-group">
         <label for="EndLocation">Telefono:</label>
-        <input class="form-control" name="TelefonoUsuario" />
+        <input class="form-control" name="TelefonoUsuario" required />
     </div>
     <div class="form-group">
         <label for="EndLocation">Tipo:</label>

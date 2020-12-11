@@ -1,11 +1,12 @@
 ﻿@model JRMarketing.Gui.Models.Usuarios
+@using Microsoft.AspNetCore.Http; 
 @{ 
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
-@using(Html.BeginForm())
-{ 
+@using (Html.BeginForm())
+{
      @Html.AntiForgeryToken()
     <div class="container-xl table-wrapper">
         <hr />

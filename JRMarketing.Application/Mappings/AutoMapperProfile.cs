@@ -11,7 +11,8 @@ namespace JRMarketing.Application.Mappings
         {
             //Restaurante
             CreateMap<Restaurante, RestauranteRequestDto>();
-            CreateMap<Restaurante, RestauranteResponseDto>();            
+            CreateMap<Restaurante, RestauranteResponseDto>();
+            CreateMap<RestauranteRequestDto2, Restaurante>();
             CreateMap<RestauranteRequestDto, TelefonoRestaurante>()               
                 .ForMember(destination => destination.NumeroRestaurante, act => act.MapFrom(source => source.TelefonoRestaurante));
             CreateMap<RestauranteRequestDto, Restaurante>()

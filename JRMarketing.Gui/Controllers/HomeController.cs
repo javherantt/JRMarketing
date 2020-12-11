@@ -61,7 +61,7 @@ namespace JRMarketing.Gui.Controllers
 
         public IActionResult IndexAdministracion()
         {
-            if (HttpContext.Session.GetString("id") != null)            
+            if (HttpContext.Session.GetString("id") != null && HttpContext.Session.GetString("tipo") == "Admin")
                 return View();            
             else            
                 return RedirectToAction("Index");            
@@ -69,7 +69,7 @@ namespace JRMarketing.Gui.Controllers
 
         public IActionResult IndexCliente()
         {
-            if (HttpContext.Session.GetString("id") != null)         
+            if (HttpContext.Session.GetString("id") != null && HttpContext.Session.GetString("tipo") == "Cliente")
                 return View();            
             else            
                 return RedirectToAction("Index");            

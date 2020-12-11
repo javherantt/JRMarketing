@@ -1,0 +1,76 @@
+﻿@model JRMarketing.Gui.Models.Restaurantes
+@using Microsoft.AspNetCore.Http;
+@{
+    ViewData["Title"] = "Detalles";
+    string tipo = Context.Session.GetString("tipo");
+    if(tipo == "Admin")
+        Layout = "~/Views/Shared/AdminLayout.cshtml";
+    else
+        Layout = "~/Views/Shared/LayoutUser.cshtml";
+}
+
+<div class="form-group form-row">
+    <div class="col-md-4">
+        @Html.LabelFor(model => model.NombreRestaurante, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-12">
+            @Html.EditorFor(model => model.NombreRestaurante, new { htmlAttributes = new { @class = "form-control", disabled = true } })
+            @Html.ValidationMessageFor(model => model.NombreRestaurante, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="col-md-4">
+        @Html.LabelFor(model => model.DireccionR, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-12">
+            @Html.EditorFor(model => model.DireccionR, new { htmlAttributes = new { @class = "form-control", disabled = true } })
+            @Html.ValidationMessageFor(model => model.DireccionR, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="col-md-4">
+        @Html.LabelFor(model => model.ColoniaR, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-12">
+            @Html.EditorFor(model => model.ColoniaR, new { htmlAttributes = new { @class = "form-control", disabled = true } })
+            @Html.ValidationMessageFor(model => model.ColoniaR, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="col-md-4">
+        @Html.LabelFor(model => model.EstadoR, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-12">
+            @Html.EditorFor(model => model.EstadoR, new { htmlAttributes = new { @class = "form-control", disabled = true } })
+            @Html.ValidationMessageFor(model => model.EstadoR, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="col-md-4">
+        @Html.LabelFor(model => model.CiudadR, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-12">
+            @Html.EditorFor(model => model.CiudadR, new { htmlAttributes = new { @class = "form-control", disabled = true } })
+            @Html.ValidationMessageFor(model => model.CiudadR, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="col-md-4">
+        @Html.LabelFor(model => model.CoidgoPostalR, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-12">
+            @Html.EditorFor(model => model.CoidgoPostalR, new { htmlAttributes = new { @class = "form-control", disabled = true } })
+            @Html.ValidationMessageFor(model => model.CoidgoPostalR, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="col-md-4">
+        @Html.LabelFor(model => model.DescripcionR, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-12">
+            @Html.EditorFor(model => model.DescripcionR, new { htmlAttributes = new { @class = "form-control", disabled = true } })
+            @Html.ValidationMessageFor(model => model.DescripcionR, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="col-md-4">
+        @Html.LabelFor(model => model.Horario, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-12">
+            @Html.EditorFor(model => model.Horario, new { htmlAttributes = new { @class = "form-control", disabled = true } })
+            @Html.ValidationMessageFor(model => model.Horario, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="col-md-4">
+        @Html.LabelFor(model => model.IdUsuarioR, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-12">
+            @Html.EditorFor(model => model.IdUsuarioR, new { htmlAttributes = new { @class = "form-control", disabled = true } })
+            @Html.ValidationMessageFor(model => model.IdUsuarioR, "", new { @class = "text-danger" })
+        </div>
+    </div>    
+</div>

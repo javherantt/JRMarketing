@@ -1,0 +1,99 @@
+﻿@model JRMarketing.Gui.Models.Usuarios
+@using Microsoft.AspNetCore.Http; 
+@{
+    ViewData["Title"] = "Inicio Usuario";
+    var userType = Context.Session.GetString("tipo");
+    if(userType == "Admin")
+        Layout = "~/Views/Shared/AdminLayout.cshtml";
+    else
+        Layout = "~/Views/Shared/LayoutUser.cshtml";
+}
+
+
+<div class="container-xl table-wrapper" style="margin-left: 40px;">
+    <hr />
+    <h2 class="text-center">Mis Datos <a asp-controller="Home" asp-action="IndexCliente" class="btn btn-sm btn-secondary text-center">Regresar</a></h2>
+    <form style="margin-top: 25px;" asp-action="UserAccount">
+        <div class="form-group form-row">
+            <div class="col-md-4 mt-md-2">
+                <label for="Name" class="control-label col-md-8">Nombre de Usuario:</label>
+                <div class="col-md-12">
+                    <input class="form-control" name="NombreUsuario" value="@Model.NombreUsuario" />
+                </div>
+            </div>
+            <div class="col-md-4 mt-md-2">
+                <label for="StartLocation" class="control-label col-md-2">Contraseña:</label>
+                <div class="col-md-12">
+                    <input type="password" class="form-control" name="Contrasenia" value="@Model.Contrasenia" />
+                </div>
+            </div>
+            <div class="col-md-4 mt-md-2">
+                <label for="EndLocation" class="control-label col-md-2">Nombre:</label>
+                <div class="col-md-12">
+                    <input class="form-control" name="Nombre" value="@Model.Nombre" />
+                </div>
+            </div>
+            <div class="col-md-4 mt-md-3">
+                <label for="Name" class="control-label col-md-2">Apellidos:</label>
+                <div class="col-md-12">
+                    <input class="form-control" name="Apellidos" value="@Model.Apellidos" />
+                </div>
+
+            </div>
+            <div class="col-md-4 mt-md-3">
+                <label for="StartLocation" class="control-label col-md-2">Direccion:</label>
+                <div class="col-md-12">
+                    <input class="form-control" name="Direccion" value="@Model.Direccion" />
+                </div>
+            </div>
+            <div class="col-md-4 mt-md-3">
+                <label for="EndLocation" class="control-label col-md-2">Colonia:</label>
+                <div class="col-md-12">
+                    <input class="form-control" name="Colonia" value="@Model.Colonia" />
+                </div>
+            </div>
+            <div class="col-md-4 mt-md-3">
+                <label for="Name" class="control-label col-md-2">Estado:</label>
+                <div class="col-md-12">
+                    <input class="form-control" name="Estado" value="@Model.Estado" />
+                </div>
+            </div>
+            <div class="col-md-4 mt-md-3">
+                <label for="StartLocation" class="control-label col-md-2">Ciudad:</label>
+                <div class="col-md-12">
+                    <input class="form-control" name="Ciudad" value="@Model.Ciudad" />
+                </div>
+            </div>
+            <div class="col-md-4 mt-md-3">
+                <label for="EndLocation" class="control-label col-md-10">Código Postal:</label>
+                <div class="col-md-12">
+                    <input class="form-control" name="CoidgoPostal" value="@Model.CoidgoPostal" />
+                </div>
+            </div>
+            <div class="col-md-4 mt-md-3">
+                <label for="EndLocation" class="control-label col-md-10">Fecha de Nacimiento:</label>
+                <div class="col-md-12">
+                    <input type="datetime" class="form-control" name="FechaNacimiento" value="@Model.FechaNacimiento" />
+                </div>
+            </div>
+            <div class="col-md-4 mt-md-3">
+                <label for="StartLocation" class="control-label col-md-2">Correo:</label>
+                <div class="col-md-12">
+                    <input class="form-control" name="Correo" value="@Model.Correo" />
+                </div>
+            </div>
+            @if (userType == "Admin")
+            {
+                <input type="hidden" class="form-control" value="Admin" name="Tipo" />
+            }
+            else
+            {
+                <input type="hidden" class="form-control" value="Cliente" name="Tipo" />
+            }
+
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Guardar Datos" class="btn btn-primary btn-lg btn-block mt-md-3" style="margin:10px" />
+        </div>
+    </form>
+</div>       

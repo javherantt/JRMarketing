@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http;
+@{ 
+    int id = (int)Context.Session.GetInt32("id");
+} 
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -54,7 +58,7 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="buttons.html">Mis Datos de Usuario</a>
+                        <a class="collapse-item" asp-controller="Usuario" asp-route-Id="@id" asp-action="UserAccount">>Mis Datos de Usuario</a>
                     </div>
                 </div>
             </li>
@@ -151,7 +155,7 @@
         <!-- Page level plugins -->
         <script src="~/vendor/chart.js/Chart.min.js"></script>
 
-        <!-- Page level custom scripts -->        
+        <!-- Page level custom scripts -->
         <script src="~/js/demo/chart-area-demo.js"></script>
         <script src="~/js/demo/chart-pie-demo.js"></script>
 

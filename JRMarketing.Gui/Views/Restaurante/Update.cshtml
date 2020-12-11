@@ -1,0 +1,94 @@
+﻿@model JRMarketing.Gui.Models.Restaurantes
+@using Microsoft.AspNetCore.Http;
+@{
+    ViewData["Title"] = "Index";
+    string tipo = Context.Session.GetString("tipo");
+    int myId = (int)Context.Session.GetInt32("id");
+    if (tipo == "Admin")
+        Layout = "~/Views/Shared/AdminLayout.cshtml";
+    else
+        Layout = "~/Views/Shared/LayoutUser.cshtml";
+}
+
+
+    <div class="container-xl table-wrapper" style="margin-left: 35px;">
+        <hr />
+        @if (tipo == "Admin")
+        {
+            <h2 class="text-center">Datos del Restaurante <a asp-controller="Home" asp-action="IndexAdministracion" class="btn btn-sm btn-secondary text-center">Regresar</a></h2>
+        }
+        else
+        {
+            <h2 class="text-center">Datos del Restaurante <a asp-controller="Home" asp-action="IndexCliente" class="btn btn-sm btn-secondary text-center">Regresar</a></h2>
+        }
+        <form style="margin-top: 25px;" asp-action="Update" method="post">
+            <div class="form-group form-row">
+                <div class="col-md-4 mt-md-2">
+                    <label for="Name" class="control-label col-md-8">Nombre del Restaurante:</label>
+                    <div class="col-md-12">
+                        <input class="form-control" name="NombreRestaurante" value="@Model.NombreRestaurante" />
+                    </div>
+                </div>
+                <div class="col-md-4 mt-md-2">
+                    <label for="StartLocation" class="control-label col-md-2">Dirección:</label>
+                    <div class="col-md-12">
+                        <input type="password" class="form-control" name="DireccionR" value="@Model.DireccionR" />
+                    </div>
+                </div>
+                <div class="col-md-4 mt-md-2">
+                    <label for="EndLocation" class="control-label col-md-2">Colonia:</label>
+                    <div class="col-md-12">
+                        <input class="form-control" name="ColoniaR" value="@Model.ColoniaR" />
+                    </div>
+                </div>
+                <div class="col-md-4 mt-md-3">
+                    <label for="Name" class="control-label col-md-2">Estado:</label>
+                    <div class="col-md-12">
+                        <input class="form-control" name="EstadoR" value="@Model.EstadoR" />
+                    </div>
+
+                </div>
+                <div class="col-md-4 mt-md-3">
+                    <label for="StartLocation" class="control-label col-md-2">Ciudad:</label>
+                    <div class="col-md-12">
+                        <input class="form-control" name="CiudadR" value="@Model.CiudadR" />
+                    </div>
+                </div>
+                <div class="col-md-4 mt-md-3">
+                    <label for="EndLocation" class="control-label col-md-2">Código Postal:</label>
+                    <div class="col-md-12">
+                        <input class="form-control" name="CoidgoPostalR" value="@Model.CoidgoPostalR" />
+                    </div>
+                </div>
+                <div class="col-md-4 mt-md-3">
+                    <label for="Name" class="control-label col-md-2">Descripción:</label>
+                    <div class="col-md-12">
+                        <input class="form-control" name="DescripcionR" value="@Model.DescripcionR" />
+                    </div>
+                </div>
+                <div class="col-md-4 mt-md-3">
+                    <label for="StartLocation" class="control-label col-md-2">Horario:</label>
+                    <div class="col-md-12">
+                        <input class="form-control" name="Horario" value="@Model.Horario" />
+                    </div>
+                </div>
+                @if (tipo == "Admin")
+                {
+                    <div class="col-md-4 mt-md-3">
+                        <label for="StartLocation" class="control-label col-md-8">ID Usuario Propietario:</label>
+                        <div class="col-md-12">
+                            <input class="form-control" name="IdUsuarioR" value="@Model.IdUsuarioR" />
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <input type="hidden" class="form-control" name="IdUsuarioR" value="@myId"  />
+                }
+
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Guardar Datos" class="btn btn-primary btn-lg btn-block mt-md-3" style="margin:10px" />
+            </div>
+        </form>
+    </div>

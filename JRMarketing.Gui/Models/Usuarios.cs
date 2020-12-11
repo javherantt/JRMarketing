@@ -14,7 +14,7 @@ namespace JRMarketing.Gui.Models
         public string Estado { get; set; }
         public string Ciudad { get; set; }
         public string CoidgoPostal { get; set; }
-        public string Correo { get; set; }
+        public string Correo { get; set; } 
         public DateTime FechaNacimiento { get; set; } 
         public string Tipo { get; set; }
         public string TelefonoUsuario { get; set; }
