@@ -127,3 +127,7 @@ C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integ
 C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Gui\obj\Debug\netcoreapp3.1\Razor\Views\Restaurante\Details.cshtml.g.cs
 C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Gui\obj\Debug\netcoreapp3.1\Razor\Views\Restaurante\Index.cshtml.g.cs
 C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Gui\obj\Debug\netcoreapp3.1\Razor\Views\Restaurante\Update.cshtml.g.cs
+C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Gui\obj\Debug\netcoreapp3.1\Razor\Views\Publicacion\Create.cshtml.g.cs
+C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Gui\obj\Debug\netcoreapp3.1\Razor\Views\Publicacion\IndexAdmin.cshtml.g.cs
+C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Gui\obj\Debug\netcoreapp3.1\Razor\Views\Publicacion\IndexClient.cshtml.g.cs
+C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Gui\obj\Debug\netcoreapp3.1\Razor\Views\Publicacion\Update.cshtml.g.cs

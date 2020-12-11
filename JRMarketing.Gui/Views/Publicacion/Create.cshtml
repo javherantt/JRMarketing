@@ -1,16 +1,24 @@
-﻿@model JRMarketing.Gui.Models.Publicaciones
+﻿@model JRMarketing.Gui.Models.PublicacionesRequestDto
 @{
     ViewBag.Title = "Add a Reservation";
     Layout = "~/Views/Shared/LayoutUser.cshtml";
 }
 
-<h2>Publicar Anuncio<a asp-action="IndexCliente" class="btn btn-sm btn-secondary">Regresar</a></h2>
-<form asp-action="Create" method="post">
-    <div class="form-group">
-        <label for="Name">Descripción:</label>
-        <input class="form-control" name="DescripcionP" required />
-    </div>
-    <div class="text-center panel-body">
-        <button type="submit" class="btn btn-sm btn-primary">Guardar Datos</button>
-    </div>
-</form>
+<div class="container-xl table-wrapper" style="margin-left: 40px;">
+    <hr />
+    
+    <h2>Agregar Publicación <a asp-action="IndexClient" class="btn btn-sm btn-secondary">Regresar</a></h2>
+    <form style="margin-top: 25px;" asp-action="Create">
+        <div class="form-group form-row">
+            <div class="col-md-4 mt-md-2" style="min-width: 880px;">
+                <label for="Name" class="control-label col-md-12">Descripción:</label>
+                <div class="col-md-12" style="min-width: 880px;">
+                    <input class="form-control" name="DescripcionP" required />
+                </div>
+            </div>               
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Guardar Datos" class="btn btn-primary btn-lg btn-block mt-md-3" style="margin:10px" />
+        </div>
+    </form>
+</div>       

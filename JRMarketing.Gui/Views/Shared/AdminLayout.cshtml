@@ -21,6 +21,22 @@
 
     <!-- Custom styles for this template-->
     <link href="~/css/sb-admin-2.css" rel="stylesheet" />
+    <!-- Bootstrap core JavaScript-->
+    <script src="~/vendor/jquery/jquery.min.js"></script>
+    <script src="~/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="~/vendor/jquery-easing/jquery.easing.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="~/js/sb-admin-2.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="~/vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="~/js/demo/chart-area-demo.js"></script>
+    <script src="~/js/demo/chart-pie-demo.js"></script>
 
 </head>
 
@@ -64,24 +80,25 @@
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                   aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>N/A</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                     data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">N/A</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
-                    </div>
-                </div>
-            </li>
-
+            <!--
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+           aria-expanded="true" aria-controls="collapseUtilities">
+            <i class="fas fa-fw fa-wrench"></i>
+            <span>N/A</span>
+        </a>
+        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+             data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">N/A</h6>
+                <a class="collapse-item" href="utilities-color.html">Colors</a>
+                <a class="collapse-item" href="utilities-border.html">Borders</a>
+                <a class="collapse-item" href="utilities-animation.html">Animations</a>
+                <a class="collapse-item" href="utilities-other.html">Other</a>
+            </div>
+        </div>
+    </li>
+    --->
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -101,11 +118,11 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Editar entidades</h6>
                         <a class="collapse-item" href="https://localhost:44369/Usuario/Index">Usuarios</a>
-                        <a class="collapse-item" href="register.html">Restaurantes</a>
-                        <a class="collapse-item" href="forgot-password.html">Etiquetas</a>
+                        <a class="collapse-item" asp-controller="Restaurante" asp-action="Index">Restaurantes</a>
+                        <!---<a class="collapse-item" href="forgot-password.html">Etiquetas</a>     -->
                         <div class="collapse-divider"></div>
                         <h6 class="collapse-header"></h6>
-                        <a class="collapse-item" href="404.html">Publicaciones</a>
+                        <a class="collapse-item" asp-controller="Publicacion" asp-action="IndexAdmin">Publicaciones</a>
                     </div>
                 </div>
             </li>
@@ -120,7 +137,7 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" asp-controller="Home" asp-action="LogOut">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Cerrar Sesión</span>
                 </a>
@@ -140,24 +157,6 @@
         <div>
             @RenderBody()
         </div>
-
-
-        <!-- Bootstrap core JavaScript-->
-        <script src="~/vendor/jquery/jquery.min.js"></script>
-        <script src="~/vendor/bootstrap/js/bootstrap.bundle.js"></script>
-
-        <!-- Core plugin JavaScript-->
-        <script src="~/vendor/jquery-easing/jquery.easing.js"></script>
-
-        <!-- Custom scripts for all pages-->
-        <script src="~/js/sb-admin-2.js"></script>
-
-        <!-- Page level plugins -->
-        <script src="~/vendor/chart.js/Chart.min.js"></script>
-
-        <!-- Page level custom scripts -->
-        <script src="~/js/demo/chart-area-demo.js"></script>
-        <script src="~/js/demo/chart-pie-demo.js"></script>
 
 </body>
 

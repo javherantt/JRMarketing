@@ -155,22 +155,26 @@ namespace JRMarketing.Gui.Controllers
         [HttpPost]
         public IActionResult Update(int Id, Usuarios usuario)
         {
-
-            var httpClient = new HttpClient();       
-            httpClient.BaseAddress = new Uri("https://localhost:44350/api/usuario/");
-            var putTask = httpClient.PutAsJsonAsync<Usuarios>("?id=" + Id, usuario);
-            putTask.Wait();
-
-            var result = putTask.Result;
-            if (!result.IsSuccessStatusCode)
+            if (HttpContext.Session.GetInt32("id") != null)
             {
-                ViewData["Message"] = "Error";
+                var httpClient = new HttpClient();
+                httpClient.BaseAddress = new Uri("https://localhost:44350/api/usuario/");
+                var putTask = httpClient.PutAsJsonAsync<Usuarios>("?id=" + Id, usuario);
+                putTask.Wait();
+
+                var result = putTask.Result;
+                if (!result.IsSuccessStatusCode)
+                {
+                    ViewData["Message"] = "Error";
+                }
+                else if (result.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("Index");
+                }
+                return View(usuario);
             }
-            else if (result.IsSuccessStatusCode)
-            {
-                return RedirectToAction("Index");
-            }
-            return View(usuario);
+            else
+                return RedirectToAction("Index", "Home");
         }
 
         /*

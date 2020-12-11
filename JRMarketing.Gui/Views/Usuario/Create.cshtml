@@ -1,88 +1,89 @@
 ﻿@model JRMarketing.Gui.Models.UsuarioRequestDto
 @{ Layout = "AdminLayout"; ViewBag.Title = "Add a Reservation";}
 
-<h2>Agregar Usuario Cliente <a asp-action="Index" class="btn btn-sm btn-secondary">Regresar</a></h2>
-<form asp-action="Create" method="post">
-    <div class="form-group">
-        <label for="Name">Usuario:</label>
-        <input class="form-control" name="NombreUsuario" required />
-    </div>
-    <div class="form-group">
-        <label for="StartLocation">Contraseña:</label>
-        <input type="password" class="form-control" name="Contrasenia" required />
-    </div>
-    <div class="form-group">
-        <label for="EndLocation">Nombre:</label>
-        <input class="form-control" name="Nombre" required />
-    </div>
-    <div class="form-group">
-        <label for="Name">Apellidos:</label>
-        <input class="form-control" name="Apellidos" required />
-    </div>
-    <div class="form-group">
-        <label for="StartLocation">Direccion:</label>
-        <input class="form-control" name="Direccion" required />
-    </div>
-    <div class="form-group">
-        <label for="EndLocation">Colonia:</label>
-        <input class="form-control" name="Colonia" required />
-    </div>
-    <div class="form-group">
-        <label for="Name">Estado:</label>
-        <input class="form-control" name="Estado" required />
-    </div>
-    <div class="form-group">
-        <label for="StartLocation">Ciudad:</label>
-        <input class="form-control" name="Ciudad" required />
-    </div>
-    <div class="form-group">
-        <label for="EndLocation">Codigo Postal:</label>
-        <input class="form-control" name="CoidgoPostal" required />
-    </div>
-    <div class="form-group">
-        <label for="StartLocation">Correo:</label>
-        <input class="form-control" name="Correo" required />
-    </div>
-    <div class="form-group">
-        <label for="EndLocation">Telefono:</label>
-        <input class="form-control" name="TelefonoUsuario" required />
-    </div>
-    <div class="form-group">
-        <label for="EndLocation">Tipo:</label>
-        <input class="form-control" name="Tipo" />
-    </div>
-    <div class="text-center panel-body">
-        <button type="submit" class="btn btn-sm btn-primary">Add</button>
-    </div>
-</form>
 
-@if (Model != null)
-{
-    <h2>Reservation</h2>
-    <table class="table table-sm table-striped table-bordered m-2">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Start Location</th>
-                <th>End Location</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>@Model.NombreUsuario</td>
-                <td>@Model.Contrasenia</td>
-                <td>@Model.Nombre</td>
-                <td>@Model.Apellidos</td>
-                <td>@Model.Direccion</td>
-                <td>@Model.Colonia</td>
-                <td>@Model.Estado</td>
-                <td>@Model.Ciudad</td>
-                <td>@Model.CoidgoPostal</td>
-                <td>@Model.Correo</td>
-                <td>@Model.TelefonoUsuario</td>
-                <td>@Model.Tipo</td>
-            </tr>
-        </tbody>
-    </table>
-}
+<div class="container-xl table-wrapper">
+    <hr />
+    <h2 class="text-center">Agregar Usuario <a asp-controller="Home" asp-action="Index" class="btn btn-sm btn-secondary text-center">Cancelar</a></h2>
+    <form style="margin-top: 25px;" asp-action="Create">
+        <div class="form-group form-row">
+            <div class="col-md-4 mt-md-2">
+                <label for="Name" class="control-label col-md-8">Nombre de Usuario:</label>
+                <div class="col-md-12">
+                    <input class="form-control" name="NombreUsuario" />
+                </div>
+            </div>
+            <div class="col-md-4 mt-md-2">
+                <label for="StartLocation" class="control-label col-md-2">Contraseña:</label>
+                <div class="col-md-12">
+                    <input type="password" class="form-control" name="Contrasenia" />
+                </div>
+            </div>
+            <div class="col-md-4 mt-md-2">
+                <label for="EndLocation" class="control-label col-md-2">Nombre:</label>
+                <div class="col-md-12">
+                    <input class="form-control" name="Nombre" />
+                </div>
+            </div>
+            <div class="col-md-4 mt-md-3">
+                <label for="Name" class="control-label col-md-2">Apellidos:</label>
+                <div class="col-md-12">
+                    <input class="form-control" name="Apellidos" />
+                </div>
+
+            </div>
+            <div class="col-md-4 mt-md-3">
+                <label for="StartLocation" class="control-label col-md-2">Direccion:</label>
+                <div class="col-md-12">
+                    <input class="form-control" name="Direccion" />
+                </div>
+            </div>
+            <div class="col-md-4 mt-md-3">
+                <label for="EndLocation" class="control-label col-md-2">Colonia:</label>
+                <div class="col-md-12">
+                    <input class="form-control" name="Colonia" />
+                </div>
+            </div>
+            <div class="col-md-4 mt-md-3">
+                <label for="Name" class="control-label col-md-2">Estado:</label>
+                <div class="col-md-12">
+                    <input class="form-control" name="Estado" />
+                </div>
+            </div>
+            <div class="col-md-4 mt-md-3">
+                <label for="StartLocation" class="control-label col-md-2">Ciudad:</label>
+                <div class="col-md-12">
+                    <input class="form-control" name="Ciudad" />
+                </div>
+            </div>
+            <div class="col-md-4 mt-md-3">
+                <label for="EndLocation" class="control-label col-md-10">Código Postal:</label>
+                <div class="col-md-12">
+                    <input class="form-control" name="CoidgoPostal" />
+                </div>
+            </div>
+            <div class="col-md-4 mt-md-3">
+                <label for="EndLocation" class="control-label col-md-10">Fecha de Nacimiento:</label>
+                <div class="col-md-12">
+                    <input type="date" class="form-control" name="FechaNacimiento" />
+                </div>
+            </div>
+            <div class="col-md-4 mt-md-3">
+                <label for="StartLocation" class="control-label col-md-2">Correo:</label>
+                <div class="col-md-12">
+                    <input class="form-control" name="Correo" />
+                </div>
+            </div>
+            <div class="col-md-4 mt-md-3">
+                <label for="EndLocation" class="control-label col-md-2">Telefono:</label>
+                <div class="col-md-12">
+                    <input class="form-control" name="TelefonoUsuario" />
+                </div>
+            </div>
+            <input type="hidden" class="form-control" value="Cliente" name="Tipo" />
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Guardar Datos" class="btn btn-primary btn-lg btn-block mt-md-3" style="margin:10px" />
+        </div>
+    </form>
+</div>       

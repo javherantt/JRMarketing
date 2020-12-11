@@ -1,7 +1,11 @@
 ﻿@model JRMarketing.Gui.Models.Publicaciones
+@using Microsoft.AspNetCore.Http; 
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/LayoutUser.cshtml";
+    if(Context.Session.GetString("tipo") == "Admin")
+        Layout = "~/Views/Shared/AdminLayout.cshtml";
+    else
+        Layout = "~/Views/Shared/LayoutUser.cshtml";
 }
 
 
@@ -12,8 +16,8 @@
     <form style="margin-top: 25px;" asp-action="Update" method="post">
         <div class="form-group form-row">
             <input type="hidden" class="form-control" name="Id" value="@Model.Id" />
-            <div class="col-md-4 mt-md-2">
-                <label for="Name" class="control-label col-md-8">Descripcion:</label>
+            <div class="col-md-4 mt-md-2" style="min-width: 800px;">
+                <label for="Name" class="control-label col-md-8" style="min-width: 800px;">Descripcion:</label>
                 <div class="col-md-12">
                     <input class="form-control" name="DescripcionP" value="@Model.DescripcionP" />
                 </div>
@@ -23,6 +27,9 @@
         </div>
         <div class="form-group">
             <input type="submit" value="Guardar Datos" class="btn btn-primary btn-lg btn-block mt-md-3" style="margin:10px" />
+        </div>
+        <div class="form-group">
+            <a asp-controller="Publicacion" asp-action="Delete" class="btn btn-primary btn-lg btn-block" style="margin:10px">Eliminar</a>
         </div>
     </form>
 </div>

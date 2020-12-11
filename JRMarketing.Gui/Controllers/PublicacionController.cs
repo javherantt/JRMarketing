@@ -45,20 +45,29 @@ namespace JRMarketing.Gui.Controllers
         [HttpGet]
         public async Task<IActionResult> PublicacionesRestaurante(int id)
         {
-            var json = await client.GetStringAsync("https://localhost:44350/api/publicacion");
-            var listPublicaciones = JsonConvert.DeserializeObject<ApiResponse<IEnumerable<Publicaciones>>>(json);
-            var publicaciones = listPublicaciones.Data.Where(e => e.IdRestaurantePubli == id);
-            return View(publicaciones);
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> IndexClient(int id)
-        {
-            if (HttpContext.Session.GetInt32("id") != null && HttpContext.Session.GetString("tipo") == "Cliente")
+            if (HttpContext.Session.GetInt32("id") != null)
             {
                 var json = await client.GetStringAsync("https://localhost:44350/api/publicacion");
                 var listPublicaciones = JsonConvert.DeserializeObject<ApiResponse<IEnumerable<Publicaciones>>>(json);
                 var publicaciones = listPublicaciones.Data.Where(e => e.IdRestaurantePubli == id);
+                return View(publicaciones);
+            }
+            else
+                return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> IndexClient()
+        {
+            if (HttpContext.Session.GetInt32("id") != null && HttpContext.Session.GetString("tipo") == "Cliente")
+            {
+                int myId = (int)HttpContext.Session.GetInt32("id");
+                var jsonRestau = await client.GetStringAsync("https://localhost:44350/api/restaurante");
+                var listRestau = JsonConvert.DeserializeObject<ApiResponse<IEnumerable<Restaurantes>>>(jsonRestau);
+                var restaurante = listRestau.Data.First(e => e.IdUsuarioR == myId);
+                var json = await client.GetStringAsync("https://localhost:44350/api/publicacion");
+                var listPublicaciones = JsonConvert.DeserializeObject<ApiResponse<IEnumerable<Publicaciones>>>(json);
+                var publicaciones = listPublicaciones.Data.Where(e => e.IdRestaurantePubli == restaurante.Id);
                 return View(publicaciones);
             }
             else
@@ -81,7 +90,14 @@ namespace JRMarketing.Gui.Controllers
         */ 
 
 
-        public ViewResult Create() => View();
+        public IActionResult Create()
+        {
+            if (HttpContext.Session.GetInt32("id") != null)
+                return View();
+            else
+                return RedirectToAction("Index", "Home");
+        }
+
         [HttpPost]
         public async Task<IActionResult> Create(PublicacionesRequestDto publicacion)
         {
@@ -120,7 +136,7 @@ namespace JRMarketing.Gui.Controllers
             if (HttpContext.Session.GetInt32("id") != null && HttpContext.Session.GetString("tipo") == "Cliente")
             {
                 client.BaseAddress = new Uri("https://localhost:44350/api/publicacion/");
-                var putTask = client.PostAsJsonAsync<Publicaciones>("?id" + id, publicacion);
+                var putTask = client.PutAsJsonAsync<Publicaciones>("?id" + id, publicacion);
                 putTask.Wait();
                 var result = putTask.Result;
                 if (result.IsSuccessStatusCode)
@@ -134,19 +150,24 @@ namespace JRMarketing.Gui.Controllers
 
         public ActionResult Delete(int id)
         {
-            using (client)
+            if (HttpContext.Session.GetInt32("id") != null)
             {
-                client.BaseAddress = new Uri("https://localhost:44350/api/");
-                var deleteTask = client.DeleteAsync("publicacion/" + id.ToString());
-                var result = deleteTask.Result;
-                if (result.IsSuccessStatusCode)
-                    return RedirectToAction("IndexClient");
-                else
+                using (client)
                 {
-                    ViewData["Message"] = "Error";
-                    return RedirectToAction("IndexClient");
-                }                                 
+                    client.BaseAddress = new Uri("https://localhost:44350/api/");
+                    var deleteTask = client.DeleteAsync("publicacion/" + id.ToString());
+                    var result = deleteTask.Result;
+                    if (result.IsSuccessStatusCode)
+                        return RedirectToAction("IndexClient");
+                    else
+                    {
+                        ViewData["Message"] = "Error";
+                        return RedirectToAction("IndexClient");
+                    }
+                }
             }
+            else
+                return RedirectToAction("Index", "Home");
         }
     }
 }
