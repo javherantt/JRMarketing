@@ -136,7 +136,7 @@ namespace JRMarketing.Gui.Controllers
             if (HttpContext.Session.GetInt32("id") != null && HttpContext.Session.GetString("tipo") == "Cliente")
             {
                 client.BaseAddress = new Uri("https://localhost:44350/api/publicacion/");
-                var putTask = client.PutAsJsonAsync<Publicaciones>("?id" + id, publicacion);
+                var putTask = client.PutAsJsonAsync<Publicaciones>("?id=" + id, publicacion);
                 putTask.Wait();
                 var result = putTask.Result;
                 if (result.IsSuccessStatusCode)
