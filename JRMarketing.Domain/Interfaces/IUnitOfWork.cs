@@ -10,9 +10,8 @@ namespace JRMarketing.Domain.Interfaces
     {
         public IRepository<Cliente> ClienteRepository { get; }
         public IRepository<Etiquetum> EtiquetumRepository { get; }
-        public IRepository<Foto> FotoRepository { get; }
         public IRepository<Publicacion> PublicacionRepository { get; }
-        public IRepository<Restaurante> RestauranteRepository { get; }
+        public IRestauranteRepository RestauranteRepository { get; }
         public IRepository<RestauranteEtiquetum> RestauranteEtiquetumRepository { get; }
         public IRepository<TelefonoRestaurante> TelefonoRestauranteRepository { get; }
         public IRepository<TelefonoUsuario> TelefonoUsuarioRepository { get; }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "6QUvrzJ4CCeIhYdv1UY9Olba12sMSZ4Ocn7ohl3goWyVoOMmARdZxq0G+OaZsrm/zOaAs6Y1ICXHW1f/c+n3IQ==",
+  "dgSpecHash": "OaTJZF72lEmLaOrw3mNhjgQk51/H0vCLftZ859AYubjfMovEu88PyRZHLlr/M81Tm7oG2RlSUGKx3OGJ03sI4w==",
   "success": true,
   "projectFilePath": "C:\\Users\\Javier Hernández\\Documents\\Universidad\\4° Cuatrimestre\\Proyecto Integrador\\JRMarketing\\JRMarketing.Infrastructure\\JRMarketing.Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,7 @@
     "C:\\Users\\Javier Hernández\\.nuget\\packages\\fluentvalidation.aspnetcore\\9.3.0\\fluentvalidation.aspnetcore.9.3.0.nupkg.sha512",
     "C:\\Users\\Javier Hernández\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\9.3.0\\fluentvalidation.dependencyinjectionextensions.9.3.0.nupkg.sha512",
     "C:\\Users\\Javier Hernández\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\Javier Hernández\\.nuget\\packages\\linqkit.core\\1.1.23\\linqkit.core.1.1.23.nupkg.sha512",
     "C:\\Users\\Javier Hernández\\.nuget\\packages\\microsoft.aspnetcore.http\\2.2.2\\microsoft.aspnetcore.http.2.2.2.nupkg.sha512",
     "C:\\Users\\Javier Hernández\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Javier Hernández\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",

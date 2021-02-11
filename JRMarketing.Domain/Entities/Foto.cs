@@ -1,17 +1,13 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
-
-#nullable disable
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace JRMarketing.Domain.Entities
 {
-    public partial class Foto : BaseEntity
+    public class Foto
     {
-        public string FileName { get; set; }
-        public string Url { get; set; }
-        public DateTime FechaSubida { get; set; }
-        public int IdPublicacionFoto { get; set; } 
-
-        //public virtual Publicacion IdPublicacionFotoNavigation { get; set; }
+        public IFormFile file { get; set; }
     }
 }

@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using AutoMapper;
 using JRMarketing.Api.Responses;
 using JRMarketing.Domain.DTOs;
 using JRMarketing.Domain.Entities;
 using JRMarketing.Domain.Interfaces;
+using JRMarketing.Domain.QueryFilters;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JRMarketing.Api.Controllers
@@ -24,9 +27,11 @@ namespace JRMarketing.Api.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get()
+        [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(ApiResponse<IEnumerable<RestauranteResponseDto>>))]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(ApiResponse<IEnumerable<RestauranteResponseDto>>))]
+        public IActionResult Get([FromQuery]RestauranteQueryFilter filter)
         {
-            var restaurantes = _service.GetRestaurantes();
+            var restaurantes = _service.GetRestaurantes(filter);
             var restaurantesDto = _mapper.Map<IEnumerable<Restaurante>, IEnumerable<RestauranteResponseDto>>(restaurantes);
             var response = new ApiResponse<IEnumerable<RestauranteResponseDto>>(restaurantesDto);
             return Ok(response);
@@ -42,12 +47,23 @@ namespace JRMarketing.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post(RestauranteRequestDto restauranteDto)
+        public async Task<IActionResult> Post(RestauranteRequestDto restauranteDto, [FromForm] Foto imagen)
         {
+            if (imagen.file.Length > 0)
+            {
+                string path = "C:/Users/Javier Hernández/Documents/Universidad/4° Cuatrimestre/Proyecto Integrador/Images/";
+                using (FileStream fileStream = System.IO.File.Create(path + imagen.file.FileName))
+                {
+                    imagen.file.CopyTo(fileStream);
+                    fileStream.Flush();                    
+                }
+            }         
+
             var restaurante = _mapper.Map<RestauranteRequestDto, Restaurante>(restauranteDto);   
             await _service.AddRestaurante(restaurante);
             var restauranteResponseDto = _mapper.Map<Restaurante, RestauranteResponseDto>(restaurante);
             var response = new ApiResponse<RestauranteResponseDto>(restauranteResponseDto);
+            
             return Ok(response);
         }
 
@@ -71,6 +87,8 @@ namespace JRMarketing.Api.Controllers
             var response = new ApiResponse<bool>(true);
             return Ok(response);
         }
+
+
     }
     
 }

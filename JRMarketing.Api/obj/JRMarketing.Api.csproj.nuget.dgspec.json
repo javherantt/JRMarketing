@@ -291,6 +291,10 @@
               "target": "Package",
               "version": "[9.3.0, )"
             },
+            "LinqKit.Core": {
+              "target": "Package",
+              "version": "[1.1.23, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[5.0.0-rc.2.20475.6, )"

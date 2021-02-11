@@ -1,4 +1,5 @@
 ﻿using JRMarketing.Domain.Entities;
+using JRMarketing.Domain.QueryFilters;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,7 +9,7 @@ namespace JRMarketing.Domain.Interfaces
 {
     public interface IRestauranteServices
     {
-        public IEnumerable<Restaurante> GetRestaurantes();
+        public IEnumerable<Restaurante> GetRestaurantes(RestauranteQueryFilter filter);
         public Task<Restaurante> GetRestaurante(int id);
         public Task AddRestaurante(Restaurante restaurante);
         public Task UpdateRestaurante(Restaurante restaurante);

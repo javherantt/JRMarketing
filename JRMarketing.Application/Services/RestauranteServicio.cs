@@ -1,6 +1,7 @@
 ﻿using JRMarketing.Domain.Entities;
 using JRMarketing.Domain.Exceptions;
 using JRMarketing.Domain.Interfaces;
+using JRMarketing.Domain.QueryFilters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,10 +47,11 @@ namespace JRMarketing.Application.Services
             return await _unitofWork.RestauranteRepository.GetById(id);
         }
 
-        public IEnumerable<Restaurante> GetRestaurantes()
+        public IEnumerable<Restaurante> GetRestaurantes(RestauranteQueryFilter filter)
         {
-            return _unitofWork.RestauranteRepository.GetAll();
+            return _unitofWork.RestauranteRepository.GetRestaurantes(filter);
         }
+
 
         public async Task UpdateRestaurante(Restaurante restaurante)
         {

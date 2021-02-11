@@ -5,14 +5,14 @@ using System.Threading.Tasks;
 
 namespace JRMarketing.Infrastructure.Repositories
 {
-    public class UnitOfWork : IUnitOfWork
+    public sealed class UnitOfWork : IUnitOfWork
     {
         private readonly JRMarketingContext _context;
         private readonly IRepository<Cliente> _clienteRepository;
         private readonly IRepository<Etiquetum> _etiquetumRepository;
-        private readonly IRepository<Foto> _fotoRepository;
+
         private readonly IRepository<Publicacion> _publicacionRepository;
-        private readonly IRepository<Restaurante> _restauranteRepository;
+        private readonly IRestauranteRepository _restauranteRepository;
         private readonly IRepository<RestauranteEtiquetum> _restauranteEtiquetumRepository;
         private readonly IRepository<TelefonoRestaurante> _telefonoRestauranteRepository;
         private readonly IRepository<TelefonoUsuario> _telefonoUsuarioRepository;
@@ -27,11 +27,9 @@ namespace JRMarketing.Infrastructure.Repositories
 
         public IRepository<Etiquetum> EtiquetumRepository => _etiquetumRepository ?? new SQLRepository<Etiquetum>(_context);
 
-        public IRepository<Foto> FotoRepository => _fotoRepository ?? new SQLRepository<Foto>(_context);
-
         public IRepository<Publicacion> PublicacionRepository => _publicacionRepository ?? new SQLRepository<Publicacion>(_context);
 
-        public IRepository<Restaurante> RestauranteRepository => _restauranteRepository ?? new SQLRepository<Restaurante>(_context);
+        public IRestauranteRepository RestauranteRepository => _restauranteRepository ?? new RestauranteRepository(_context);
 
         public IRepository<RestauranteEtiquetum> RestauranteEtiquetumRepository => _restauranteEtiquetumRepository ?? new SQLRepository<RestauranteEtiquetum>(_context);
 
