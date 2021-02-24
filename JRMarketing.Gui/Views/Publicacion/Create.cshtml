@@ -8,14 +8,18 @@
     <hr />
     
     <h2>Agregar Publicación <a asp-action="IndexClient" class="btn btn-sm btn-secondary">Regresar</a></h2>
-    <form style="margin-top: 25px;" asp-action="Create">
+    <form style="margin-top: 25px;" asp-action="Create" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="exampleFormControlFile1">Seleccionar Imagen</label>
+            <input type="file" class="form-control-file" asp-for="file" id="exampleFormControlFile1">
+        </div>
         <div class="form-group form-row">
             <div class="col-md-4 mt-md-2" style="min-width: 880px;">
                 <label for="Name" class="control-label col-md-12">Descripción:</label>
                 <div class="col-md-12" style="min-width: 880px;">
                     <input class="form-control" name="DescripcionP" required />
                 </div>
-            </div>               
+            </div>            
         </div>
         <div class="form-group">
             <input type="submit" value="Guardar Datos" class="btn btn-primary btn-lg btn-block mt-md-3" style="margin:10px" />

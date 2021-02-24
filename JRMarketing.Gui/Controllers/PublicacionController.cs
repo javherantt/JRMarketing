@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -108,20 +109,39 @@ namespace JRMarketing.Gui.Controllers
                 var listRestau = JsonConvert.DeserializeObject<ApiResponse<IEnumerable<Restaurantes>>>(userJson);
                 var restuante = listRestau.Data.First(e => e.IdUsuarioR == myId);
                 publicacion.IdRestaurantePubli = restuante.Id;
+                string imagen = UploadImage(publicacion);
+                publicacion.Foto = imagen;
                 var json = await client.PostAsJsonAsync("https://localhost:44350/api/publicacion", publicacion);
                 if (json.IsSuccessStatusCode)
                     return RedirectToAction("IndexClient");
                 else
-                    return View(Create());
+                    return View(publicacion);
             }
             else
                 return RedirectToAction("Index", "Home");
         }
 
+        private string UploadImage(PublicacionesRequestDto imagen)
+        {
+            string fileName = null, filePath = null;    
+            if (imagen.file != null)
+            {
+                string path = "C:/Users/Javier Hernández/Documents/Universidad/4° Cuatrimestre/Proyecto Integrador/myimages/";
+                fileName = Guid.NewGuid().ToString() + "-" + imagen.file.FileName;
+                filePath = Path.Combine(path, fileName);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    imagen.file.CopyTo(fileStream);                  
+                }
+            }
+            return fileName;
+        }     
+
         public async Task<IActionResult> Update(int id)
         {
             if (HttpContext.Session.GetInt32("id") != null && HttpContext.Session.GetString("tipo") == "Cliente")
             {
+
                 var json = await client.GetStringAsync("https://localhost:44350/api/publicacion/" + id);
                 var publicacion = JsonConvert.DeserializeObject<ApiResponse<Publicaciones>>(json);
                 return View(publicacion.Data);
@@ -135,6 +155,8 @@ namespace JRMarketing.Gui.Controllers
         {
             if (HttpContext.Session.GetInt32("id") != null && HttpContext.Session.GetString("tipo") == "Cliente")
             {
+                string imagen = UploadUpdate(publicacion);
+                publicacion.Foto = imagen;
                 client.BaseAddress = new Uri("https://localhost:44350/api/publicacion/");
                 var putTask = client.PutAsJsonAsync<Publicaciones>("?id=" + id, publicacion);
                 putTask.Wait();
@@ -146,6 +168,22 @@ namespace JRMarketing.Gui.Controllers
             }
             else
                 return RedirectToAction("Index", "Home");
+        }
+
+        private string UploadUpdate(Publicaciones imagen)
+        {
+            string fileName = null, filePath = null;
+            if (imagen.file != null)
+            {
+                string path = "C:/Users/Javier Hernández/Documents/Universidad/4° Cuatrimestre/Proyecto Integrador/myimages/";
+                fileName = Guid.NewGuid().ToString() + "-" + imagen.file.FileName;
+                filePath = Path.Combine(path, fileName);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    imagen.file.CopyTo(fileStream);
+                }
+            }
+            return fileName;
         }
 
         public ActionResult Delete(int id)

@@ -47,18 +47,8 @@ namespace JRMarketing.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post(RestauranteRequestDto restauranteDto, [FromForm] Foto imagen)
-        {
-            if (imagen.file.Length > 0)
-            {
-                string path = "C:/Users/Javier Hernández/Documents/Universidad/4° Cuatrimestre/Proyecto Integrador/Images/";
-                using (FileStream fileStream = System.IO.File.Create(path + imagen.file.FileName))
-                {
-                    imagen.file.CopyTo(fileStream);
-                    fileStream.Flush();                    
-                }
-            }         
-
+        public async Task<IActionResult> Post(RestauranteRequestDto restauranteDto)
+        {          
             var restaurante = _mapper.Map<RestauranteRequestDto, Restaurante>(restauranteDto);   
             await _service.AddRestaurante(restaurante);
             var restauranteResponseDto = _mapper.Map<Restaurante, RestauranteResponseDto>(restaurante);

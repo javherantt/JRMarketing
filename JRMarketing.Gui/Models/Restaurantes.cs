@@ -20,7 +20,7 @@ namespace JRMarketing.Gui.Models
         public int IdUsuarioR { get; set; }
     }
 
-    public class RestaurantesRequestDto
+    public class RestaurantesRequestDto : Foto
     {
         public string NombreRestaurante { get; set; }
         public string DireccionR { get; set; }

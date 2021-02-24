@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -57,6 +58,8 @@ namespace JRMarketing.Gui.Controllers
         {
             if (HttpContext.Session.GetInt32("id") != null)
             {
+                string imagen = UploadImage(restaurante);
+                restaurante.FotografiaR = imagen;
                 var json = await httpClient.PostAsJsonAsync("https://localhost:44350/api/restaurante/", restaurante);
                 if (json.IsSuccessStatusCode)
                 {
@@ -70,6 +73,22 @@ namespace JRMarketing.Gui.Controllers
             }
             else
                 return RedirectToAction("Index", "Home");
+        }
+
+        private string UploadImage(RestaurantesRequestDto imagen)
+        {
+            string fileName = null, filePath = null;
+            if (imagen.file != null)
+            {
+                string path = "C:/Users/Javier Hernández/Documents/Universidad/4° Cuatrimestre/Proyecto Integrador/myimages/";
+                fileName = Guid.NewGuid().ToString() + "-" + imagen.file.FileName;
+                filePath = Path.Combine(path, fileName);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    imagen.file.CopyTo(fileStream);
+                }
+            }
+            return fileName;
         }
 
         public async Task<IActionResult> Update(int id)

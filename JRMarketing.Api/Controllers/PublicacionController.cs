@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -45,19 +44,8 @@ namespace JRMarketing.Api.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromForm] PublicacionRequestDto publicacionDto, [FromForm] Foto objectFile)
-        {
-            if (objectFile.file.Length > 0)
-            {
-                string path = "C:/Users/Javier Hernández/Documents/Universidad/4° Cuatrimestre/Proyecto Integrador/Images/";
-                using (FileStream fileStream = System.IO.File.Create(path + objectFile.file.FileName))
-                {
-                    objectFile.file.CopyTo(fileStream);
-                    fileStream.Flush();
-                    publicacionDto.Foto = path + objectFile.file.FileName;
-
-                }
-            }
+        public async Task<IActionResult> Post(PublicacionRequestDto publicacionDto)
+        {      
             var publicacion = _mapper.Map<PublicacionRequestDto, Publicacion>(publicacionDto);
             await _service.AddPublicacion(publicacion);
             var publicacionResponseDto = _mapper.Map<Publicacion, PublicacionResponseDto>(publicacion);
@@ -78,7 +66,7 @@ namespace JRMarketing.Api.Controllers
         [HttpPut]
         public async Task<IActionResult> Put(int id, PublicacionRequestDto publicacionDtio)
         {
-            var publicacion = _mapper.Map<Publicacion>(publicacionDtio);
+            var publicacion = _mapper.Map<Publicacion>(publicacionDtio);       
             publicacion.Id = id;
             publicacion.UpdatedAt = DateTime.Now;
             await _service.UpdatePublicacion(publicacion);

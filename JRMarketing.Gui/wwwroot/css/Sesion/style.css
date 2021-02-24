@@ -1,0 +1,16 @@
+﻿
+#registro {
+    background-image: url('~/images/registro_usuario.jpg');
+}
+
+.table-align{
+    margin: 30px;
+}
+
+.button-size{
+    margin: 40px;
+    font-size: unset;
+    width: auto;
+    max-width: 35%;
+
+}
