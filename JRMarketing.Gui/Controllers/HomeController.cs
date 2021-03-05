@@ -51,6 +51,18 @@ namespace JRMarketing.Gui.Controllers
             {
                 HttpContext.Session.SetInt32("id", _Usuario.Id);
                 HttpContext.Session.SetString("tipo", _Usuario.Tipo);
+              
+                var jsonRestau = await client.GetStringAsync("https://localhost:44350/api/restaurante");
+                var listRestau = JsonConvert.DeserializeObject<ApiResponse<IEnumerable<Restaurantes>>>(jsonRestau);
+                try
+                {
+                    var restaurante = listRestau.Data.Last(e => e.IdUsuarioR == _Usuario.Id);
+                    HttpContext.Session.SetInt32("miRest", restaurante.Id);
+                }
+                catch
+                {
+                    HttpContext.Session.SetInt32("miRest", 0);
+                }                   
                 route = "IndexCliente";
             }
             else

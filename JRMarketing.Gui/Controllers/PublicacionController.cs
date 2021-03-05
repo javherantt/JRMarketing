@@ -16,7 +16,7 @@ namespace JRMarketing.Gui.Controllers
     {
         HttpClient client = new HttpClient();
 
-        public PublicacionController()
+        public PublicacionController() 
         { }
 
         [HttpGet]
@@ -63,12 +63,10 @@ namespace JRMarketing.Gui.Controllers
             if (HttpContext.Session.GetInt32("id") != null && HttpContext.Session.GetString("tipo") == "Cliente")
             {
                 int myId = (int)HttpContext.Session.GetInt32("id");
-                var jsonRestau = await client.GetStringAsync("https://localhost:44350/api/restaurante");
-                var listRestau = JsonConvert.DeserializeObject<ApiResponse<IEnumerable<Restaurantes>>>(jsonRestau);
-                var restaurante = listRestau.Data.First(e => e.IdUsuarioR == myId);
+                var mirest = (int)HttpContext.Session.GetInt32("miRest");
                 var json = await client.GetStringAsync("https://localhost:44350/api/publicacion");
                 var listPublicaciones = JsonConvert.DeserializeObject<ApiResponse<IEnumerable<Publicaciones>>>(json);
-                var publicaciones = listPublicaciones.Data.Where(e => e.IdRestaurantePubli == restaurante.Id);
+                var publicaciones = listPublicaciones.Data.Where(e => e.IdRestaurantePubli == mirest);
                 return View(publicaciones);
             }
             else
@@ -155,8 +153,11 @@ namespace JRMarketing.Gui.Controllers
         {
             if (HttpContext.Session.GetInt32("id") != null && HttpContext.Session.GetString("tipo") == "Cliente")
             {
-                string imagen = UploadUpdate(publicacion);
-                publicacion.Foto = imagen;
+                if(publicacion.file != null)
+                {
+                    string imagen = UploadUpdate(publicacion);
+                    publicacion.Foto = imagen;
+                }
                 client.BaseAddress = new Uri("https://localhost:44350/api/publicacion/");
                 var putTask = client.PutAsJsonAsync<Publicaciones>("?id=" + id, publicacion);
                 putTask.Wait();

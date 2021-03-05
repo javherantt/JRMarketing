@@ -1,6 +1,6 @@
 ﻿@model JRMarketing.Gui.Models.RestaurantesRequestDto
 @using Microsoft.AspNetCore.Http;
-@{ ViewBag.Title = "Add a Reservation";
+@{ ViewBag.Title = "Registrar Restaurante";
     string tipo = Context.Session.GetString("tipo");
     int myId = (int)Context.Session.GetInt32("id");
     if (tipo == "Admin")
@@ -19,7 +19,7 @@
         {
             <h2>Agregar Restaurante <a asp-controller="Home" asp-action="IndexCliente" class="btn btn-sm btn-secondary">Regresar</a></h2>
         }
-        <form style="margin-top: 25px;" asp-action="Create">
+        <form style="margin-top: 25px;" asp-action="Create" enctype="multipart/form-data">
             <div class="form-group form-row">
                 <div class="col-md-4 mt-md-2">
                     <label for="Name" class="control-label col-md-12">Nombre del Restaurante:</label>
@@ -63,7 +63,7 @@
                     <div class="col-md-12" style="min-width: 900px;">
                         <input class="form-control" name="DescripcionR" required />
                     </div>
-                </div>                          
+                </div>
                 <div class="col-md-4 mt-md-3" style="min-width: 900px;">
                     <label for="StartLocation" class="control-label col-md-2">Horario:</label>
                     <div class="col-md-12" style="min-width: 900px;">
@@ -89,6 +89,10 @@
                 {
                     <input type="hidden" class="form-control" name="IdUsuarioR" value="@myId" />
                 }
+                <div class="form-group">
+                    <label for="exampleFormControlFile1">Seleccionar Imagen</label>
+                    <input type="file" class="form-control-file" asp-for="file" id="exampleFormControlFile1">
+                </div>
 
             </div>
             <div class="form-group">

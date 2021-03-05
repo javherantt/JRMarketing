@@ -1,7 +1,8 @@
 ﻿@using Microsoft.AspNetCore.Http;
 @using JRMarketing.Gui.Controllers; 
 @{
-    int id = (int)Context.Session.GetInt32("id");  
+    int id = (int)Context.Session.GetInt32("id");
+    int idRest = (int)Context.Session.GetInt32("miRest");
 }
 <!DOCTYPE html>
 <html>
@@ -51,10 +52,17 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" asp-controller="Usuario" asp-route-Id="@id" asp-action="UserAccount"> Mis Datos</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" asp-controller="Restaurante" asp-route-Id="@id" asp-action="Update">Datos de Negocio</a></li>
+                @if (idRest != 0)
+                {
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" asp-controller="Restaurante" asp-route-Id="@idRest" asp-action="Update">Datos de Negocio</a></li>
+                }
+                else
+                {
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" asp-controller="Restaurante" asp-route-Id="@id" asp-action="Create">Datos de Negocio</a></li>
+                }
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" asp-controller="Publicacion" asp-action="IndexClient">Perfil de Negocio</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" asp-controller="Publicacion" asp-action="Create">Publicar</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" asp-controller="Home" asp-action="LogOut">Cerrar Sesión</a></li>               
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" asp-controller="Home" asp-action="LogOut">Cerrar Sesión</a></li>
             </ul>
         </div>
     </nav>

@@ -1,5 +1,12 @@
 ﻿
 #publicacion{
-    width: 250px;
+    width: 350px;
     height: auto;
+}
+
+.imagen{    
+    margin-left: 100px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 5%;
 }

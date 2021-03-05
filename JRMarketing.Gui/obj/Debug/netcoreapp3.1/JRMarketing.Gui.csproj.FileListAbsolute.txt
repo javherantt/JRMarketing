@@ -131,3 +131,5 @@ C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integ
 C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Gui\obj\Debug\netcoreapp3.1\Razor\Views\Publicacion\IndexAdmin.cshtml.g.cs
 C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Gui\obj\Debug\netcoreapp3.1\Razor\Views\Publicacion\IndexClient.cshtml.g.cs
 C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Gui\obj\Debug\netcoreapp3.1\Razor\Views\Publicacion\Update.cshtml.g.cs
+C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Gui\obj\Debug\netcoreapp3.1\Razor\Views\Consult\Index.cshtml.g.cs
+C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Gui\obj\Debug\netcoreapp3.1\Razor\Views\Consult\Restaurantes.cshtml.g.cs

@@ -1,48 +1,137 @@
-﻿<!DOCTYPE html>
+﻿@model JRMarketing.Gui.Models.Consulta
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - JRMarketing.Gui</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+    <link href="~/css/user/main.css" rel="stylesheet" />
+    <link href="~/css/user/animate.css" rel="stylesheet" />
+    <link href="~/css/user/style.css" rel="stylesheet" />
+    <link href="~/css/user/misestilos.css" rel="stylesheet" />
+    <link href="~/css/main.min.css" rel="stylesheet" />
+    <link href="~/css/user/flaticon.css" rel="stylesheet" />
+    <link href="~/css/user/icomoon.css" rel="stylesheet" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">JRMarketing.Gui</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar" style="min-width: 100%">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><span>JRMarketing</span></a>
+            <div class="s131">
+                <form>
+                    <div class="inner-form">
+                        <div class="input-field first-wrap">
+                            <input id="search" type="text" placeholder="Qué estas buscando?" asp-for="NombreRestaurante" style="width: 450px;" />
+                        </div>
+                        <div class="input-field second-wrap" style="font-family: Poppins;">
+                            <div class="input-select">
+                                <select class="js-example-basic-single caja" asp-for="EstadoR">
+                                    <option placeholder="">Estado</option>
+                                    <option value="no">Seleccione uno...</option>
+                                    <option value="Aguascalientes">Aguascalientes</option>
+                                    <option value="Baja California">Baja California</option>
+                                    <option value="Baja California Sur">Baja California Sur</option>
+                                    <option value="Campeche">Campeche</option>
+                                    <option value="Chiapas">Chiapas</option>
+                                    <option value="Chihuahua">Chihuahua</option>
+                                    <option value="CDMX">Ciudad de México</option>
+                                    <option value="Coahuila">Coahuila</option>
+                                    <option value="Colima">Colima</option>
+                                    <option value="Durango">Durango</option>
+                                    <option value="Estado de México">Estado de México</option>
+                                    <option value="Guanajuato">Guanajuato</option>
+                                    <option value="Guerrero">Guerrero</option>
+                                    <option value="Hidalgo">Hidalgo</option>
+                                    <option value="Jalisco">Jalisco</option>
+                                    <option value="Michoacán">Michoacán</option>
+                                    <option value="Morelos">Morelos</option>
+                                    <option value="Nayarit">Nayarit</option>
+                                    <option value="Nuevo León">Nuevo León</option>
+                                    <option value="Oaxaca">Oaxaca</option>
+                                    <option value="Puebla">Puebla</option>
+                                    <option value="Querétaro">Querétaro</option>
+                                    <option value="Quintana Roo">Quintana Roo</option>
+                                    <option value="San Luis Potosí">San Luis Potosí</option>
+                                    <option value="Sinaloa">Sinaloa</option>
+                                    <option value="Sonora">Sonora</option>
+                                    <option value="Tabasco">Tabasco</option>
+                                    <option value="Tamaulipas">Tamaulipas</option>
+                                    <option value="Tlaxcala">Tlaxcala</option>
+                                    <option value="Veracruz">Veracruz</option>
+                                    <option value="Yucatán">Yucatán</option>
+                                    <option value="Zacatecas">Zacatecas</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="input-field third-wrap">
+                            <button class="btn-search" style="background-color: black; font-size: 16px;" type="button">
+                                Buscar
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    @RenderBody()
+
+    <footer class="ftco-footer ftco-footer-2 ftco-section" id="footer-size">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Registre su negocio</h2>
+                        <ul class="ftco-footer-social list-unstyled float-md-left float-lft">
+                            <li class="btn btn-outline-light">Registrarse</li>
+                            <li class="btn btn-outline-success">Iniciar Sesión</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Contacto</h2>
+                        <div class="block-23 mb-3">
+                            <ul>
+                                <li><span class="icon icon-map-marker"></span><span class="text">Mérida, Yucatán, México C.P. 97143</span></li>
+                                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+052 999 669 9011</span></a></li>
+                                <li class="text" style="color:white">Reportar algún problema</li>
+                                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">javierantonio092@gmail.com</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2020 - JRMarketing.Gui - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @RenderSection("Scripts", required: false)
+
+    <script>
+        $(document).ready(function () {
+            $('.js-example-basic-single').select2();
+        });
+    </script>
+
+
+    <script src="js/extention/choices.js"></script>
+    <script>
+        const choices = new Choices('[data-trigger]',
+            {
+                searchEnabled: false
+            });    
+    </script>
+
+
+    <script src="~/js/user/jquery.min.js"></script>
+    <script src="~/js/user/jquery-migrate-3.0.1.min.js"></script>
+    <script src="~/js/user/jquery.waypoints.min.js"></script>
+    <script src="~/js/user/jquery.stellar.min.js"></script>
+    <script src="~/js/user/owl.carousel.min.js"></script>
+    <script src="~/js/user/aos.js"></script>
+    <script src="~/js/user/scrollax.min.js"></script>
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/main.min.js"></script>
+
 </body>
 </html>

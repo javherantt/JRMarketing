@@ -66,7 +66,14 @@ namespace JRMarketing.Gui.Controllers
                     if (HttpContext.Session.GetString("tipo") == "Admin")
                         return RedirectToAction("IndexAdministracion", "Home");
                     else
+                    {
+                        var jsonRestau = await httpClient.GetStringAsync("https://localhost:44350/api/restaurante");
+                        var listRestau = JsonConvert.DeserializeObject<ApiResponse<IEnumerable<Restaurantes>>>(jsonRestau);
+                        var miId = (int)HttpContext.Session.GetInt32("id");
+                        var myrestaurante = listRestau.Data.First(e => e.IdUsuarioR == miId);                       
+                        HttpContext.Session.SetInt32("miRest", myrestaurante.Id);
                         return RedirectToAction("IndexCliente", "Home");
+                    }                        
                 }
                 else
                     return View(restaurante);
@@ -91,10 +98,26 @@ namespace JRMarketing.Gui.Controllers
             return fileName;
         }
 
+        private string UpdateImage(Restaurantes imagen)
+        {
+            string fileName = null, filePath = null;
+            if (imagen.file != null)
+            {
+                string path = "C:/Users/Javier Hernández/Documents/Universidad/4° Cuatrimestre/Proyecto Integrador/myimages/";
+                fileName = Guid.NewGuid().ToString() + "-" + imagen.file.FileName;
+                filePath = Path.Combine(path, fileName);
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    imagen.file.CopyTo(fileStream);
+                }
+            }
+            return fileName;
+        }
+
         public async Task<IActionResult> Update(int id)
         {
             if (HttpContext.Session.GetInt32("id") != null)
-            {
+            {                
                 if(HttpContext.Session.GetString("tipo") == "Admin")
                 {
                     var json = await httpClient.GetStringAsync("https://localhost:44350/api/restaurante/" + id);
@@ -103,12 +126,12 @@ namespace JRMarketing.Gui.Controllers
                 }
                 else
                 {
-                    var json = await httpClient.GetStringAsync("https://localhost:44350/api/restaurante");
-                    var listRestaurantes = JsonConvert.DeserializeObject<ApiResponse<IEnumerable<Restaurantes>>>(json);
+                    var rest = (int)HttpContext.Session.GetInt32("miRest");
+                    var json = await httpClient.GetStringAsync("https://localhost:44350/api/restaurante/" + id);
+                    var restaurante = JsonConvert.DeserializeObject<ApiResponse<Restaurantes>>(json);
                     try
-                    {
-                        var restaurantes = listRestaurantes.Data.First(e => e.IdUsuarioR == id);
-                        return View(restaurantes);
+                    {                       
+                        return View(restaurante.Data);
                     }
                     catch
                     {
@@ -125,6 +148,11 @@ namespace JRMarketing.Gui.Controllers
         {
             if (HttpContext.Session.GetInt32("id") != null)
             {
+                if(restaurante.file != null)
+                {
+                    var image = UpdateImage(restaurante);
+                    restaurante.FotografiaR = image;
+                }                
                 httpClient.BaseAddress = new Uri("https://localhost:44350/api/restaurante/");
                 var putTask = httpClient.PutAsJsonAsync<Restaurantes>("?id=" + restaurante.Id, restaurante);
                 putTask.Wait();
@@ -143,7 +171,7 @@ namespace JRMarketing.Gui.Controllers
             else
                 return RedirectToAction("Index", "Home");
         }
-
+               
 
     }
 }

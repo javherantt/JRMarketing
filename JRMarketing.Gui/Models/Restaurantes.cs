@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace JRMarketing.Gui.Models
 {
-    public class Restaurantes
+    public class Restaurantes : Foto
     {
         public int Id { get; set; }
         public string NombreRestaurante { get; set; }

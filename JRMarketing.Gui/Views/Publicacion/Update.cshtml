@@ -14,7 +14,7 @@
         <link href="~/css/estilos.css" rel="stylesheet" />
         <h2 class="text-center">Mi Anuncio <a asp-controller="Home" asp-action="IndexCliente" class="btn btn-sm btn-secondary text-center">Regresar</a></h2>
 
-        <form style="margin-top: 25px;" asp-action="Update" method="post">
+        <form style="margin-top: 25px;" asp-action="Update" enctype="multipart/form-data">
             <div class="form-group">
                 <img id="publicacion" src="~/myimages/@Model.Foto" />
                 <label for="exampleFormControlFile1">Cambiar Imagen</label>
@@ -29,6 +29,7 @@
                     </div>
                 </div>
                 <input type="hidden" class="form-control" name="IdRestaurantePubli" value="@Model.IdRestaurantePubli" />
+                <input type="hidden" class="form-control" asp-for="Foto"  value="@Model.Foto" />
 
             </div>
             <div class="form-group">
