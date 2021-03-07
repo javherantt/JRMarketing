@@ -10,6 +10,8 @@ namespace JRMarketing.Gui.Models
     {
         public string NombreRestaurante { get; set; }
         public string EstadoR { get; set; }
-        public IEnumerable<Restaurantes> Restau { get; set; }
+        public IEnumerable<Restaurantes> Restaurante { get; set; }
+        public IEnumerable<Publicaciones> Publicaciones { get; set; }
+        public Restaurantes miRestaurante { get; set; }
     }
 }

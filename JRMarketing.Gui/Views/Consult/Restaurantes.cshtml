@@ -3,8 +3,9 @@
     ViewData["Title"] = "Restaurantes";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+   
 
-@if (Model.Restau.Count() > 0)
+@if (Model.Restaurante.Count() > 0)
 {
     int n = 1;
     <main id="main" role="main">
@@ -16,11 +17,14 @@
                     </div>
                 </div>
                 <div class="row">
-                    @foreach (var item in Model.Restau)
-                    {                        
+                    @foreach (var item in Model.Restaurante)
+                    {
+                        
                         <div class="col-md-4">
                             <div class="card mb-4 box-shadow">
-                                <img src="~/myimages/@item.FotografiaR" alt="Imagen de perfil">
+                                <a asp-controller="Consult" asp-action="Advertisements" asp-route-Id="@item.Id">
+                                    <img src="~/myimages/@item.FotografiaR" alt="Imagen de perfil">
+                                </a>
                                 <div class="card-body">
                                     <p style="text-align:center; font-weight:bold">@item.NombreRestaurante</p>
                                     <p class="card-text maximo">@item.DescripcionR</p>
@@ -32,9 +36,9 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>                            
                         n++;
-                        @if(n > 30)
+                        @if (n > 30)
                         {
                             break;
                         }
@@ -53,10 +57,7 @@ else
     [...document.getElementsByClassName("maximo")].forEach(function (e) {
         e.innerHTML = e.innerHTML.replace(/(.{1,70})(.*)/g, "$1...");
     });
-
     [...document.getElementsByClassName("max-text")].forEach(function (e) {
         e.innerHTML = e.innerHTML.replace(/(.{1,40})(.*)/g, "$1...");
     });
 </script>
-
-
