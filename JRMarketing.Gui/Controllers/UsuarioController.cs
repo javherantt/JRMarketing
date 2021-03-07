@@ -80,7 +80,7 @@ namespace JRMarketing.Gui.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-        }
+        }     
 
         [HttpPost]
         public IActionResult UserAccount(int Id, Usuarios usuario)

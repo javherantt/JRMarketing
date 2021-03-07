@@ -1,5 +1,4 @@
 ﻿@model JRMarketing.Gui.Models.Consulta
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,14 +12,14 @@
     <link href="~/css/user/misestilos.css" rel="stylesheet" />
     <link href="~/css/main.min.css" rel="stylesheet" />
     <link href="~/css/user/flaticon.css" rel="stylesheet" />
-    <link href="~/css/user/icomoon.css" rel="stylesheet" />
+    <link href="~/css/user/icomoon.css" rel="stylesheet" />    
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar" style="min-width: 100%">
         <div class="container">
-            <a class="navbar-brand" href="index.html"><span>JRMarketing</span></a>
+            <a class="navbar-brand" asp-action="Index"><span>JRMarketing</span></a>
             <div class="s131">
-                <form>
+                <form method="get"  asp-controller="Consult" asp-action="Restaurantes">
                     <div class="inner-form">
                         <div class="input-field first-wrap">
                             <input id="search" type="text" placeholder="Qué estas buscando?" asp-for="NombreRestaurante" style="width: 450px;" />
@@ -66,7 +65,7 @@
                             </div>
                         </div>
                         <div class="input-field third-wrap">
-                            <button class="btn-search" style="background-color: black; font-size: 16px;" type="button">
+                            <button class="btn-search" style="background-color: black; font-size: 16px;" type="submit">
                                 Buscar
                             </button>
                         </div>

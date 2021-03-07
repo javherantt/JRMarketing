@@ -1,186 +1,54 @@
-﻿
+﻿@model JRMarketing.Gui.Models.Consulta
 @{
     ViewData["Title"] = "Restaurantes";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@if (Model.Restau.Count() > 0)
+{
+    int n = 1;
+    <main id="main" role="main">
+        <div class="album py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12" id="collection-heading">
+                        <span>Restaurantes</span>
+                    </div>
+                </div>
+                <div class="row">
+                    @foreach (var item in Model.Restau)
+                    {                        
+                        <div class="col-md-4">
+                            <div class="card mb-4 box-shadow">
+                                <img src="~/myimages/@item.FotografiaR" alt="Imagen de perfil">
+                                <div class="card-body">
+                                    <p style="text-align:center; font-weight:bold">@item.NombreRestaurante</p>
+                                    <p class="card-text maximo">@item.DescripcionR</p>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <p class="max-text">@item.DireccionR @item.CiudadR</p>
+                                        </div>
+                                        <small class="text-muted" style="margin-bottom: 14px;">@item.CoidgoPostalR</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        n++;
+                        @if(n > 30)
+                        {
+                            break;
+                        }
 
-<main id="main" role="main">
-    <div class="album py-5 bg-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12" id="collection-heading">
-                    <span>Restaurantes</span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card mb-4 box-shadow">
-                        <img src="~/img/thumbnail.png" alt="Card image cap">
-                        <div class="card-body">
-                            <p class="card-text maximo">Restaurante dedicado a la venta de amburguesas y demas cosas como bebidas coca-cola.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <p class="max-text">Calle 47 entre 12 y 14 #345 Colonia Leandro Valle</p>
-                                </div>
-                                <small class="text-muted" style="margin-bottom: 14px;">12 mins</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card mb-4 box-shadow">
-                        <img class="card-img-top" src="~/img/thumbnail.png" alt="Card image cap" />
-                        <div class="card-body">
-                            <p class="card-text maximo">Restaurante dedicado a la venta de amburguesas.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <p class="max-text">Calle 47 entre 12 y 14 #345</p>
-                                </div>
-                                <small class="text-muted" style="margin-bottom: 14px;">12 mins</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card mb-4 box-shadow">
-                        <img class="card-img-top" src="~/img/thumbnail.png" alt="Card image cap" />
-                        <div class="card-body">
-                            <p class="card-text maximo">Restaurante dedicado a la venta de amburguesas.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <p class="max-text">Calle 47 entre 12 y 14 #345</p>
-                                </div>
-                                <small class="text-muted" style="margin-bottom: 14px;">12 mins</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card mb-4 box-shadow">
-                        <img class="card-img-top" src="~/img/thumbnail.png" alt="Card image cap" />
-                        <div class="card-body">
-                            <p class="card-text maximo">Restaurante dedicado a la venta de amburguesas.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <p class="max-text">Calle 47 entre 12 y 14 #345</p>
-                                </div>
-                                <small class="text-muted" style="margin-bottom: 14px;">12 mins</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card mb-4 box-shadow">
-                        <img class="card-img-top" src="~/img/thumbnail.png" alt="Card image cap" />
-                        <div class="card-body">
-                            <p class="card-text maximo">Restaurante dedicado a la venta de amburguesas.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <p class="max-text">Calle 47 entre 12 y 14 #345</p>
-                                </div>
-                                <small class="text-muted" style="margin-bottom: 14px;">12 mins</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card mb-4 box-shadow">
-                        <img class="card-img-top" src="img/thumbnail.png" alt="Card image cap">
-                        <div class="card-body">
-                            <p class="card-text">
-                                This is a wider card with supporting text below as a natural lead-in to additional content.
-                                This content is a little bit longer.
-                            </p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                </div>
-                                <small class="text-muted">12 mins</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card mb-4 box-shadow">
-                        <img class="card-img-top" src="img/thumbnail.png" alt="Card image cap">
-                        <div class="card-body">
-                            <p class="card-text">
-                                This is a wider card with supporting text below as a natural lead-in to additional content.
-                                This content is a little bit longer.
-                            </p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                </div>
-                                <small class="text-muted">12 mins</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card mb-4 box-shadow">
-                        <img class="card-img-top" src="img/thumbnail.png" alt="Card image cap">
-                        <div class="card-body">
-                            <p class="card-text">
-                                This is a wider card with supporting text below as a natural lead-in to additional content.
-                                This content is a little bit longer.
-                            </p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                </div>
-                                <small class="text-muted">12 mins</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card mb-4 box-shadow">
-                        <img class="card-img-top" src="img/thumbnail.png" alt="Card image cap">
-                        <div class="card-body">
-                            <p class="card-text">
-                                This is a wider card with supporting text below as a natural lead-in to additional content.
-                                This content is a little bit longer.
-                            </p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                </div>
-                                <small class="text-muted">12 mins</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card mb-4 box-shadow">
-                        <img class="card-img-top" src="img/thumbnail.png" alt="Card image cap">
-                        <div class="card-body">
-                            <p class="card-text">
-                                This is a wider card with supporting text below as a natural lead-in to additional content.
-                                This content is a little bit longer.
-                            </p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                </div>
-                                <small class="text-muted">12 mins</small>
-                            </div>
-                        </div>
-                    </div>
+                    }
                 </div>
             </div>
         </div>
-    </div>
-</main>
-
+    </main>
+}
+else
+{
+    <h2 style="text-align:center; margin-top: 150px; margin-bottom: 180px;">No se encontraron resultados</h2>
+}
 <script>
     [...document.getElementsByClassName("maximo")].forEach(function (e) {
         e.innerHTML = e.innerHTML.replace(/(.{1,70})(.*)/g, "$1...");
@@ -190,3 +58,5 @@
         e.innerHTML = e.innerHTML.replace(/(.{1,40})(.*)/g, "$1...");
     });
 </script>
+
+
