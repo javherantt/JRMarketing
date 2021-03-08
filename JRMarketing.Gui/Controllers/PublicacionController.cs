@@ -36,7 +36,7 @@ namespace JRMarketing.Gui.Controllers
             {
                 var json = await client.GetStringAsync("https://localhost:44350/api/publicacion");
                 var listPublicaciones = JsonConvert.DeserializeObject<ApiResponse<IEnumerable<Publicaciones>>>(json);
-                var publicaciones = listPublicaciones.Data;
+                var publicaciones = listPublicaciones.Data.OrderByDescending(e => e.Id);
                 return View(publicaciones);
             }
             else
@@ -137,7 +137,7 @@ namespace JRMarketing.Gui.Controllers
 
         public async Task<IActionResult> Update(int id)
         {
-            if (HttpContext.Session.GetInt32("id") != null && HttpContext.Session.GetString("tipo") == "Cliente")
+            if (HttpContext.Session.GetInt32("id") != null)
             {
 
                 var json = await client.GetStringAsync("https://localhost:44350/api/publicacion/" + id);
@@ -151,7 +151,7 @@ namespace JRMarketing.Gui.Controllers
         [HttpPost]
         public IActionResult Update(int id, Publicaciones publicacion)
         {
-            if (HttpContext.Session.GetInt32("id") != null && HttpContext.Session.GetString("tipo") == "Cliente")
+            if (HttpContext.Session.GetInt32("id") != null)
             {
                 if(publicacion.file != null)
                 {
@@ -196,8 +196,13 @@ namespace JRMarketing.Gui.Controllers
                     client.BaseAddress = new Uri("https://localhost:44350/api/");
                     var deleteTask = client.DeleteAsync("publicacion/" + id.ToString());
                     var result = deleteTask.Result;
-                    if (result.IsSuccessStatusCode)
-                        return RedirectToAction("IndexClient");
+                    if (result.IsSuccessStatusCode) {
+                        if (HttpContext.Session.GetString("tipo") == "Cliente")
+                            return RedirectToAction("IndexClient");
+                        else
+                            return RedirectToAction("IndexAdmin");
+                           
+                    }
                     else
                     {
                         ViewData["Message"] = "Error";

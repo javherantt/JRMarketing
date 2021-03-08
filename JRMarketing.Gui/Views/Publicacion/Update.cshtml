@@ -1,14 +1,16 @@
 ﻿@model JRMarketing.Gui.Models.Publicaciones
-@using Microsoft.AspNetCore.Http; 
+@using Microsoft.AspNetCore.Http;
 @{
     ViewData["Title"] = "Index";
-    if(Context.Session.GetString("tipo") == "Admin")
+    string tipo = Context.Session.GetString("tipo");
+    if (tipo == "Admin")
         Layout = "~/Views/Shared/AdminLayout.cshtml";
     else
         Layout = "~/Views/Shared/LayoutUser.cshtml";
 }
 
-
+@if (tipo == "Cliente")
+{
     <div class="container-xl table-wrapper" style="margin-left: 35px;">
         <hr />
         <link href="~/css/estilos.css" rel="stylesheet" />
@@ -29,7 +31,7 @@
                     </div>
                 </div>
                 <input type="hidden" class="form-control" name="IdRestaurantePubli" value="@Model.IdRestaurantePubli" />
-                <input type="hidden" class="form-control" asp-for="Foto"  value="@Model.Foto" />
+                <input type="hidden" class="form-control" asp-for="Foto" value="@Model.Foto" />
 
             </div>
             <div class="form-group">
@@ -40,3 +42,27 @@
             </div>
         </form>
     </div>
+}
+else
+{
+    <div class="container-xl table-wrapper" style="margin-left: 35px;">
+        <hr />
+        <link href="~/css/estilos.css" rel="stylesheet" />
+        <h2 class="text-center">Mi Anuncio <a asp-controller="Publicacion" asp-action="IndexAdmin" class="btn btn-sm btn-secondary text-center">Regresar</a></h2>
+
+        <form style="margin-top: 25px;" asp-action="Update" enctype="multipart/form-data">
+            <div class="form-group">
+                <img id="publicacion" src="~/myimages/@Model.Foto" />              
+            </div>
+            <div>
+                <label>Descripcion:</label>
+                <p style="text-align: justify">@Model.DescripcionP</p>
+                <p style="margin-top: 15px;">ID de Restaurante</p>
+                <p>@Model.IdRestaurantePubli</p>
+            </div>        
+            <div class="form-group">
+                <a asp-controller="Publicacion" asp-route-Id="@Model.Id" asp-action="Delete" class="btn btn-primary btn-lg btn-block" style="margin:10px">Eliminar</a>
+            </div>
+        </form>
+    </div>
+}

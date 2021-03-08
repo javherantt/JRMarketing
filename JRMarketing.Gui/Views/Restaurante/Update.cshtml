@@ -20,6 +20,7 @@
         {
             <h2 class="text-center">Datos del Restaurante <a asp-controller="Home" asp-action="IndexCliente" class="btn btn-sm btn-secondary text-center">Regresar</a></h2>
         }
+<div class="container">
     <form style="margin-top: 25px;" asp-action="Update" enctype="multipart/form-data"> 
         
        <input type="hidden" class="form-control" name="IdUsuarioR" value="@Model.IdUsuarioR" />
@@ -86,3 +87,4 @@
         </div>
     </form>
     </div>
+</div>

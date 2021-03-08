@@ -45,9 +45,8 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Apellidos)
                 </td>
-                <td>
-                    <a asp-controller="Usuario" asp-route-Id="@item.Id" asp-action="Detail" class="view" title="Ver" data-toggle="tooltip"><i class="material-icons">Detalles</i></a>                 
-                    <a asp-controller="Usuario" asp-route-Id="@item.Id" asp-action="Update" class="edit" title="Editar" data-toggle="tooltip"><i class="material-icons">Editar</i></a>
+                <td>       
+                    <a asp-controller="Usuario" asp-route-Id="@item.Id" asp-action="Update" class="edit" title="Editar" data-toggle="tooltip"><i class="material-icons">Detalles/Editar</i></a>
                 </td>
             </tr>
         }

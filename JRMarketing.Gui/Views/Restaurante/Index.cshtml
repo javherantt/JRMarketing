@@ -15,18 +15,20 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Id)
+                ID 
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.NombreRestaurante)
+                Nombre del Restaurante
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.EstadoR)
+                Estado
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CiudadR)
+                Ciudad
             </th>
-            <th></th>
+            <th>
+                Imagen
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -46,10 +48,19 @@
                     @Html.DisplayFor(modelItem => item.CiudadR)
                 </td>
                 <td>
-                    <a asp-controller="Restaurante" asp-route-Id="@item.Id" asp-action="Details" class="view" title="Ver" data-toggle="tooltip"><i class="material-icons">Detalles</i></a>
-                    <a asp-controller="Restaurante" asp-route-Id="@item.Id" asp-action="Update" class="edit" title="Editar" data-toggle="tooltip"><i class="material-icons">Editar</i></a>
+                    <img id="publicacion" src="~/myimages/@item.FotografiaR"/>
+                </td>
+                <td>                    
+                    <a asp-controller="Restaurante" asp-route-Id="@item.Id" asp-action="Update" class="edit" title="Editar" data-toggle="tooltip"><i class="material-icons">Detalles/Editar</i></a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+
+<style>
+    #publicacion {
+        width: 350px;
+        height: auto;
+    }
+</style>

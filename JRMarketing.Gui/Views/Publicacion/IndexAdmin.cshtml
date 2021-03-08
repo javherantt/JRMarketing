@@ -1,27 +1,31 @@
 ﻿@model IEnumerable<JRMarketing.Gui.Models.Publicaciones>
 
 @{
-    ViewData["Title"] = "Publicaciones";
+    ViewData["Title"] = "Lista de Publicaciones";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
 @if (Model.Any())
 {
-    <h1>Lista de Publicaciones</h1>
+    int n = 1;
+    <div class="container">
+    <h1 style="margin-top:18px;">Lista de Publicaciones</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Id)
+                    ID
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.DescripcionP)
+                    Descripción
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.IdRestaurantePubli)
+                    ID Restaurante
                 </th>
-                <th></th>
+                <th>
+                    Imagen
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -35,17 +39,36 @@
                         @Html.DisplayFor(modelItem => item.DescripcionP)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.IdRestaurantePubli)
+                        <div id="max-td">
+                            @Html.DisplayFor(modelItem => item.IdRestaurantePubli)
+                        </div>
+                    </td>
+                    <td>
+                        <img id="publicacion" src="~/myimages/@item.Foto" />
                     </td>
                     <td>
                         <a asp-controller="Publicacion" asp-route-Id="@item.Id" asp-action="Update" class="edit" title="Editar" data-toggle="tooltip"><i class="material-icons">Editar</i></a>
                     </td>
                 </tr>
+                n++;
+                if (n > 30)
+                    break;
             }
         </tbody>
     </table>
+     </div>
 }
 else
 {
     <h1 style="margin-left:20px;">NO EXISTEN ANUNCIONES REGISTRADOS</h1>
 }
+
+<style>
+    #publicacion{
+        width: 250px;
+        height: auto;
+    }
+    #max-td{
+        max-width: 200px;
+    }
+</style>
