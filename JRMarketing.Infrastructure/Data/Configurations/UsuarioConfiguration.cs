@@ -70,6 +70,10 @@ namespace JRMarketing.Infrastructure.Data.Configurations
                 .HasMaxLength(25)
                 .IsUnicode(false);
 
+            builder.Property(e => e.Telefono)
+                .HasMaxLength(12)
+                .IsUnicode(false);
+
             builder.Property(e => e.UpdatedAt).HasColumnType("datetime");
         }
     }

@@ -29,7 +29,7 @@ namespace JRMarketing.Infrastructure.Validators
             RuleFor(usuario => usuario.Correo)
                 .NotNull()
                 .NotEmpty()
-                .EmailAddress();               
+                .EmailAddress();              
         }
     }
 }

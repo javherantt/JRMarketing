@@ -67,6 +67,9 @@ namespace JRMarketing.Infrastructure.Data.Configurations
                 .HasForeignKey(d => d.IdUsuarioR)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_IDUSUARIOR");
+
+            builder.Property(e => e.Telefono)
+                .IsUnicode(false);
         }
     }
 }

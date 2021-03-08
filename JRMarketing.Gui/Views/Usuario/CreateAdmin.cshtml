@@ -1,96 +1,89 @@
-﻿@model JRMarketing.Gui.Models.Usuarios
-@using Microsoft.AspNetCore.Http;
-@{
-    ViewData["Title"] = "Editar Usuario";
-    Layout = "~/Views/Shared/AdminLayout.cshtml";
-}
-<link href="~/css/Sesion/style.css" rel="stylesheet" />
+﻿@model JRMarketing.Gui.Models.UsuarioRequestDto
+@{ Layout = "AdminLayout"; ViewBag.Title = "Agregar Administrador";}
 
-<div class="container-xl table-wrapper" style="margin-left: 40px;">
+
+<div class="container-xl table-wrapper">
     <hr />
-    <h2 class="text-center">Datos del Usuario <a asp-controller="Usuario" asp-action="Index" class="btn btn-sm btn-secondary text-center">Regresar</a></h2>
-    <form style="margin-top: 25px;" asp-action="Update">
+    <h2 class="text-center">Agregar Usuario <a asp-controller="Home" asp-action="IndexAdmin" class="btn btn-sm btn-secondary text-center">Cancelar</a></h2>
+    <form style="margin-top: 25px;" asp-action="CreateAdmin">
         <div class="form-group form-row">
             <div class="col-md-4 mt-md-2">
                 <label for="Name" class="control-label col-md-8">Nombre de Usuario:</label>
                 <div class="col-md-12">
-                    <input class="form-control" name="NombreUsuario" value="@Model.NombreUsuario" />
+                    <input class="form-control" name="NombreUsuario" />
                 </div>
             </div>
             <div class="col-md-4 mt-md-2">
                 <label for="StartLocation" class="control-label col-md-2">Contraseña:</label>
                 <div class="col-md-12">
-                    <input type="password" class="form-control" name="Contrasenia" value="@Model.Contrasenia" />
+                    <input type="password" class="form-control" name="Contrasenia" />
                 </div>
             </div>
             <div class="col-md-4 mt-md-2">
                 <label for="EndLocation" class="control-label col-md-2">Nombre:</label>
                 <div class="col-md-12">
-                    <input class="form-control" name="Nombre" value="@Model.Nombre" />
+                    <input class="form-control" name="Nombre" />
                 </div>
             </div>
             <div class="col-md-4 mt-md-3">
                 <label for="Name" class="control-label col-md-2">Apellidos:</label>
                 <div class="col-md-12">
-                    <input class="form-control" name="Apellidos" value="@Model.Apellidos" />
+                    <input class="form-control" name="Apellidos" />
                 </div>
 
             </div>
             <div class="col-md-4 mt-md-3">
                 <label for="StartLocation" class="control-label col-md-2">Direccion:</label>
                 <div class="col-md-12">
-                    <input class="form-control" name="Direccion" value="@Model.Direccion" />
+                    <input class="form-control" name="Direccion" />
                 </div>
             </div>
             <div class="col-md-4 mt-md-3">
                 <label for="EndLocation" class="control-label col-md-2">Colonia:</label>
                 <div class="col-md-12">
-                    <input class="form-control" name="Colonia" value="@Model.Colonia" />
+                    <input class="form-control" name="Colonia" />
                 </div>
             </div>
             <div class="col-md-4 mt-md-3">
                 <label for="Name" class="control-label col-md-2">Estado:</label>
                 <div class="col-md-12">
-                    <input class="form-control" name="Estado" value="@Model.Estado" />
+                    <input class="form-control" name="Estado" />
                 </div>
             </div>
             <div class="col-md-4 mt-md-3">
                 <label for="StartLocation" class="control-label col-md-2">Ciudad:</label>
                 <div class="col-md-12">
-                    <input class="form-control" name="Ciudad" value="@Model.Ciudad" />
+                    <input class="form-control" name="Ciudad" />
                 </div>
             </div>
             <div class="col-md-4 mt-md-3">
                 <label for="EndLocation" class="control-label col-md-10">Código Postal:</label>
                 <div class="col-md-12">
-                    <input class="form-control" name="CoidgoPostal" value="@Model.CoidgoPostal" />
+                    <input class="form-control" name="CoidgoPostal" />
                 </div>
             </div>
             <div class="col-md-4 mt-md-3">
                 <label for="EndLocation" class="control-label col-md-10">Fecha de Nacimiento:</label>
                 <div class="col-md-12">
-                    <input type="datetime" class="form-control" name="FechaNacimiento" value="@Model.FechaNacimiento" />
+                    <input type="date" class="form-control" name="FechaNacimiento" />
                 </div>
             </div>
             <div class="col-md-4 mt-md-3">
                 <label for="StartLocation" class="control-label col-md-2">Correo:</label>
                 <div class="col-md-12">
-                    <input class="form-control" name="Correo" value="@Model.Correo" />
+                    <input class="form-control" name="Correo" />
                 </div>
             </div>
             <div class="col-md-4 mt-md-3">
                 <label for="EndLocation" class="control-label col-md-2">Telefono:</label>
                 <div class="col-md-12">
-                    <input class="form-control" name="Telefono" value="@Model.Telefono" />
+                    <input class="form-control" name="TelefonoUsuario" />
                 </div>
             </div>
-
-            <input type="hidden" class="form-control" value="Cliente" name="Tipo" />
-
-
+            <input type="hidden" class="form-control" value="Admin" name="Tipo" />
         </div>
         <div class="form-group">
-            <input type="submit" value="Guardar Datos" class="btn btn-primary btn-lg btn-block mt-md-3 button-size" style="margin:10px" />
+            <input type="submit" value="Guardar Datos" class="btn btn-primary btn-lg btn-block mt-md-3" style="margin:10px" />
         </div>
     </form>
 </div>       

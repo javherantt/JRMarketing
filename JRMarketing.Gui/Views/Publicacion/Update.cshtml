@@ -1,7 +1,7 @@
 ﻿@model JRMarketing.Gui.Models.Publicaciones
 @using Microsoft.AspNetCore.Http;
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Actualizar Publicación";
     string tipo = Context.Session.GetString("tipo");
     if (tipo == "Admin")
         Layout = "~/Views/Shared/AdminLayout.cshtml";

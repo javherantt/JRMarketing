@@ -24,9 +24,9 @@ namespace JRMarketing.Domain.Entities
         public string Correo { get; set; }
         public DateTime FechaNacimiento { get; set; }
         public string Tipo { get; set; }
+        public string Telefono { get; set; }
 
         public virtual Cliente Cliente { get; set; }
-        public virtual TelefonoUsuario TelefonoUsuario { get; set; }
         public virtual ICollection<Restaurante> Restaurantes { get; set; }
     }
 }

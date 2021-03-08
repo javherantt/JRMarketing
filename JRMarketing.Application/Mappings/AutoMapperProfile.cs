@@ -13,32 +13,22 @@ namespace JRMarketing.Application.Mappings
             CreateMap<Restaurante, RestauranteRequestDto>();
             CreateMap<Restaurante, RestauranteResponseDto>();
             CreateMap<RestauranteRequestDto2, Restaurante>();
-            CreateMap<RestauranteRequestDto, TelefonoRestaurante>()               
-                .ForMember(destination => destination.NumeroRestaurante, act => act.MapFrom(source => source.TelefonoRestaurante));
-            CreateMap<RestauranteRequestDto, Restaurante>()
-                .ForMember(destination => destination.TelefonoRestaurante, act => act.MapFrom(source => source))
+            CreateMap<RestauranteRequestDto, Restaurante>()       
                 .AfterMap((source, destination) =>
                 {
                     destination.CreatedAt = DateTime.Now;
-                    destination.UpdatedAt = DateTime.Now;
-                    destination.TelefonoRestaurante.CreatedAt = DateTime.Now;
-                    destination.TelefonoRestaurante.UpdatedAt = DateTime.Now;
+                    destination.UpdatedAt = DateTime.Now;         
                 });
             CreateMap<RestauranteResponseDto, Restaurante>();
             //Usuarios
             CreateMap<Usuario, UsuarioResponseDto>();
             CreateMap<Usuario, UsuarioRequestDto>(); 
-            CreateMap<UsuarioRequestDto2, Usuario>();
-            CreateMap<UsuarioRequestDto, TelefonoUsuario>()
-                .ForMember(destination => destination.NumeroUsuario, act => act.MapFrom(source => source.TelefonoUsuario));
-            CreateMap<UsuarioRequestDto, Usuario>()
-                .ForMember(destination => destination.TelefonoUsuario, act => act.MapFrom(source => source))
+            CreateMap<UsuarioRequestDto2, Usuario>();          
+            CreateMap<UsuarioRequestDto, Usuario>()               
                 .AfterMap((source, destination) =>
                 {
                     destination.CreatedAt = DateTime.Now;
-                    destination.UpdatedAt = DateTime.Now;
-                    destination.TelefonoUsuario.CreatedAt = DateTime.Now;
-                    destination.TelefonoUsuario.UpdatedAt = DateTime.Now;
+                    destination.UpdatedAt = DateTime.Now;                  
                 });      
             CreateMap<UsuarioResponseDto, Usuario>();
             //Etiqueta

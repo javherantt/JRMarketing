@@ -71,18 +71,28 @@ namespace JRMarketing.Gui.Controllers
             return RedirectToAction(route);
         }
 
-        public IActionResult IndexAdministracion()
+        public async Task<IActionResult> IndexAdministracion()
         {
             if (HttpContext.Session.GetString("id") != null && HttpContext.Session.GetString("tipo") == "Admin")
-                return View();            
-            else            
+            {
+                int id = (int)HttpContext.Session.GetInt32("id");
+                var json = await client.GetStringAsync("https://localhost:44350/api/usuario/" + id);
+                var usuario = JsonConvert.DeserializeObject<ApiResponse<Usuarios>>(json);
+                return View(usuario.Data);
+            }
+            else
                 return RedirectToAction("Index");            
         }
 
-        public IActionResult IndexCliente()
+        public async Task<IActionResult> IndexCliente()
         {
             if (HttpContext.Session.GetString("id") != null && HttpContext.Session.GetString("tipo") == "Cliente")
-                return View();            
+            {
+                int id = (int)HttpContext.Session.GetInt32("id");
+                var json = await client.GetStringAsync("https://localhost:44350/api/usuario/" + id);
+                var usuario = JsonConvert.DeserializeObject<ApiResponse<Usuarios>>(json);
+                return View(usuario.Data);
+            }            
             else            
                 return RedirectToAction("Index");            
         }

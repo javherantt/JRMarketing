@@ -1,7 +1,7 @@
 ﻿@model JRMarketing.Gui.Models.Usuarios
 @using Microsoft.AspNetCore.Http; 
 @{
-    ViewData["Title"] = "Inicio Usuario";
+    ViewData["Title"] = "Mis Datos";
     var userType = Context.Session.GetString("tipo");
     if(userType == "Admin")
         Layout = "~/Views/Shared/AdminLayout.cshtml";
@@ -81,6 +81,12 @@
                 <label for="StartLocation" class="control-label col-md-2">Correo:</label>
                 <div class="col-md-12">
                     <input class="form-control" name="Correo" value="@Model.Correo" />
+                </div>
+            </div>
+            <div class="col-md-4 mt-md-3">
+                <label for="StartLocation" class="control-label col-md-2">Teléfono:</label>
+                <div class="col-md-12">
+                    <input class="form-control" name="Telefono" value="@Model.Telefono" />
                 </div>
             </div>
             @if (userType == "Admin")

@@ -17,7 +17,7 @@ namespace JRMarketing.Gui.Models
         public string Correo { get; set; } 
         public DateTime FechaNacimiento { get; set; } 
         public string Tipo { get; set; }
-        public string TelefonoUsuario { get; set; }
+        public string Telefono { get; set; }
     }
 
     public class UsuarioRequestDto
@@ -34,6 +34,6 @@ namespace JRMarketing.Gui.Models
         public string Correo { get; set; }
         public DateTime FechaNacimiento { get; set; }
         public string Tipo { get; set; }
-        public string TelefonoUsuario { get; set; }
+        public string Telefono { get; set; }
     }
 }

@@ -1,4 +1,11 @@
-﻿@{
-    ViewData["Title"] = "Inicio Usuario";
+﻿@model JRMarketing.Gui.Models.Usuarios
+@{
+    ViewData["Title"] = "Inicio";
     Layout = "~/Views/Shared/LayoutUser.cshtml";
 }
+
+<div>
+    <center>
+        <h2>Welcome @Model.NombreUsuario</h2>
+    </center>
+</div>

@@ -1,4 +1,18 @@
-﻿@{
-    ViewData["Title"] = "Inicio Usuario";
+﻿@model JRMarketing.Gui.Models.Usuarios
+@{
+    ViewData["Title"] = "Panel Administrativo";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
+
+<div id="position"> 
+        <h2 style="font-weight: bold">Welcome @Model.NombreUsuario</h2>
+</div>
+
+<style>
+    #position{
+        text-align: center;
+        margin-top: 250px;
+        margin-left: 50px;
+    }
+</style>
+

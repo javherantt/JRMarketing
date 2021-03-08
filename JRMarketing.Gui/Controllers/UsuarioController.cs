@@ -109,7 +109,7 @@ namespace JRMarketing.Gui.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(UsuarioRequestDto usuario)
         {
-            if(HttpContext.Session.GetInt32("id") != null)
+            if(HttpContext.Session.GetInt32("id") != null && HttpContext.Session.GetString("tipo") == "Admin")
             {
                 var Json = await client.PostAsJsonAsync("https://localhost:44350/api/usuario/", usuario);
                 if (Json.IsSuccessStatusCode)
@@ -122,6 +122,26 @@ namespace JRMarketing.Gui.Controllers
                 return RedirectToAction("Index", "Home");
         
         }
+
+        public ViewResult CreateAdmin() => View();
+
+        [HttpPost]
+        public async Task<IActionResult> CreateAdmin(UsuarioRequestDto usuario)
+        {
+            if (HttpContext.Session.GetInt32("id") != null && HttpContext.Session.GetString("tipo") == "Admin")
+            {
+                var Json = await client.PostAsJsonAsync("https://localhost:44350/api/usuario/", usuario);
+                if (Json.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("Index");
+                }
+                return View(usuario);
+            }
+            else
+                return RedirectToAction("Index", "Home");
+
+        }
+
 
         public ViewResult Registrar() => View();
 

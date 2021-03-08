@@ -65,7 +65,7 @@ namespace JRMarketing.Api.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Put (int id, UsuarioRequestDto2 usuarioDto)
+        public async Task<IActionResult> Put (int id, Usuario usuarioDto)
         {
             var usuario = _mapper.Map<Usuario>(usuarioDto);
             usuario.Id = id;

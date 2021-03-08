@@ -1,7 +1,7 @@
 ﻿@model JRMarketing.Gui.Models.Restaurantes
 @using Microsoft.AspNetCore.Http;
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Actualizar Restaurante";
     string tipo = Context.Session.GetString("tipo");
     if (tipo == "Admin")
         Layout = "~/Views/Shared/AdminLayout.cshtml";
@@ -73,6 +73,12 @@
                <label for="StartLocation" class="control-label col-md-2">Horario:</label>
                <div class="col-md-12" style="min-width: 900px;">
                    <input class="form-control" name="Horario" value="@Model.Horario" />
+               </div>
+           </div>
+           <div class="col-md-4 mt-md-3" style="min-width: 900px;">
+               <label for="StartLocation" class="control-label col-md-2">Telefono:</label>
+               <div class="col-md-12" style="min-width: 900px;">
+                   <input class="form-control" name="Telefono" value="@Model.Telefono" />
                </div>
            </div>
            <div class="form-group">

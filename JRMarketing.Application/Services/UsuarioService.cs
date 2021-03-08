@@ -28,10 +28,10 @@ namespace JRMarketing.Application.Services
             var usuarioCorre = _unitOfWork.UsuarioRepository.FindByCondition(expreCorreo);
             if (usuarioCorre.Any()) throw new BusinessException("El correo ya esta siendo utilizado");
 
-            if(usuario.TelefonoUsuario != null)
+            if(usuario.Telefono != null)
             {
-                Expression<Func<TelefonoUsuario, bool>> expreTelefono = item => item.NumeroUsuario == usuario.TelefonoUsuario.NumeroUsuario;
-                var telefono = _unitOfWork.TelefonoUsuarioRepository.FindByCondition(expreTelefono);
+                Expression<Func<Usuario, bool>> expreTelefono = item => item.Telefono == usuario.Telefono;
+                var telefono = _unitOfWork.UsuarioRepository.FindByCondition(expreTelefono);
                 if (telefono.Any()) throw new BusinessException("El telefono ya esta siendo utilizado");
             }
             await _unitOfWork.UsuarioRepository.Add(usuario);

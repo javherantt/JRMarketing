@@ -8,7 +8,6 @@ namespace JRMarketing.Domain.Entities
     public partial class TelefonoUsuario : BaseEntity
     { 
         public string NumeroUsuario { get; set; }
-
-        public virtual Usuario IdNavigation { get; set; }
+   
     }
 }

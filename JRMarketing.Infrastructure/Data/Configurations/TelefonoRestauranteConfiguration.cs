@@ -22,12 +22,7 @@ namespace JRMarketing.Infrastructure.Data.Configurations
                 .IsUnicode(false);
 
             builder.Property(e => e.UpdatedAt).HasColumnType("datetime");
-
-            builder.HasOne(d => d.IdNavigation)
-                .WithOne(p => p.TelefonoRestaurante)
-                .HasForeignKey<TelefonoRestaurante>(d => d.Id)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_IDTELEFONORESTAU");
+    
         }
     }
 }

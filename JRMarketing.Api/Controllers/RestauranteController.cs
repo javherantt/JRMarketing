@@ -66,7 +66,7 @@ namespace JRMarketing.Api.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Put(int id, RestauranteRequestDto2 restuaranteDto)
+        public async Task<IActionResult> Put(int id, Restaurante restuaranteDto)
         {
             var restuarante = _mapper.Map<Restaurante>(restuaranteDto);
             restuarante.Id = id;

@@ -18,6 +18,7 @@ namespace JRMarketing.Gui.Models
         public string Horario { get; set; }
         public string FotografiaR { get; set; }
         public int IdUsuarioR { get; set; }
+        public string Telefono { get; set; }
     }
 
     public class RestaurantesRequestDto : Foto
@@ -33,6 +34,6 @@ namespace JRMarketing.Gui.Models
         public string FotografiaR { get; set; }
         public int IdUsuarioR { get; set; }
 
-        public string TelefonoRestaurante { get; set; }
+        public string Telefono { get; set; }
     }
 }

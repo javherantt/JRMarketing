@@ -17,6 +17,7 @@ namespace JRMarketing.Domain.DTOs
         public string Horario { get; set; }
         public string FotografiaR { get; set; }
         public int IdUsuarioR { get; set; }
+        public string Telefono { get; set; }
     }
 
     public class RestauranteRequestDto
@@ -32,7 +33,7 @@ namespace JRMarketing.Domain.DTOs
         public string FotografiaR { get; set; }
         public int IdUsuarioR { get; set; }
 
-        public string TelefonoRestaurante { get; set; }
+        public string Telefono { get; set; }
     }
 
     public class RestauranteRequestDto2
@@ -47,5 +48,6 @@ namespace JRMarketing.Domain.DTOs
         public string Horario { get; set; }
         public string FotografiaR { get; set; }
         public int IdUsuarioR { get; set; }
+
     }
 }

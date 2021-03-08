@@ -23,9 +23,9 @@ namespace JRMarketing.Domain.Entities
         public string Horario { get; set; }
         public string FotografiaR { get; set; }
         public int IdUsuarioR { get; set; }
+        public string Telefono { get; set; }
 
         public virtual Usuario IdUsuarioRNavigation { get; set; }
-        public virtual TelefonoRestaurante TelefonoRestaurante { get; set; }
         public virtual ICollection<Publicacion> Publicacions { get; set; }
         public virtual ICollection<RestauranteEtiquetum> RestauranteEtiqueta { get; set; }
     }

@@ -26,10 +26,10 @@ namespace JRMarketing.Application.Services
             var restaurantes = _unitofWork.RestauranteRepository.FindByCondition(expreRestaurante);
             if (restaurantes.Any())
                 throw new BusinessException("El nombre del restaurante ya existe");
-            if (restaurante.TelefonoRestaurante != null)
+            if (restaurante.Telefono != null)
             {
-                Expression<Func<TelefonoRestaurante, bool>> expreTelefono = item => item.NumeroRestaurante == restaurante.TelefonoRestaurante.NumeroRestaurante;
-                var telefonos = _unitofWork.TelefonoRestauranteRepository.FindByCondition(expreTelefono);
+                Expression<Func<Restaurante, bool>> expreTelefono = item => item.Telefono == restaurante.Telefono;
+                var telefonos = _unitofWork.RestauranteRepository.FindByCondition(expreTelefono);
                 if (telefonos.Any()) throw new BusinessException("El telefono esta siendo utilizado");
             }
             await _unitofWork.RestauranteRepository.Add(restaurante);
