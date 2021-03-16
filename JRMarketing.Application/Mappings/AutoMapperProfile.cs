@@ -53,6 +53,10 @@ namespace JRMarketing.Application.Mappings
                     destination.UpdatedAt = DateTime.Now;                    
                 });
             CreateMap<PublicacionResponseDto, Publicacion>();
+
+            //RestauranteEiquetumDto
+            CreateMap<RestauranteEtiquetumDto, RestauranteEtiquetum>();
+            CreateMap<RestauranteEtiquetum, RestauranteEtiquetumDto>();
         }
     }
 }

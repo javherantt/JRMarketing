@@ -9,128 +9,159 @@
         Layout = "~/Views/Shared/LayoutUser.cshtml";
 }
 
-    <div class="container-xl table-wrapper" style="margin-left: 40px;">
-        <hr />
-        @if (tipo == "Admin")
-        {
-            <h2>Agregar Restaurante <a asp-action="Index" class="btn btn-sm btn-secondary">Regresar</a></h2>
-        }
-        else
-        {
-            <h2>Agregar Restaurante <a asp-controller="Home" asp-action="IndexCliente" class="btn btn-sm btn-secondary">Regresar</a></h2>
-        }
-        <form style="margin-top: 25px;" asp-action="Create" enctype="multipart/form-data">
-            <div class="form-group form-row">
-                <div class="col-md-4 mt-md-2">
-                    <label for="Name" class="control-label col-md-12">Nombre del Restaurante:</label>
-                    <div class="col-md-12">
-                        <input class="form-control" name="NombreRestaurante" required />
-                    </div>
-                </div>
-                <div class="col-md-4 mt-md-2">
-                    <label for="StartLocation" class="control-label col-md-2">Dirección:</label>
-                    <div class="col-md-12">
-                        <input class="form-control" name="DireccionR" required />
-                    </div>
-                </div>
-                <div class="col-md-4 mt-md-2">
-                    <label for="EndLocation" class="control-label col-md-2">Colonia:</label>
-                    <div class="col-md-12">
-                        <input class="form-control" name="ColoniaR" required />
-                    </div>
-                </div>
-                <div class="col-md-4 mt-md-3">
-                    <label for="Name" class="control-label col-md-2">Estado:</label>
-                    <div class="col-md-12">                  
-                        <select class="form-control" name="EstadoR" required>      
-                            <option disabled selected> -- Selecciona una opción -- </option>
-                            <option value="Aguascalientes">Aguascalientes</option>
-                            <option value="Baja California">Baja California</option>
-                            <option value="Baja California Sur">Baja California Sur</option>
-                            <option value="Campeche">Campeche</option>
-                            <option value="Chiapas">Chiapas</option>
-                            <option value="Chihuahua">Chihuahua</option>
-                            <option value="CDMX">Ciudad de México</option>
-                            <option value="Coahuila">Coahuila</option>
-                            <option value="Colima">Colima</option>
-                            <option value="Durango">Durango</option>
-                            <option value="Estado de México">Estado de México</option>
-                            <option value="Guanajuato">Guanajuato</option>
-                            <option value="Guerrero">Guerrero</option>
-                            <option value="Hidalgo">Hidalgo</option>
-                            <option value="Jalisco">Jalisco</option>
-                            <option value="Michoacán">Michoacán</option>
-                            <option value="Morelos">Morelos</option>
-                            <option value="Nayarit">Nayarit</option>
-                            <option value="Nuevo León">Nuevo León</option>
-                            <option value="Oaxaca">Oaxaca</option>
-                            <option value="Puebla">Puebla</option>
-                            <option value="Querétaro">Querétaro</option>
-                            <option value="Quintana Roo">Quintana Roo</option>
-                            <option value="San Luis Potosí">San Luis Potosí</option>
-                            <option value="Sinaloa">Sinaloa</option>
-                            <option value="Sonora">Sonora</option>
-                            <option value="Tabasco">Tabasco</option>
-                            <option value="Tamaulipas">Tamaulipas</option>
-                            <option value="Tlaxcala">Tlaxcala</option>
-                            <option value="Veracruz">Veracruz</option>
-                            <option value="Yucatán">Yucatán</option>
-                            <option value="Zacatecas">Zacatecas</option>
-                        </select>
-                    </div>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Raleway'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<link href="~/css/otros/style.css" rel="stylesheet" />
 
+
+<div class="container-xl table-wrapper" style="margin-left: 40px;">
+    <hr />
+    @if (tipo == "Admin")
+    {
+        <h2>Agregar Restaurante <a asp-action="Index" class="btn btn-sm btn-secondary">Regresar</a></h2>
+    }
+    else
+    {
+        <h2>Agregar Restaurante <a asp-controller="Home" asp-action="IndexCliente" class="btn btn-sm btn-secondary">Regresar</a></h2>
+    }
+    <form style="margin-top: 25px;" asp-action="Create" enctype="multipart/form-data">
+        <div class="form-group form-row">
+            <div class="col-md-4 mt-md-2">
+                <label for="Name" class="control-label col-md-12">Nombre del Restaurante:</label>
+                <div class="col-md-12">
+                    <input class="form-control" name="NombreRestaurante" required />
                 </div>
-                <div class="col-md-4 mt-md-3">
-                    <label for="StartLocation" class="control-label col-md-2">Ciudad:</label>
-                    <div class="col-md-12">
-                        <input class="form-control" name="CiudadR" required />
-                    </div>
+            </div>
+            <div class="col-md-4 mt-md-2">
+                <label for="StartLocation" class="control-label col-md-2">Dirección:</label>
+                <div class="col-md-12">
+                    <input class="form-control" name="DireccionR" required />
                 </div>
-                <div class="col-md-4 mt-md-3">
-                    <label for="EndLocation" class="control-label col-md-10">Código Postal:</label>
-                    <div class="col-md-12">
-                        <input class="form-control" name="CoidgoPostalR" required />
-                    </div>
+            </div>
+            <div class="col-md-4 mt-md-2">
+                <label for="EndLocation" class="control-label col-md-2">Colonia:</label>
+                <div class="col-md-12">
+                    <input class="form-control" name="ColoniaR" required />
                 </div>
-                <div class="col-md-4 mt-md-3" style="min-width: 900px;">
-                    <label for="Name" class="control-label col-md-2">Descripción:</label>
-                    <div class="col-md-12" style="min-width: 900px;">
-                        <input class="form-control" name="DescripcionR" required />
-                    </div>
-                </div>
-                <div class="col-md-4 mt-md-3" style="min-width: 900px;">
-                    <label for="StartLocation" class="control-label col-md-2">Horario:</label>
-                    <div class="col-md-12" style="min-width: 900px;">
-                        <input class="form-control" name="Horario" required />
-                    </div>
-                </div>
-                <div class="col-md-4 mt-md-3">
-                    <label for="StartLocation" class="control-label col-md-2">Teléfono:</label>
-                    <div class="col-md-12">
-                        <input class="form-control" name="Telefono" required />
-                    </div>
-                </div>
-                @if (tipo == "Admin")
-                {
-                    <div class="col-md-4 mt-md-3">
-                        <label for="StartLocation" class="control-label col-md-12">ID Usuario Propietario:</label>
-                        <div class="col-md-12">
-                            <input type="number" class="form-control" name="IdUsuarioR" required />
-                        </div>
-                    </div>
-                }
-                else
-                {
-                    <input type="hidden" class="form-control" name="IdUsuarioR" value="@myId" />
-                }
-                <div class="form-group">
-                    <label for="exampleFormControlFile1">Seleccionar Imagen</label>
-                    <input type="file" class="form-control-file" asp-for="file" id="exampleFormControlFile1" required>
+            </div>
+            <div class="col-md-4 mt-md-3">
+                <label for="Name" class="control-label col-md-2">Estado:</label>
+                <div class="col-md-12">
+                    <select class="form-control" name="EstadoR" required>
+                        <option disabled selected> -- Selecciona una opción -- </option>
+                        <option value="Aguascalientes">Aguascalientes</option>
+                        <option value="Baja California">Baja California</option>
+                        <option value="Baja California Sur">Baja California Sur</option>
+                        <option value="Campeche">Campeche</option>
+                        <option value="Chiapas">Chiapas</option>
+                        <option value="Chihuahua">Chihuahua</option>
+                        <option value="CDMX">Ciudad de México</option>
+                        <option value="Coahuila">Coahuila</option>
+                        <option value="Colima">Colima</option>
+                        <option value="Durango">Durango</option>
+                        <option value="Estado de México">Estado de México</option>
+                        <option value="Guanajuato">Guanajuato</option>
+                        <option value="Guerrero">Guerrero</option>
+                        <option value="Hidalgo">Hidalgo</option>
+                        <option value="Jalisco">Jalisco</option>
+                        <option value="Michoacán">Michoacán</option>
+                        <option value="Morelos">Morelos</option>
+                        <option value="Nayarit">Nayarit</option>
+                        <option value="Nuevo León">Nuevo León</option>
+                        <option value="Oaxaca">Oaxaca</option>
+                        <option value="Puebla">Puebla</option>
+                        <option value="Querétaro">Querétaro</option>
+                        <option value="Quintana Roo">Quintana Roo</option>
+                        <option value="San Luis Potosí">San Luis Potosí</option>
+                        <option value="Sinaloa">Sinaloa</option>
+                        <option value="Sonora">Sonora</option>
+                        <option value="Tabasco">Tabasco</option>
+                        <option value="Tamaulipas">Tamaulipas</option>
+                        <option value="Tlaxcala">Tlaxcala</option>
+                        <option value="Veracruz">Veracruz</option>
+                        <option value="Yucatán">Yucatán</option>
+                        <option value="Zacatecas">Zacatecas</option>
+                    </select>
                 </div>
 
             </div>
+            <div class="col-md-4 mt-md-3">
+                <label for="StartLocation" class="control-label col-md-2">Ciudad:</label>
+                <div class="col-md-12">
+                    <input class="form-control" name="CiudadR" required />
+                </div>
+            </div>
+            <div class="col-md-4 mt-md-3">
+                <label for="EndLocation" class="control-label col-md-10">Código Postal:</label>
+                <div class="col-md-12">
+                    <input class="form-control" name="CoidgoPostalR" required />
+                </div>
+            </div>
+            <div class="col-md-4 mt-md-3" style="min-width: 900px;">
+                <label for="Name" class="control-label col-md-2">Descripción:</label>
+                <div class="col-md-12" style="min-width: 900px;">
+                    <input class="form-control" name="DescripcionR" required />
+                </div>
+            </div>
+            <div class="col-md-4 mt-md-3" style="min-width: 900px;">
+                <label for="StartLocation" class="control-label col-md-2">Horario:</label>
+                <div class="col-md-12" style="min-width: 900px;">
+                    <input class="form-control" name="Horario" required />
+                </div>
+            </div>
+            <div class="col-md-4 mt-md-3">
+                <label for="StartLocation" class="control-label col-md-2">Teléfono:</label>
+                <div class="col-md-12">
+                    <input class="form-control" name="Telefono" required />
+                </div>
+            </div>
+            @if (tipo == "Admin")
+            {
+                <div class="col-md-4 mt-md-3">
+                    <label for="StartLocation" class="control-label col-md-12">ID Usuario Propietario:</label>
+                    <div class="col-md-12">
+                        <input type="number" class="form-control" name="IdUsuarioR" required />
+                    </div>
+                </div>
+            }
+            else
+            {
+                <input type="hidden" class="form-control" name="IdUsuarioR" value="@myId" />
+            }
             <div class="form-group">
-                <input type="submit" value="Guardar Datos" class="btn btn-primary btn-lg btn-block mt-md-3" style="margin:10px" />
+                <label for="exampleFormControlFile1">Seleccionar Imagen</label>
+                <input type="file" class="form-control-file" asp-for="file" id="exampleFormControlFile1" required>
             </div>
-        </form>
-    </div>       
+
+            <!--
+            <div class="container" style="margin-top: 5px; margin-bottom: 15px;">
+
+
+                <p>Alimenos y Bebidas que maneja</p>
+                <select multiple="multiple" id="myMulti" class="js-example-basic-single caja">
+                    <option>Item 1</option>
+                    <option>item 2</option>
+                    <option>item 3</option>
+
+                </select>
+
+            </div>
+            
+            -->
+
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Guardar Datos" class="btn btn-primary btn-lg btn-block mt-md-3" style="margin:10px" />
+        </div>
+    </form>
+</div>
+
+<script src="~/css/otros/index.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('.js-example-basic-single').select2();
+    });
+</script>

@@ -12,10 +12,10 @@ namespace JRMarketing.Domain.Interfaces
         public IRepository<Etiquetum> EtiquetumRepository { get; }
         public IRepository<Publicacion> PublicacionRepository { get; }
         public IRestauranteRepository RestauranteRepository { get; }
-        public IRepository<RestauranteEtiquetum> RestauranteEtiquetumRepository { get; }
         public IRepository<TelefonoRestaurante> TelefonoRestauranteRepository { get; }
         public IRepository<TelefonoUsuario> TelefonoUsuarioRepository { get; }
         public IRepository<Usuario> UsuarioRepository { get; }
+        public IRepository<RestauranteEtiquetum> RestauranteEtiquetumRepository { get; }
         void SaveChanges();
         Task SaveChangesAsync();
     }

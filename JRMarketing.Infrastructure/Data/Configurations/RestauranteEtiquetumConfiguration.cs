@@ -26,9 +26,9 @@ namespace JRMarketing.Infrastructure.Data.Configurations
                 .HasForeignKey(d => d.IdRestauranteEtiq)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_RESTAURANTEETIQUETA");
-            builder.Ignore(e => e.Id);
-            builder.Ignore(e => e.CreatedAt);
-            builder.Ignore(e => e.UpdatedAt);
+            builder.Ignore(d => d.Id);
+            builder.Ignore(d => d.CreatedAt);
+            builder.Ignore(d => d.UpdatedAt);
         }
     }
 }

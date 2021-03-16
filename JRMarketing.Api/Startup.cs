@@ -40,6 +40,7 @@ namespace JRMarketing.Api
             services.AddTransient<IEtiquetumService, EtiquetumService>();
             services.AddTransient<IUsuarioServices, UsuarioService>();
             services.AddTransient<IPublicacionService, PublicacionService>();
+            services.AddTransient<IRestauranteEtiquetumService, RestuaranteEtiquetumService>();
             services.AddMvc().AddFluentValidation(options => options.RegisterValidatorsFromAssemblies(AppDomain.CurrentDomain.GetAssemblies()));        
         }
 

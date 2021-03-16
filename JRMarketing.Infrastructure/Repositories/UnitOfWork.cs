@@ -9,14 +9,13 @@ namespace JRMarketing.Infrastructure.Repositories
     {
         private readonly JRMarketingContext _context;
         private readonly IRepository<Cliente> _clienteRepository;
-        private readonly IRepository<Etiquetum> _etiquetumRepository;
-
+        private readonly IRepository<Etiquetum> _etiquetumRepository; 
         private readonly IRepository<Publicacion> _publicacionRepository;
         private readonly IRestauranteRepository _restauranteRepository;
-        private readonly IRepository<RestauranteEtiquetum> _restauranteEtiquetumRepository;
         private readonly IRepository<TelefonoRestaurante> _telefonoRestauranteRepository;
         private readonly IRepository<TelefonoUsuario> _telefonoUsuarioRepository;
         private readonly IRepository<Usuario> _usuarioRepository;
+        private readonly IRepository<RestauranteEtiquetum> _restauranteEtiquetumRepository;
 
         public UnitOfWork(JRMarketingContext context)
         {
@@ -31,14 +30,14 @@ namespace JRMarketing.Infrastructure.Repositories
 
         public IRestauranteRepository RestauranteRepository => _restauranteRepository ?? new RestauranteRepository(_context);
 
-        public IRepository<RestauranteEtiquetum> RestauranteEtiquetumRepository => _restauranteEtiquetumRepository ?? new SQLRepository<RestauranteEtiquetum>(_context);
-
         public IRepository<TelefonoRestaurante> TelefonoRestauranteRepository => _telefonoRestauranteRepository ?? new SQLRepository<TelefonoRestaurante>(_context);
 
         public IRepository<TelefonoUsuario> TelefonoUsuarioRepository => _telefonoUsuarioRepository ?? new SQLRepository<TelefonoUsuario>(_context);
 
-        public IRepository<Usuario> UsuarioRepository => _usuarioRepository ?? new SQLRepository<Usuario>(_context);               
+        public IRepository<Usuario> UsuarioRepository => _usuarioRepository ?? new SQLRepository<Usuario>(_context);
 
+        public IRepository<RestauranteEtiquetum> RestauranteEtiquetumRepository => _restauranteEtiquetumRepository ?? new SQLRepository<RestauranteEtiquetum>(_context);
+      
         public void Dispose()
         {
             if (_context == null) _context.Dispose();

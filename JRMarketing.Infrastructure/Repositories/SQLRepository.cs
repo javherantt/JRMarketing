@@ -22,8 +22,6 @@ namespace JRMarketing.Infrastructure.Repositories
             this._entity = context.Set<T>();
         }
 
-
-
         public async Task Add(T entity)
         { 
             if (entity == null) throw new ArgumentException("Entidad vacía");
@@ -35,6 +33,11 @@ namespace JRMarketing.Infrastructure.Repositories
             if (id < 0) throw new ArgumentException("Entidad inválida");
             var entity = await GetById(id);
             _entity.Remove(entity);
+        }
+
+        public void DeleteRes(RestauranteEtiquetum entity)
+        {
+            _context.RestauranteEtiqueta.Remove(entity);
         }
 
         public IEnumerable<T> FindByCondition(Expression<Func<T, bool>> expression)
@@ -50,7 +53,7 @@ namespace JRMarketing.Infrastructure.Repositories
         public async Task<T> GetById(int id)
         {
             return await _entity.AsNoTracking().SingleOrDefaultAsync(entity => entity.Id == id);
-        }
+        }    
 
         public void Update(T entity)
         {
