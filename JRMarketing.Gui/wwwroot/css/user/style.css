@@ -8029,19 +8029,21 @@ h1, h2, h3, h4, h5,
     padding: 0; }
     @media (max-width: 1199.98px) {
       .ftco-navbar-light .container {
-        background: #ffb400; } }
+        background: #cda45e; } }
     @media (min-width: 1200px) {
-      .ftco-navbar-light .container {
-        background: #ffb400;
-        position: relative; }
-        .ftco-navbar-light .container:after {
-          position: absolute;
-          top: 0;
-          right: -100%;
-          bottom: 0;
-          content: '';
-          width: 100%;
-          background: #ffb400; } }
+        .ftco-navbar-light .container {
+            background: #cda45e;
+            position: relative;
+        }
+            .ftco-navbar-light .container:after {
+                position: absolute;
+                top: 0;
+                right: -100%;
+                bottom: 0;
+                content: '';
+                width: 100%;
+                background: #cda45e;
+            } }
   .ftco-navbar-light .navbar-brand {
     color: #000000;
     padding-top: 1.5rem;

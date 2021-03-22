@@ -16,7 +16,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar" style="min-width: 100%">
-        <div class="container">
+        <div class="container"  style="background-color: #cda45e !important" >
             <a class="navbar-brand" asp-action="Index"><span>JRMarketing</span></a>
             <div class="s131">
                 <form method="get" asp-controller="Consult" asp-action="Restaurantes">
@@ -72,7 +72,7 @@
                     </div>
                 </form>
             </div>
-        </div>
+        </div>        
     </nav>
 
     @RenderBody()
@@ -84,8 +84,8 @@
                     <div class="ftco-footer-widget mb-4">
                         <h2 class="ftco-heading-2">Registre su negocio</h2>
                         <ul class="ftco-footer-social list-unstyled float-md-left float-lft">
-                            <li class="btn btn-outline-light">Registrarse</li>
-                            <li class="btn btn-outline-success">Iniciar Sesión</li>
+                            <a class="btn btn-outline-light" style="font-weight: bold;" asp-controller="Usuario" asp-action="Registrar">Registrarse</a>
+                            <a class="btn btn-outline-success" style="font-weight: bold;" asp-controller="Home" asp-action="Index">Iniciar Sesión</a>
                         </ul>
                     </div>
                 </div>
@@ -121,6 +121,16 @@
             });
     </script>
 
+    <script src="~/js/index/jquery.min.js"></script>
+    <script src="~/js/index/bootstrap.bundle.min.js"></script>
+    <script src="~/js/index/jquery.easing.min.js"></script>
+    <script src="~/js/index/validate.js"></script>
+    <script src="~/js/index/owl.carousel.min.js"></script>
+    <script src="~/js/index/isotope.pkgd.min.js"></script>
+    <script src="~/js/index/venobox.min.js"></script>
+    <script src="~/js/index/aos.js"></script>
+    <script src="~/js/index/main.js"></script>
+
 
     <script src="~/js/user/jquery.min.js"></script>
     <script src="~/js/user/jquery-migrate-3.0.1.min.js"></script>
@@ -129,7 +139,7 @@
     <script src="~/js/user/owl.carousel.min.js"></script>
     <script src="~/js/user/aos.js"></script>
     <script src="~/js/user/scrollax.min.js"></script>
-    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/jquery.min.js"></script>img
     <script src="~/js/main.min.js"></script>
 
 </body>
