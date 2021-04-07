@@ -98,8 +98,7 @@ var drop = function(info){var o = {
       this.preselected.forEach(function(pre){
          that.selected.push({
             index: pre,
-            state: 'add',
-            removed: false
+            state: 'add',     
          })
          that.options[pre].state = 'remove';
       })
@@ -144,15 +143,15 @@ var drop = function(info){var o = {
          option.state = that.changeState(option.state)
       })
    },
-   changeState: function(state){
-      switch(state){
-         case 'remove':
-            return 'hide'
-         case 'hide':
-            return 'hide'
-         default:
-            return ''
-       }
+       changeState: function(state){
+          switch(state){
+             case 'remove':
+                return 'hide'
+             case 'hide':
+                return 'hide'
+             default:
+                return ''
+           }
    },
    isSelected: function(index){
       var check = false
@@ -161,6 +160,7 @@ var drop = function(info){var o = {
       })
       return check
    }
+
 }; o.init(); return o;}
 
 

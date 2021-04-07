@@ -19,6 +19,10 @@ namespace JRMarketing.Gui.Models
         public string FotografiaR { get; set; }
         public int IdUsuarioR { get; set; }
         public string Telefono { get; set; }
+
+        public IEnumerable<Etiquetum> Etiquetas { get; set; }
+        public IEnumerable<RestauranteEtiquetumO> RestauranteEtiqueta { get; set; }
+        public int[] idEtiquetas { get; set; }
     }
 
     public class RestaurantesRequestDto : Foto
@@ -33,7 +37,9 @@ namespace JRMarketing.Gui.Models
         public string Horario { get; set; }
         public string FotografiaR { get; set; }
         public int IdUsuarioR { get; set; }
-
         public string Telefono { get; set; }
+
+        public int[] idEtiquetas { get; set; }
+        public IEnumerable<Etiquetum> Etiquetas { get; set; }
     }
 }

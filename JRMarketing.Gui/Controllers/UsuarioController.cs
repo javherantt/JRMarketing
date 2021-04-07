@@ -104,7 +104,12 @@ namespace JRMarketing.Gui.Controllers
         }
 
 
-        public ViewResult Create() => View();
+        public IActionResult Create()
+        {
+            if (HttpContext.Session.GetInt32("id") != null && HttpContext.Session.GetString("tipo") == "Admin")
+                return View();
+            else return RedirectToAction("Index", "Home");
+        }
 
         [HttpPost]
         public async Task<IActionResult> Create(UsuarioRequestDto usuario)

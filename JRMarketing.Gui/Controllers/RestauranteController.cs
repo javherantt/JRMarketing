@@ -46,10 +46,16 @@ namespace JRMarketing.Gui.Controllers
                 return RedirectToAction("Index", "Home");
         }
       
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
             if (HttpContext.Session.GetInt32("id") != null)
-                return View();
+            {
+                var json = await httpClient.GetStringAsync("https://localhost:44350/api/etiquetum");
+                var etiquetas = JsonConvert.DeserializeObject<ApiResponse<IEnumerable<Etiquetum>>>(json);
+                RestaurantesRequestDto restaurante = new RestaurantesRequestDto();
+                restaurante.Etiquetas = etiquetas.Data;
+                return View(restaurante);
+            }               
             else
                 return RedirectToAction("Index", "Home");
         }
@@ -72,6 +78,14 @@ namespace JRMarketing.Gui.Controllers
                         var miId = (int)HttpContext.Session.GetInt32("id");
                         var myrestaurante = listRestau.Data.First(e => e.IdUsuarioR == miId);                       
                         HttpContext.Session.SetInt32("miRest", myrestaurante.Id);
+                        foreach(var item in restaurante.idEtiquetas)
+                        {
+                            await httpClient.PostAsJsonAsync("https://localhost:44350/api/restuaranteetiquetum/", new RestauranteEtiquetumO
+                            {
+                                IdRestauranteEtiq = myrestaurante.Id,
+                                IdEtiquetaRestau = item
+                            });
+                        }
                         return RedirectToAction("IndexCliente", "Home");
                     }                        
                 }
@@ -121,7 +135,7 @@ namespace JRMarketing.Gui.Controllers
                 if(HttpContext.Session.GetString("tipo") == "Admin")
                 {
                     var json = await httpClient.GetStringAsync("https://localhost:44350/api/restaurante/" + id);
-                    var restaurante = JsonConvert.DeserializeObject<ApiResponse<Restaurantes>>(json);
+                    var restaurante = JsonConvert.DeserializeObject<ApiResponse<Restaurantes>>(json);            
                     return View(restaurante.Data);
                 }
                 else
@@ -129,6 +143,12 @@ namespace JRMarketing.Gui.Controllers
                     var rest = (int)HttpContext.Session.GetInt32("miRest");
                     var json = await httpClient.GetStringAsync("https://localhost:44350/api/restaurante/" + id);
                     var restaurante = JsonConvert.DeserializeObject<ApiResponse<Restaurantes>>(json);
+                    var jsonRestauEti = await httpClient.GetStringAsync("https://localhost:44350/api/restuaranteetiquetum/" + rest);
+                    var restauEtiquetas = JsonConvert.DeserializeObject<ApiResponse<IEnumerable<RestauranteEtiquetumO>>>(jsonRestauEti);
+                    var jsonEti = await httpClient.GetStringAsync("https://localhost:44350/api/etiquetum");
+                    var listEtiquetas = JsonConvert.DeserializeObject<ApiResponse<IEnumerable<Etiquetum>>>(jsonEti);
+                    restaurante.Data.RestauranteEtiqueta = restauEtiquetas.Data;
+                    restaurante.Data.Etiquetas = listEtiquetas.Data;          
                     try
                     {                       
                         return View(restaurante.Data);
@@ -144,8 +164,8 @@ namespace JRMarketing.Gui.Controllers
         }
 
         [HttpPost]
-        public IActionResult Update(Restaurantes restaurante)
-        {
+        public async Task<IActionResult> Update(Restaurantes restaurante)
+        {          
             if (HttpContext.Session.GetInt32("id") != null)
             {
                 if(restaurante.file != null)
@@ -156,8 +176,39 @@ namespace JRMarketing.Gui.Controllers
                 httpClient.BaseAddress = new Uri("https://localhost:44350/api/restaurante/");
                 var putTask = httpClient.PutAsJsonAsync<Restaurantes>("?id=" + restaurante.Id, restaurante);
                 putTask.Wait();
-
                 var result = putTask.Result;
+
+                var jsonRestauEti = await httpClient.GetStringAsync("https://localhost:44350/api/restuaranteetiquetum/" + restaurante.Id);
+                var restauEtiquetas = JsonConvert.DeserializeObject<ApiResponse<IEnumerable<RestauranteEtiquetumO>>>(jsonRestauEti);
+                List<RestauranteEtiquetumO> restauEtiList = new List<RestauranteEtiquetumO>();
+                if(restaurante.idEtiquetas != null)
+                {
+                    foreach (var item in restaurante.idEtiquetas)
+                    {
+                        restauEtiList.Add(new RestauranteEtiquetumO { IdRestauranteEtiq = restaurante.Id, IdEtiquetaRestau = item});
+                    }
+                }              
+
+                var resultList = restauEtiquetas.Data.Except(restauEtiList);
+                foreach(var item in resultList)
+                {
+                    await httpClient.DeleteAsync("https://localhost:44350/api/restuaranteetiquetum/" + item.IdRestauranteEtiq + "/" + item.IdEtiquetaRestau);
+                }
+                                
+                foreach(var item in restauEtiList)
+                {
+
+                    if (!restauEtiquetas.Data.Contains(item))
+                    {
+                        await httpClient.PostAsJsonAsync("https://localhost:44350/api/restuaranteetiquetum/", item);
+                    }                        
+                }
+              
+                var jsonEti = await httpClient.GetStringAsync("https://localhost:44350/api/etiquetum");
+                var listEtiquetas = JsonConvert.DeserializeObject<ApiResponse<IEnumerable<Etiquetum>>>(jsonEti);
+                restaurante.Etiquetas = listEtiquetas.Data;
+                restaurante.RestauranteEtiqueta = restauEtiList;
+                
                 if (!result.IsSuccessStatusCode)
                 {
                     ViewData["Message"] = "Error";
@@ -171,6 +222,8 @@ namespace JRMarketing.Gui.Controllers
             else
                 return RedirectToAction("Index", "Home");
         }
+
+        
                
 
     }

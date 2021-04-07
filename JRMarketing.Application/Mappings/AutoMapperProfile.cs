@@ -18,7 +18,7 @@ namespace JRMarketing.Application.Mappings
                 {
                     destination.CreatedAt = DateTime.Now;
                     destination.UpdatedAt = DateTime.Now;         
-                });
+                });         
             CreateMap<RestauranteResponseDto, Restaurante>();
             //Usuarios
             CreateMap<Usuario, UsuarioResponseDto>();
@@ -56,7 +56,7 @@ namespace JRMarketing.Application.Mappings
 
             //RestauranteEiquetumDto
             CreateMap<RestauranteEtiquetumDto, RestauranteEtiquetum>();
-            CreateMap<RestauranteEtiquetum, RestauranteEtiquetumDto>();
+            CreateMap<RestauranteEtiquetum, RestauranteEtiquetumDto>();  
         }
     }
 }
