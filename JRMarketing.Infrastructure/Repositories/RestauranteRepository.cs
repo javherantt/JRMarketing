@@ -3,8 +3,10 @@ using JRMarketing.Domain.Interfaces;
 using JRMarketing.Domain.QueryFilters;
 using JRMarketing.Infrastructure.Data;
 using LinqKit;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
@@ -18,6 +20,12 @@ namespace JRMarketing.Infrastructure.Repositories
         {
             this._context = context;
         }
+
+        public IEnumerable<EtiquetumName> GetEtiquetasName()
+        {
+            return _context.EtiquetasName.AsNoTracking().AsEnumerable();
+        }
+
         public IEnumerable<Restaurante> GetRestaurantes(RestauranteQueryFilter filter)
         {
             Expression<Func<Restaurante, bool>> expreFinal = restuarante => restuarante.Id > 0;
@@ -36,5 +44,6 @@ namespace JRMarketing.Infrastructure.Repositories
 
             return FindByCondition(expreFinal);
         }
+     
     }
 }

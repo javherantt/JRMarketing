@@ -14,5 +14,6 @@ namespace JRMarketing.Domain.Interfaces
         public Task AddRestaurante(Restaurante restaurante);
         public Task UpdateRestaurante(Restaurante restaurante);
         public Task DeleteRestaurante(int id);
+        public IEnumerable<EtiquetumName> GetEtiquetasName();
     }
 }

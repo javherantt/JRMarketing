@@ -135,3 +135,6 @@ C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integ
 C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Gui\obj\Debug\netcoreapp3.1\Razor\Views\Usuario\CreateAdmin.cshtml.g.cs
 C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Gui\obj\Debug\netcoreapp3.1\JRMarketing.Gui.csproj.CoreCompileInputs.cache
 C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Gui\obj\Debug\netcoreapp3.1\JRMarketing.Gui.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Gui\obj\Debug\netcoreapp3.1\Razor\Views\Etiquetum\Create.cshtml.g.cs
+C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Gui\obj\Debug\netcoreapp3.1\Razor\Views\Etiquetum\Index.cshtml.g.cs
+C:\Users\Javier Hernández\Documents\Universidad\4° Cuatrimestre\Proyecto Integrador\JRMarketing\JRMarketing.Gui\obj\Debug\netcoreapp3.1\Razor\Views\Etiquetum\Update.cshtml.g.cs

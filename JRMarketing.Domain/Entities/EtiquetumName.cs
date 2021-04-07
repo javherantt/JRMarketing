@@ -1,18 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.Text;
 
-namespace JRMarketing.Gui.Models
-{
-    public class Etiquetum
-    {
-        public int Id { get; set; }
-        public string NombreEtiqueta { get; set; }
-    }
-
+namespace JRMarketing.Domain.Entities
+{    
     public class EtiquetumName
-    {
+    {        
         public string NombreEtiqueta { get; set; }
         public int IdRestau { get; set; }
         public int IdEtiqueta { get; set; }

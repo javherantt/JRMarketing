@@ -12,6 +12,7 @@ namespace JRMarketing.Gui.Models
         public string EstadoR { get; set; }
         public IEnumerable<Restaurantes> Restaurante { get; set; }
         public IEnumerable<Publicaciones> Publicaciones { get; set; }
+        public IEnumerable<EtiquetumName> Etiquetas { get; set; }
         public Restaurantes miRestaurante { get; set; }
     }
 }

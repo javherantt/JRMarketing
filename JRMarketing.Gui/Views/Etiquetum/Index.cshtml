@@ -1,0 +1,48 @@
+﻿@model IEnumerable<JRMarketing.Gui.Models.Etiquetum>
+@{
+    ViewData["Title"] = "Lista de Publicaciones";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+@if (Model.Any())
+{
+    <div class="form-group" style="margin-top: 50px; margin-left: 50px;">
+        <a asp-controller="Etiquetum" asp-action="Create" class="btn btn-success btn-lg btn-block button-size">Agregar Categoría</a>
+    </div>
+    <div class="container">
+        <h2 style="margin-left: 30px; margin-top: 50px; font-weight: bold">Lista de Categorías</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        ID
+                    </th>
+                    <th>
+                        Nombre de categoría
+                    </th>              
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NombreEtiqueta)
+                        </td>                  
+                        <td>
+                            <a asp-controller="Etiquetum" asp-route-Id="@item.Id" asp-action="Update" class="edit" title="Editar" data-toggle="tooltip"><i class="material-icons">Editar</i></a>
+                        </td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <h1 style="margin-left:20px;">NO EXISTEN CATEGORÍAS REGISTRADAS</h1>
+}

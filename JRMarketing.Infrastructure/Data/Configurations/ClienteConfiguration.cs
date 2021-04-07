@@ -19,6 +19,7 @@ namespace JRMarketing.Infrastructure.Data.Configurations
             builder.Property(e => e.TipoContrato)
                 .HasMaxLength(10)
                 .IsUnicode(false);
+            
 
             builder.HasOne(d => d.IdNavigation)
                 .WithOne(p => p.Cliente)

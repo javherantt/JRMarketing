@@ -4,93 +4,65 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-    <link href="~/css/otros/bootstrap.min.css" rel="stylesheet" />
+<link href="~/css/otros/bootstrap.min.css" rel="stylesheet" />
 <!-- Page Content -->
-    <div class="container">
+<div class="container">
 
-        <div class="row" style="background-color: black; width: 1140px;">
-            <!-- Heading Row -->
-            <div class="row align-items-center my-4 col-md-6 mb-4">
+    <div class="row" style="background-color: black; width: 1140px;">
+        <!-- Heading Row -->
+        <div class="row align-items-center my-4 col-md-6 mb-4">
+            <div>
+                <img class="img-fluid rounded mb-4 mb-lg-0" id="myImage" src="~/myimages/@Model.miRestaurante.FotografiaR" alt="@Model.miRestaurante.NombreRestaurante">
+            </div>
+            <!-- /.col-lg-8 -->
+            <!-- /.col-md-4 -->
+        </div>
+        <!-- /.row -->
+        <!-- Call to Action Well -->
+        <div class="card text-white bg-secondary my-4 py-4 text-center col-md-6 mb-6" id="my-div">
+            <div class="card-body" id="information">
+                <h3>@Model.miRestaurante.NombreRestaurante</h3>
+                <p>@Model.miRestaurante.DescripcionR</p>
                 <div>
-                    <img class="img-fluid rounded mb-4 mb-lg-0" id="myImage" src="~/myimages/@Model.miRestaurante.FotografiaR" alt="@Model.miRestaurante.NombreRestaurante">
+                    <div class="col-md-12 mb-5" id="my-Information">
+                        <p>@Model.miRestaurante.DireccionR</p>
+                        <p>@Model.miRestaurante.ColoniaR</p><p>@Model.miRestaurante.CiudadR</p><p>@Model.miRestaurante.EstadoR</p><p>@Model.miRestaurante.CoidgoPostalR</p>
+                    </div>
+                    <div class="col-md-12 mb-5" id="my-Information2">
+                        <p>@Model.miRestaurante.Horario</p>
+                    </div>
+
+                    <p id="noteEtiquetas">Tipos de alimentos</p>
+                    <div class="row" id="etiquetas">
+                        @foreach (var item in Model.Etiquetas)
+                        {
+                            <div class="col-4">
+                                <p>@item.NombreEtiqueta</p>                            
+                            </div>
+                        }
+                     </div>
                 </div>
-                <!-- /.col-lg-8 -->
-                <!-- /.col-md-4 -->
             </div>
-            <!-- /.row -->
-            <!-- Call to Action Well -->
-            <div class="card text-white bg-secondary my-4 py-4 text-center col-md-6 mb-6" id="my-div">
-                <div class="card-body">
-                    <h3>@Model.miRestaurante.NombreRestaurante</h3>
-                    <p>@Model.miRestaurante.DescripcionR</p>
-                    <div class="">
-                        <div class="col-md-12 mb-5" id="my-Information">
-                            <p>@Model.miRestaurante.DireccionR</p>
-                            <p>@Model.miRestaurante.ColoniaR</p><p>@Model.miRestaurante.CiudadR</p><p>@Model.miRestaurante.EstadoR</p><p>@Model.miRestaurante.CoidgoPostalR</p>
-                        </div>
-                        <div class="col-md-12 mb-5" id="my-Information2">
-                            <p>Lunes a Viernes de 08:45 a 13:00. Sabado de 08:45 a 12:00. Domingos no laboramos</p>
-                        </div>
+        </div>    
+    </div>
+    <div class="row" style="margin-top: 50px;">
+        @foreach (var item in Model.Publicaciones)
+        {
+
+            <div class="col-md-6 mb-5">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <center><img src="~/myimages/@item.Foto" id="publicacion-image"></center>
+                    </div>
+                    <div class="card-footer">
+                        <p>@item.DescripcionP</p>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="row" style="margin-top: 50px;">
-            @foreach (var item in Model.Publicaciones)
-            {
-
-                <div class="col-md-6 mb-5">
-                    <div class="card h-100">
-                        <div class="card-body">
-                            <center><img src="~/myimages/@item.Foto" id="publicacion-image"></center>
-                        </div>
-                        <div class="card-footer">
-                            <p>@item.DescripcionP</p>
-                        </div>
-                    </div>
-                </div>
-
-            }
-        </div>
-
-        </div>
-
-
-<style type="text/css">
-    body {
-        padding: 5px;
-    }
-
-    #myImage {
-        width: 600px;
-        height: auto;
-        border-radius: 1em;
-        padding: 14px;
-        padding-left: 25px;
-    }
-
-    #my-Information {
-        margin-top: 30px;
-        text-align: center;
-    }
-
-        #my-Information > p {
-            line-height: 8px;
         }
+    </div>
+</div>
 
-    #my-Information2 {
-        margin-top: 5px;
-        text-align: justify;
-    }
 
-    #my-div {
-        width: 900px;
-        height: auto;
-    }
-
-    #publicacion-image {
-        width: 450px;
-        height: auto;
-    }
-</style>
+<link href="~/css/user/advertsiments.css" rel="stylesheet" />

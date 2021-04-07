@@ -46,6 +46,13 @@ namespace JRMarketing.Api.Controllers
             return Ok(response);
         }
 
+        [HttpGet("namesEti")]
+        public IActionResult GetEtiquetasName()
+        {
+            var etiquetas = _service.GetEtiquetasName();
+            var response = new ApiResponse<IEnumerable<EtiquetumName>>(etiquetas);
+            return Ok(response);
+        }
         [HttpPost]
         public async Task<IActionResult> Post(RestauranteRequestDto restauranteDto)
         {          

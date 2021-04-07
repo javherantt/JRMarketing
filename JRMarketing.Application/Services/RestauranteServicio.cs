@@ -42,6 +42,11 @@ namespace JRMarketing.Application.Services
             await _unitofWork.SaveChangesAsync();
         }
 
+        public IEnumerable<EtiquetumName> GetEtiquetasName()
+        {
+            return _unitofWork.RestauranteRepository.GetEtiquetasName();
+        }
+
         public async Task<Restaurante> GetRestaurante(int id)
         {
             return await _unitofWork.RestauranteRepository.GetById(id);

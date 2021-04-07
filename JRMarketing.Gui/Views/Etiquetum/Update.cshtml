@@ -1,0 +1,33 @@
+﻿@model JRMarketing.Gui.Models.Etiquetum
+@{
+    ViewData["Title"] = "Lista de Publicaciones";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+    <div class="container-xl table-wrapper" style="margin-left: 35px;">
+        <hr />
+        <link href="~/css/estilos.css" rel="stylesheet" />
+        <h2 class="text-center">Mi Anuncio <a asp-controller="Etiquetum" asp-action="Index" class="btn btn-sm btn-secondary text-center">Regresar</a></h2>
+
+        <form style="margin-top: 25px;" asp-action="Update">
+            <div class="form-group" style="margin-left: 5px;">
+                <label for="exampleFormControlFile1">ID</label>
+                <label class="form-control" id="exampleFormControlFile1">@Model.Id</label>
+            </div>
+            <input type="hidden" value="@Model.Id" asp-for="Id" />
+            <div class="form-group">
+                <div  style="min-width: 880px;">
+                    <label for="Name" class="control-label col-md-12">Nombre de la categoría:</label>
+                    <div class="col-md-12" style="min-width: 880px;">
+                        <input class="form-control" asp-for="NombreEtiqueta" value="@Model.NombreEtiqueta" required />
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Actualizar Categoría" class="btn btn-primary btn-lg btn-block mt-md-3" style="margin:10px" />
+            </div>
+            <div class="form-group" style="margin-top: 25px;">
+                <a asp-controller="Etiquetum" asp-route-Id="@Model.Id" asp-action="Delete" class="btn btn-primary btn-lg btn-block" style="margin:10px">Eliminar</a>
+            </div>
+        </form>
+    </div>

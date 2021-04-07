@@ -9,5 +9,6 @@ namespace JRMarketing.Domain.Interfaces
     public interface IRestauranteRepository : IRepository<Restaurante>
     {
         IEnumerable<Restaurante> GetRestaurantes(RestauranteQueryFilter filter);
+        IEnumerable<EtiquetumName> GetEtiquetasName();
     }
 }

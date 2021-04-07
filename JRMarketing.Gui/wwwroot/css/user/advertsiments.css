@@ -1,0 +1,52 @@
+﻿
+
+body {
+    padding: 5px;
+}
+
+#myImage {
+    width: 600px;
+    height: auto;
+    border-radius: 1em;
+    padding: 14px;
+    padding-left: 25px;
+}
+
+#my-Information {
+    margin-top: 20px;
+    text-align: center;
+}
+
+    #my-Information > p {
+        line-height: 8px;
+    }
+
+#my-Information2 {
+    margin-top: -25px;
+    text-align: justify;
+}
+
+#my-div {
+    width: 900px;
+    height: auto;
+}
+
+#publicacion-image {
+    width: 450px;
+    height: auto;
+}
+
+#information > h3{
+    margin-top: -15px;
+    font-style: italic;
+}
+
+#noteEtiquetas {
+    margin-top: -25px;
+    font-style: oblique;  
+}
+
+#etiquetas{
+    text-align: left;
+}
+
