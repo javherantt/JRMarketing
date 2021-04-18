@@ -11,4 +11,9 @@ namespace JRMarketing.Domain.QueryFilters
         public string EstadoR { get; set; }
         public ICollection<RestauranteEtiquetum> RestauranteEtiqueta { get; set; }
     }
+
+    public class FotoQueryFilter
+    {
+        public string imageName { get; set; }
+    }
 }

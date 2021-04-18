@@ -31,7 +31,7 @@ namespace JRMarketing.Api.Controllers
         [ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(ApiResponse<IEnumerable<RestauranteResponseDto>>))]
         public IActionResult Get([FromQuery]RestauranteQueryFilter filter)
         {
-            var restaurantes = _service.GetRestaurantes(filter);
+            var restaurantes = _service.GetRestaurantes(filter);            
             var restaurantesDto = _mapper.Map<IEnumerable<Restaurante>, IEnumerable<RestauranteResponseDto>>(restaurantes);
             var response = new ApiResponse<IEnumerable<RestauranteResponseDto>>(restaurantesDto);
             return Ok(response);
@@ -83,6 +83,21 @@ namespace JRMarketing.Api.Controllers
             await _service.UpdateRestaurante(restuarante);
             var response = new ApiResponse<bool>(true);
             return Ok(response);
+        }
+
+        [HttpGet("{image}")]
+        public IActionResult ReturnImage([FromQuery]FotoQueryFilter value)
+        {
+            try
+            {
+                var image = System.IO.File.OpenRead("C:/Users/Javier Hernández/Documents/Universidad/4° Cuatrimestre/Proyecto Integrador/myimages/" + value.imageName);
+                return File(image, "image/jpeg");
+            }
+            catch
+            {
+                var image = System.IO.File.OpenRead("C:/Users/Javier Hernández/Documents/Universidad/4° Cuatrimestre/Proyecto Integrador/myimages/e903ca8e-7a3c-434c-bd71-51dd4ce5e6f5-rest pizza.jpg");
+                return File(image, "image/jpeg");
+            }
         }
 
 

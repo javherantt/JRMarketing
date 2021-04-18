@@ -1,0 +1,13 @@
+{
+  "dependencies": {},
+  "parameters": {
+    "resourceGroup": {
+      "Type": "resourceGroup",
+      "Value": "DefaultResourceGroup-CUS"
+    },
+    "subscriptionId": {
+      "Type": "subscription",
+      "Value": "f5665d7e-fde2-4e81-a8f7-b5a45e374ec8"
+    }
+  }
+}

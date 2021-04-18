@@ -15,6 +15,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Data;
+using Microsoft.Extensions.FileProviders;
+using System.IO;
 
 namespace JRMarketing.Api
 {
@@ -53,11 +55,17 @@ namespace JRMarketing.Api
             }
 
             app.UseHttpsRedirection();
-
+            app.UseStaticFiles();
             app.UseRouting();
 
-            app.UseAuthorization();
 
+            app.UseAuthorization();
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(
+               Path.GetFullPath("C:/Users/Javier Hernández/Documents/Universidad/4° Cuatrimestre/Proyecto Integrador/myimages")),
+                RequestPath = "/myimages"
+            });
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
