@@ -29,4 +29,23 @@ namespace JRMarketing.Domain.Entities
         public virtual ICollection<Publicacion> Publicacions { get; set; }
         public virtual ICollection<RestauranteEtiquetum> RestauranteEtiqueta { get; set; }
     }
+
+    public partial class RestauranteFilter
+    {
+        public int Id { get; set; }
+        public string NombreRestaurante { get; set; }
+        public string DireccionR { get; set; }
+        public string ColoniaR { get; set; }
+        public string EstadoR { get; set; }
+        public string CiudadR { get; set; }
+        public string CoidgoPostalR { get; set; }
+        public string DescripcionR { get; set; }
+        public string Horario { get; set; }
+        public string FotografiaR { get; set; }
+        public int IdUsuarioR { get; set; }
+        public string Telefono { get; set; }
+        public string NombreEtiqueta { get; set; }
+        public int IdRestau { get; set; }
+        public int IdEtiqueta { get; set; }
+    }
 }

@@ -57,6 +57,11 @@ namespace JRMarketing.Application.Services
             return _unitofWork.RestauranteRepository.GetRestaurantes(filter);
         }
 
+        public IEnumerable<Restaurante> GetRestaurantesFilter(RestauranteQueryFilter filter)
+        {
+            return _unitofWork.RestauranteRepository.GetRestaurantesFilter(filter);
+        }
+
 
         public async Task UpdateRestaurante(Restaurante restaurante)
         {

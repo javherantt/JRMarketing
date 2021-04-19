@@ -10,5 +10,6 @@ namespace JRMarketing.Domain.Interfaces
     {
         IEnumerable<Restaurante> GetRestaurantes(RestauranteQueryFilter filter);
         IEnumerable<EtiquetumName> GetEtiquetasName();
+        IEnumerable<Restaurante> GetRestaurantesFilter(RestauranteQueryFilter filter);
     }
 }

@@ -37,6 +37,19 @@ namespace JRMarketing.Api.Controllers
             return Ok(response);
         }
 
+        [HttpGet]
+        [Route("filter")]
+        [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(ApiResponse<IEnumerable<RestauranteResponseDto>>))]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(ApiResponse<IEnumerable<RestauranteResponseDto>>))]
+        public IActionResult GetRestaurants([FromQuery]RestauranteQueryFilter filter)
+        {
+            var restaurantes = _service.GetRestaurantesFilter(filter);
+            var restaurantesDto = _mapper.Map<IEnumerable<Restaurante>, IEnumerable<RestauranteResponseDto>>(restaurantes);
+            var response = new ApiResponse<IEnumerable<RestauranteResponseDto>>(restaurantesDto);
+            return Ok(response);
+        }
+
+
         [HttpGet("{id:int}")]
         public async Task<IActionResult> Get(int id)
         {
@@ -85,7 +98,8 @@ namespace JRMarketing.Api.Controllers
             return Ok(response);
         }
 
-        [HttpGet("{image}")]
+        [HttpGet]
+        [Route("image")]
         public IActionResult ReturnImage([FromQuery]FotoQueryFilter value)
         {
             try

@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace JRMarketing.Infrastructure.Repositories
 {
@@ -44,6 +45,40 @@ namespace JRMarketing.Infrastructure.Repositories
 
             return FindByCondition(expreFinal);
         }
-     
+
+        public IEnumerable<Restaurante> GetRestaurantesFilter(RestauranteQueryFilter filter)
+        {
+            List<Restaurante> restaurantesAll = new List<Restaurante>();
+            if((!string.IsNullOrEmpty(filter.NombreRestaurante) && !string.IsNullOrWhiteSpace(filter.NombreRestaurante)) && 
+                (!string.IsNullOrWhiteSpace(filter.EstadoR) && !string.IsNullOrWhiteSpace(filter.EstadoR)))
+            {
+                var restaurants = _context.Restaurantes.FromSqlRaw($"SELECT * FROM Restaurante LEFT OUTER JOIN EtiquetasName on ID=IdRestau where " +
+                    $"(NombreRestaurante like '%{filter.NombreRestaurante}%' or NombreEtiqueta like '%{filter.NombreRestaurante}%') and (EstadoR='{filter.EstadoR}')");
+                restaurantesAll = restaurants.ToList();
+                return restaurantesAll;
+            }
+
+            if((!string.IsNullOrEmpty(filter.EstadoR) && !string.IsNullOrWhiteSpace(filter.EstadoR)) && 
+                (string.IsNullOrEmpty(filter.NombreRestaurante) && string.IsNullOrWhiteSpace(filter.NombreRestaurante)))
+            {
+                var restaurants = _context.Restaurantes.FromSqlRaw($"SELECT * FROM Restaurante where EstadoR='{filter.EstadoR}'");
+                restaurantesAll = restaurants.ToList();
+                return restaurantesAll;
+            }
+
+            if((!string.IsNullOrEmpty(filter.NombreRestaurante) && !string.IsNullOrWhiteSpace(filter.NombreRestaurante)) && 
+                (string.IsNullOrEmpty(filter.EstadoR) && string.IsNullOrWhiteSpace(filter.EstadoR)))
+            {
+                var restaurants = _context.Restaurantes.FromSqlRaw($"SELECT * FROM Restaurante LEFT OUTER JOIN EtiquetasName on ID=IdRestau where " +
+                    $"NombreRestaurante like '%{filter.NombreRestaurante}%' or NombreEtiqueta like '%{filter.NombreRestaurante}%'");
+                restaurantesAll = restaurants.ToList();
+                return restaurantesAll;
+            }
+            else
+            {
+                return GetAll();
+            }                 
+
+        }     
     }
 }
