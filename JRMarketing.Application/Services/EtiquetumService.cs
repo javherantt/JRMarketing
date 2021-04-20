@@ -43,6 +43,11 @@ namespace JRMarketing.Application.Services
             return _unitofWork.EtiquetumRepository.GetAll();
         }
 
+        public IEnumerable<EtiquetumName> GetEtiquetumNames(int id)
+        {
+            return _unitofWork.EtiquetumRepository.GetEtiquetumNames(id);
+        }
+
         public async Task UpdateEtiqueta(Etiquetum etiquetum)
         {
             Expression<Func<Etiquetum, bool>> expreEtiquetum = item => item.NombreEtiqueta == etiquetum.NombreEtiqueta;

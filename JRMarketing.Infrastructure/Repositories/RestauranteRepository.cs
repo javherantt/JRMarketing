@@ -55,7 +55,8 @@ namespace JRMarketing.Infrastructure.Repositories
                 var restaurants = _context.Restaurantes.FromSqlRaw($"SELECT * FROM Restaurante LEFT OUTER JOIN EtiquetasName on ID=IdRestau where " +
                     $"(NombreRestaurante like '%{filter.NombreRestaurante}%' or NombreEtiqueta like '%{filter.NombreRestaurante}%') and (EstadoR='{filter.EstadoR}')");
                 restaurantesAll = restaurants.ToList();
-                return restaurantesAll;
+                var distincItems = restaurantesAll.Distinct();
+                return distincItems;
             }
 
             if((!string.IsNullOrEmpty(filter.EstadoR) && !string.IsNullOrWhiteSpace(filter.EstadoR)) && 
@@ -63,7 +64,8 @@ namespace JRMarketing.Infrastructure.Repositories
             {
                 var restaurants = _context.Restaurantes.FromSqlRaw($"SELECT * FROM Restaurante where EstadoR='{filter.EstadoR}'");
                 restaurantesAll = restaurants.ToList();
-                return restaurantesAll;
+                var distincItems = restaurantesAll.Distinct();
+                return distincItems;
             }
 
             if((!string.IsNullOrEmpty(filter.NombreRestaurante) && !string.IsNullOrWhiteSpace(filter.NombreRestaurante)) && 
@@ -72,7 +74,8 @@ namespace JRMarketing.Infrastructure.Repositories
                 var restaurants = _context.Restaurantes.FromSqlRaw($"SELECT * FROM Restaurante LEFT OUTER JOIN EtiquetasName on ID=IdRestau where " +
                     $"NombreRestaurante like '%{filter.NombreRestaurante}%' or NombreEtiqueta like '%{filter.NombreRestaurante}%'");
                 restaurantesAll = restaurants.ToList();
-                return restaurantesAll;
+                var distincItems = restaurantesAll.Distinct();
+                return distincItems;
             }
             else
             {

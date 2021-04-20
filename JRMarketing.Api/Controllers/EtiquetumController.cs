@@ -33,6 +33,14 @@ namespace JRMarketing.Api.Controllers
             return Ok(response);
         }
 
+        [HttpGet]
+        [Route("restaurant/{num:int}")]
+        public IActionResult GetRestauranteEtiquetums(int num)
+        {
+            var etiquetas = _service.GetEtiquetumNames(num);
+            return Ok(etiquetas);
+        }
+
         [HttpGet("{id:int}")]
         public async Task<IActionResult> Get(int id)
         {

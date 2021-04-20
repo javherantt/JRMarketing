@@ -34,6 +34,12 @@ namespace JRMarketing.Application.Services
 
         }
 
+        public IEnumerable<Publicacion> GetPublicacionRestaurant(int id)
+        {
+            var publicaciones = _unitOfWork.PublicacionRepository.GetPublicaciones(id);
+            return publicaciones;
+        }
+
         public IEnumerable<Publicacion> GetPublicacions()
         {
             return _unitOfWork.PublicacionRepository.GetAll();

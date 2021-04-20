@@ -34,6 +34,16 @@ namespace JRMarketing.Api.Controllers
 
         }
 
+        [HttpGet]
+        [Route("restaurant/{num:int}")]   
+        public IActionResult GetRestaurantPublications(int num)
+        {
+            var publicaciones = _service.GetPublicacionRestaurant(num);
+            var publicacionesDto = _mapper.Map<IEnumerable<Publicacion>, IEnumerable<PublicacionResponseDto>>(publicaciones);
+            var response = new ApiResponse<IEnumerable<PublicacionResponseDto>>(publicacionesDto);
+            return Ok(response);
+        }
+
         [HttpGet("{id:int}")]
         public async Task<IActionResult> Get(int id)
         {

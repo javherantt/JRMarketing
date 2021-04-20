@@ -11,6 +11,8 @@ namespace JRMarketing.Domain.Interfaces
         Task Add(T entity);
         Task Delete(int id);
         void DeleteRes(RestauranteEtiquetum entity);
+        IEnumerable<Publicacion> GetPublicaciones(int id);
+        IEnumerable<EtiquetumName> GetEtiquetumNames(int id);
         IEnumerable<T> FindByCondition(Expression<Func<T, bool>> expression);
         IEnumerable<T> GetAll();
         Task<T> GetById(int id);   

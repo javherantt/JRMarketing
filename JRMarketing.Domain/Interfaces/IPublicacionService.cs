@@ -13,5 +13,6 @@ namespace JRMarketing.Domain.Interfaces
         public Task AddPublicacion(Publicacion publicacion);
         public Task UpdatePublicacion(Publicacion publicacion);
         public Task DeletePublicacion(int id);
+        public IEnumerable<Publicacion> GetPublicacionRestaurant(int id);
     }
 }

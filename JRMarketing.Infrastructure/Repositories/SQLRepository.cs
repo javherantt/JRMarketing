@@ -40,6 +40,12 @@ namespace JRMarketing.Infrastructure.Repositories
             _context.RestauranteEtiqueta.Remove(entity);
         }
 
+        public IEnumerable<Publicacion> GetPublicaciones(int id)
+        {
+            var publicaciones = _context.Publicacions.FromSqlRaw($"SELECT * FROM Publicacion where Id_restaurantePubli = {id}");
+            return publicaciones;
+        }
+
         public IEnumerable<T> FindByCondition(Expression<Func<T, bool>> expression)
         {
             return _entity.Where(expression).AsNoTracking().AsEnumerable();
@@ -60,6 +66,12 @@ namespace JRMarketing.Infrastructure.Repositories
             if (entity == null) throw new ArgumentException("Entidad vacía");
             if (entity.Id <= 0) throw new ArgumentException("Entidad inválida");
             _entity.Update(entity);
+        }
+
+        public IEnumerable<EtiquetumName> GetEtiquetumNames(int id)
+        {
+            var etiquetumsName = _context.EtiquetasName.FromSqlRaw($"SELECT * FROM EtiquetasName where IdRestau = {id}");
+            return etiquetumsName;
         }
     }
 }

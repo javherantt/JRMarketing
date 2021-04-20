@@ -13,6 +13,7 @@ namespace JRMarketing.Domain.Interfaces
         public Task AddEtiqueta(Etiquetum etiquetum);
         public Task UpdateEtiqueta(Etiquetum etiquetum);
         public Task DeleteEtiqueta(int id);
+        public IEnumerable<EtiquetumName> GetEtiquetumNames(int id);
 
     }
 }
